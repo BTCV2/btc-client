@@ -1,0 +1,28 @@
+
+.mat-fab[alt="addStudent"]{
+  width:100px !important;
+  height: 100px !important;
+  background-image: url("../../../assets/icons/add-user.svg");
+}
+
+
+.mat-fab[alt="deleteStudent"]{
+  width:100px !important;
+  height: 100px !important;
+  background-image: url("../../../assets/icons/delete-user.svg");
+}
+
+.mat-fab[alt="editStudent"]{
+  width:100px !important;
+  height: 100px !important;
+  background-image: url("../../../assets/icons/editStudent.svg");
+}
+
+.mat-fab[alt="viewStudent"]{
+  width:100px !important;
+  height: 100px !important;
+  background-image: url("../../../assets/icons/viewStudent.svg");
+}
+.clear{
+  clear: both;
+}

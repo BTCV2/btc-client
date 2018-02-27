@@ -1,0 +1,51 @@
+<mat-card>
+  <mat-card-content>
+    <div class="mdc-layout-grid">
+      <div class="mdc-layout-grid__inner">
+        <div matTooltip="Add Student!" class="mdc-layout-grid__cell mdc-layout-grid__cell--span-2 mdc-layout-grid__cell--span-2-phone mdc-layout-grid__cell--span-3-desktop align_c">
+          <button mat-fab (click)="addStudent()" alt="addStudent">
+          </button>
+        </div>
+        <div matTooltip="View Student!" class="mdc-layout-grid__cell mdc-layout-grid__cell--span-2 mdc-layout-grid__cell--span-2-phone mdc-layout-grid__cell--span-3-desktop align_c">
+
+          <button mat-fab (click)="viewStudent()" alt="viewStudent">
+
+          </button>
+
+        </div>
+        <div matTooltip="Delete Student!" class="mdc-layout-grid__cell mdc-layout-grid__cell--span-2 mdc-layout-grid__cell--span-2-phone mdc-layout-grid__cell--span-3-desktop align_c">
+
+          <button mat-fab (click)="addStudent()" alt="deleteStudent">
+
+          </button>
+
+        </div>
+        <div matTooltip="Edit Student!" class="mdc-layout-grid__cell mdc-layout-grid__cell--span-2 mdc-layout-grid__cell--span-2-phone mdc-layout-grid__cell--span-3-desktop align_c">
+
+          <button mat-fab (click)="editStudent()" alt="editStudent">
+
+          </button>
+
+        </div>
+      </div>
+    </div>
+  </mat-card-content>
+</mat-card>
+<br>
+<div class="clear">
+  <div  [ngSwitch]="studentOperations">
+    <div *ngSwitchCase="'create'">
+      <app-add-student></app-add-student>
+    </div>
+  </div>
+</div>
+<!--<mat-card>
+  <mat-card-content>-->
+
+<!--  </mat-card-content></mat-card>-->
+
+
+
+
+
+

@@ -1,0 +1,12 @@
+.mat-tab-group{
+  display: table;
+  width: 100%;
+}
+
+.mat-tab{
+  display: table-cell;
+}
+
+.mat-tab-label-container{
+  margin-bottom: 20px !important;
+}

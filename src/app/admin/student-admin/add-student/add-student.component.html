@@ -1,0 +1,168 @@
+<!--<form [formGroup]="formGroup" novalidate>
+  <mat-vertical-stepper #linearVerticalStepper="matVerticalStepper" formArrayName="formArray">
+    <mat-step formGroupName="0" [stepControl]="formArray?.get([0])">
+      <ng-template matStepLabel>Fill out Student's Details</ng-template>
+      <mat-form-field>
+        <input matInput placeholder="First Name" formControlName="firstName" required>
+        <mat-error>This field is required</mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="Last Name" formControlName="lastName" required>
+        <mat-error>This field is required</mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-select placeholder="standard" formControlName="standard" (change)="getRollNumber()" [(ngModel)]="standards">
+          <mat-option value="9">9</mat-option>
+          <mat-option value="10">10</mat-option>
+          <mat-option value="11">11</mat-option>
+          <mat-option value="12">12</mat-option>
+        </mat-select>
+        <mat-error>This field is required</mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="Roll Number " formControlName="rollNumber" [(ngModel)]="rollnumber">
+        <mat-error>This field is required</mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput placeholder="School Name" formControlName="school" required>
+        <mat-error>This field is required</mat-error>
+      </mat-form-field>
+      <div>
+        <button mat-raised-button matStepperNext color="accent">Next</button>
+      </div>
+    </mat-step>
+    <mat-step formGroupName="1" [stepControl]="formArray?.get([1])">
+      <ng-template matStepLabel>
+        <div>Fill out Parent's Details</div>
+      </ng-template>
+      <mat-form-field>
+        <input matInput placeholder="Parent Name" formControlName="parentName" required>
+        <mat-error>This field is required</mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="Phone Number" formControlName="phoneNumber" required>
+        <mat-error>This field is required</mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="E-mail Address" formControlName="email">
+        <mat-error>This field is required</mat-error>
+      </mat-form-field>
+      <div>
+        <button mat-raised-button matStepperPrevious color="accent">Back</button>
+        <button mat-raised-button matStepperNext color="accent">Next</button>
+      </div>
+    </mat-step>
+    <mat-step formGroupName="2" [stepControl]="formArray?.get([2])">
+      <ng-template matStepLabel>
+        Image uploader
+      </ng-template>
+      <mat-form-field>
+        <input matInput placeholder="First Name" formControlName="email">
+        <mat-error>This field is required</mat-error>
+      </mat-form-field>
+      <div>
+        <button mat-raised-button matStepperPrevious color="accent">Back</button>
+        <button mat-raised-button color="accent" type="submit" (click)="createStudent(formGroup.value.formArray)">Done</button>
+        <button type="button"mat-raised-button (click)="linearVerticalStepper.reset()" color="accent">Reset</button>
+      </div>
+    </mat-step>
+  </mat-vertical-stepper>
+</form>-->
+
+    <mat-horizontal-stepper [linear]="true">
+      <mat-step [stepControl]="studentInfoFromGroup">
+        <form [formGroup]="studentInfoFromGroup">
+          <div>
+            <ng-template matStepLabel>Fill out Student's Details</ng-template>
+            <div class="mdc-layout-grid">
+              <div class="mdc-layout-grid__inner">
+
+                <mat-form-field class="mdc-layout-grid__cell  mdc-layout-grid__cell--span-4-phone mdc-layout-grid__cell--span-6-desktop align_c">
+                  <input matInput placeholder="First Name" formControlName="firstName" required>
+                  <mat-error>This field is required</mat-error>
+                </mat-form-field>
+                <mat-form-field class="mdc-layout-grid__cell  mdc-layout-grid__cell--span-4-phone mdc-layout-grid__cell--span-6-desktop align_c">
+                  <input matInput placeholder="Last Name" formControlName="lastName" required>
+                  <mat-error>This field is required</mat-error>
+                </mat-form-field >
+                <mat-form-field class="mdc-layout-grid__cell  mdc-layout-grid__cell--span-4-phone mdc-layout-grid__cell--span-6-desktop align_c">
+                  <mat-select placeholder="standard" formControlName="standard" (change)="getRollNumber()" [(ngModel)]="standards">
+                    <mat-option value="9">9</mat-option>
+                    <mat-option value="10">10</mat-option>
+                    <mat-option value="11">11</mat-option>
+                    <mat-option value="12">12</mat-option>
+
+                  </mat-select>
+                  <mat-error>This field is required</mat-error>
+                </mat-form-field>
+                <mat-form-field class="mdc-layout-grid__cell  mdc-layout-grid__cell--span-4-phone mdc-layout-grid__cell--span-6-desktop align_c">
+                  <input matInput placeholder="Roll Number " formControlName="rollNumber" [(ngModel)]="rollnumber">
+                  <mat-error>This field is required</mat-error>
+                </mat-form-field>
+
+                <mat-form-field class="mdc-layout-grid__cell  mdc-layout-grid__cell--span-4-phone mdc-layout-grid__cell--span-6-desktop align_c">
+                  <input matInput placeholder="School Name" formControlName="school" required>
+                  <mat-error>This field is required</mat-error>
+                </mat-form-field>
+              </div>
+            </div>
+
+            <div>
+              <button mat-raised-button matStepperNext color="accent">Next</button>
+            </div>
+          </div>
+        </form>
+
+      </mat-step>
+      <mat-step [stepControl]="parentInfoFromGroup">
+        <form [formGroup]="parentInfoFromGroup">
+          <div>
+            <ng-template matStepLabel>
+              <div>Fill out Parent's Details</div>
+            </ng-template>
+            <mat-form-field>
+              <input matInput placeholder="Parent Name" formControlName="parentName" required>
+              <mat-error>This field is required</mat-error>
+            </mat-form-field>
+            <mat-form-field>
+              <input matInput placeholder="Phone Number" formControlName="phoneNumber" required>
+              <mat-error>This field is required</mat-error>
+            </mat-form-field>
+            <mat-form-field>
+              <input matInput placeholder="E-mail Address" formControlName="email">
+              <mat-error>This field is required</mat-error>
+            </mat-form-field>
+            <div>
+              <button mat-raised-button matStepperPrevious color="accent">Back</button>
+              <button mat-raised-button matStepperNext color="accent">Next</button>
+            </div>
+            <button mat-button matStepperNext>Next</button>
+          </div>
+        </form>
+
+      </mat-step>
+      <mat-step [stepControl]="imageInfoFromGroup">
+        <form [formGroup]="imageInfoFromGroup">
+          <div>
+
+            <ng-template matStepLabel>
+              Image uploader
+            </ng-template>
+            <mat-form-field>
+              <input matInput placeholder="First Name" formControlName="email">
+              <mat-error>This field is required</mat-error>
+            </mat-form-field>
+            <div>
+              <button mat-raised-button matStepperPrevious color="accent">Back</button>
+              <button mat-raised-button color="accent" type="submit" (click)="createStudentHorizontal()">Save</button>
+              <button type="button"mat-raised-button (click)="linearVerticalStepper.reset()" color="accent">Reset</button>
+            </div>
+          </div>
+        </form>
+
+      </mat-step>
+    </mat-horizontal-stepper>
+
+
+
