@@ -27,6 +27,7 @@
     "@material/chips": "^0.30.0",
     "@material/layout-grid": "^0.24.0",
     "@swimlane/ngx-datatable": "^11.1.7",
+    "bootstrap-material-design": "^4.1.1",
     "core-js": "^2.4.1",
     "flexboxgrid": "^6.3.1",
     "font-awesome": "^4.7.0",
