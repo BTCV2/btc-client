@@ -1,0 +1,12 @@
+<form [formGroup]="loginForm" (submit) = "login()">
+
+  <mat-form-field class="mdc-layout-grid__cell  mdc-layout-grid__cell--span-4-phone mdc-layout-grid__cell--span-6-desktop align_c">
+    <input matInput placeholder="ÜserName" formControlName="userName">
+    <mat-error>This field is required</mat-error>
+  </mat-form-field>
+  <mat-form-field class="mdc-layout-grid__cell  mdc-layout-grid__cell--span-4-phone mdc-layout-grid__cell--span-6-desktop align_c">
+    <input matInput placeholder="Password" formControlName="password">
+    <mat-error>This field is required</mat-error>
+  </mat-form-field>
+  <button mat-button >LOGIN</button>
+</form>

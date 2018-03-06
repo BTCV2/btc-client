@@ -11,6 +11,7 @@ export class AdminStudentService {
     this.constants = new Constants();
   }
   addStudent(student: any) {
+    console.log(this.constants.base_server_url + '/student/create', student);
     return this.http.post(this.constants.base_server_url + '/student/create', student);
   }
   getRollNumber(standard) {
