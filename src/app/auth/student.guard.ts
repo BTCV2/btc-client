@@ -23,11 +23,11 @@ export class StudentGuard implements CanActivate {
           const userName = localStorage.getItem('userName');
           console.log(standard, userName);
           this.router.navigate(['/student', standard , userName]);
-          /*return false;*/
+          return false;
         }
       }else {
         this.router.navigate(['/login']);
-        /*return false;*/
+        return false;
       }
   }
 }

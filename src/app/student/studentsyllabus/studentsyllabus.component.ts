@@ -12,6 +12,7 @@ export class StudentsyllabusComponent implements OnInit {
   marks: Array<any>;
   datarows = [];
   temprows = [];
+  editing= {};
   columns = [
     {prop: 'Name'},
     {prop: 'Gender'},
@@ -29,7 +30,7 @@ export class StudentsyllabusComponent implements OnInit {
       subject: 'physics'
     };
     this.marks = [{prop: 'Lessons'}, {prop: 'One'}, {prop: 'Three'}, {prop: 'Five'}, {prop: 'Ten', sortable: false}];
-
+    this.marksdemo = ['Lessons', 'One', 'Three', 'Five', 'Ten'];
     this.lessonservice.getLessons(lessonParams).subscribe(data => {
       data.forEach((value, index) => {
         this.temprows.push({
@@ -40,7 +41,7 @@ export class StudentsyllabusComponent implements OnInit {
           'Ten': 'INCOMPLETE'
         });
       });
-      console.log(data);
+      console.log("cniee",data);
     },
     err => {
       console.log(err);
@@ -49,5 +50,12 @@ export class StudentsyllabusComponent implements OnInit {
       this.datarows = this.temprows;
         console.log('DONE');
       });
+  }
+  updateValue(event, cell, rowIndex) {
+    console.log('inline editing rowIndex', rowIndex)
+    this.editing[rowIndex + '-' + cell] = false;
+    this.datarows[rowIndex][cell] = event.target.value;
+    this.datarows = [...this.datarows];
+    console.log('UPDATED!', this.datarows[rowIndex][cell]);
   }
 }
