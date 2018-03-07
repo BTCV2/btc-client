@@ -1,3 +1,5 @@
+<!-- [columns]="marks"-->
+<!--[rows]="datarows"-->
 
 <ngx-datatable
   [rows]="datarows"
@@ -8,5 +10,33 @@
   [rowHeight]="'auto'"
   [reorderable]="reorderable"
   [columns]="marks">
+</ngx-datatable>
+
+<ngx-datatable
+  [rows]="datarows"
+  class="material"
+  [columnMode]="'force'"
+  [headerHeight]="50"
+  [footerHeight]="50"
+  [rowHeight]="'auto'"
+  [reorderable]="reorderable">
+  <ngx-datatable-column name={{mark}} *ngFor="let mark of marksdemo">
+    <ng-template ngx-datatable-cell-template let-rowIndex="rowIndex" let-value="datarows" let-row="row">
+            <span
+              *ngIf="!editing[rowIndex + '-Lessons']"
+              title="Double click to edit"
+              (dblclick)="editing[rowIndex + '-Lessons'] = true"
+              >
+              {{datarows[rowIndex][mark]}}
+            </span>
+      <input
+        autofocus
+        (blur)="updateValue($event, 'lessons', rowIndex)"
+        *ngIf="editing[rowIndex+ '-Lessons']"
+        type="text"
+        [value]="datarows[rowIndex][mark]"
+      />
+    </ng-template>
+  </ngx-datatable-column>
 </ngx-datatable>
 
