@@ -149,10 +149,7 @@
             <ng-template matStepLabel>
               Image uploader
             </ng-template>
-            <mat-form-field>
-              <input matInput placeholder="First Name" formControlName="email">
-              <mat-error>This field is required</mat-error>
-            </mat-form-field>
+            <image-upload url="https://httpbin.org/status/200"></image-upload>
             <div>
               <button mat-raised-button matStepperPrevious color="accent">Back</button>
               <button mat-raised-button color="accent" type="submit" (click)="createStudentHorizontal()">Save</button>
