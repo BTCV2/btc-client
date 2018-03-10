@@ -12,6 +12,7 @@ export class StudentsyllabusComponent implements OnInit {
   marks: Array<any>;
   datarows = [];
   temprows = [];
+  marksdemo = [];
   editing= {};
   columns = [
     {prop: 'Name'},

@@ -7,11 +7,16 @@ import {LoginComponent} from "../login/login.component";
 import {AdminGuard} from "../auth/admin-guard.guard";
 import {StudentGuard} from "../auth/student.guard";
 import {UnauthorizedComponent} from "../unauthorized/unauthorized.component";
+import {HomeComponent} from "../home/home.component";
 const router: Routes = [
   {
     path: '',
     redirectTo: 'login',
     pathMatch: 'full'
+  },
+  {
+    path: 'home',
+   component: HomeComponent
   },
   {
     path: 'admin',

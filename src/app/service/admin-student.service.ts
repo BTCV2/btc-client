@@ -1,20 +1,28 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import {IStudent} from '../Models/Student';
 import {Constants} from '../constants';
+import {AuthService} from "../auth/auth.service";
 @Injectable()
 export class AdminStudentService {
   constants: Constants;
+  httpOptions: any;
   /*baseUrl = 'http://localhost:8088';*/
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private authService: AuthService) {
     this.constants = new Constants();
+    this.httpOptions = {
+      headers: new HttpHeaders({
+        'Authorization':'Bearer '+ localStorage.getItem('token')
+      })
+    };
   }
   addStudent(student: any) {
     console.log(this.constants.base_server_url + '/student/create', student);
-    return this.http.post(this.constants.base_server_url + '/student/create', student);
+    return this.http.post(this.constants.base_server_url + '/student/create', student, this.httpOptions);
   }
   getRollNumber(standard) {
-    return this.http.get(this.constants.base_server_url + '/student/' + standard + '/getRollNumber');
+    console.log('this.httpOptions', this.httpOptions);
+    return this.http.get(this.constants.base_server_url + '/student/' + standard + '/getRollNumber', this.httpOptions);
   }
 }

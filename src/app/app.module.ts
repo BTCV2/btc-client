@@ -25,6 +25,7 @@ import {StudentGuard} from "./auth/student.guard";
 import { UnauthorizedComponent } from './unauthorized/unauthorized.component';
 import {FancyImageUploaderModule} from "ng2-fancy-image-uploader";
 import {ImageUploadModule} from "angular2-image-upload";
+import { HomeComponent } from './home/home.component';
 /*const routes: Routes = [
   {
     path: 'admin',
@@ -46,7 +47,8 @@ import {ImageUploadModule} from "angular2-image-upload";
     LoaderComponent,
     StudentsyllabusComponent,
     LoginComponent,
-    UnauthorizedComponent
+    UnauthorizedComponent,
+    HomeComponent
   ],
   imports: [
     BtcRouterModule,
