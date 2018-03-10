@@ -23,6 +23,8 @@ import {AuthService} from "./auth/auth.service";
 import {AdminGuard} from "./auth/admin-guard.guard";
 import {StudentGuard} from "./auth/student.guard";
 import { UnauthorizedComponent } from './unauthorized/unauthorized.component';
+import {FancyImageUploaderModule} from "ng2-fancy-image-uploader";
+import {ImageUploadModule} from "angular2-image-upload";
 /*const routes: Routes = [
   {
     path: 'admin',
@@ -48,6 +50,8 @@ import { UnauthorizedComponent } from './unauthorized/unauthorized.component';
   ],
   imports: [
     BtcRouterModule,
+    FancyImageUploaderModule,
+    ImageUploadModule.forRoot(),
     BrowserModule,
     ReactiveFormsModule,
     MaterialModule,
