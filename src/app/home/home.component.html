@@ -27,7 +27,86 @@
 
     </div>
     <div class="Courses-Offered">
+      <p class="Courses-offered-Title center-align">
+        Courses offered
+      </p><br>
+      <div class="courses">
+        <div class="d-flex justify-content-center row">
+          <div class=" col-4 course">
+            <div class="card-panel ">
+              <div class="course-header">
 
+              </div>
+              <div class="Course-title">
+                Course-title
+              </div>
+          <span class="Course-details">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+          </span>
+            </div>
+
+          </div>
+          <div class=" col-4 course">
+            <div class="card-panel ">
+              <div class="course-header">
+              </div>
+              <div class="Course-title">
+                Course-title
+              </div>
+              <span class="Course-details">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+          </span>
+            </div>
+          </div>
+          <div class=" col-4 course">
+            <div class="card-panel ">
+              <div class="course-header">
+              </div>
+              <div class="Course-title">
+                Course-title
+              </div>
+              <span class="Course-details">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+          </span>
+            </div>
+          </div>
+        </div><br>
+        <div class="d-flex justify-content-center row">
+          <div class=" col-4 course">
+            <div class="card-panel ">
+              <div class="course-header">
+
+              </div>
+              <div class="Course-title">
+                Course-title
+              </div>
+              <span class="Course-details">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+          </span>
+            </div>
+          </div>
+          <div class=" col-4 course">
+            <div class="card-panel ">
+              <div class="course-header">
+
+              </div>
+              <div class="Course-title">
+                Course-title
+              </div>
+              <span class="Course-details">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.
+          </span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div>
+      <owl-carousel
+        [options]="{items: 3, dots: false, navigation: false}"
+      [items]="images"
+      [carouselClasses]="['owl-theme', 'row', 'sliding']">
+      <div class="item" *ngFor="let image of images;let i = index">
+       <!-- <div class="thumbnail-image" [ngStyle]="{'background': 'url('abc.jpg')no-repeat scroll center center / 80px 80px'}"></div>-->
+      </div>
+      </owl-carousel>
     </div>
   </div>
 </div>

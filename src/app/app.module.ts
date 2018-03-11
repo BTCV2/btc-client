@@ -26,16 +26,7 @@ import { UnauthorizedComponent } from './unauthorized/unauthorized.component';
 import {FancyImageUploaderModule} from "ng2-fancy-image-uploader";
 import {ImageUploadModule} from "angular2-image-upload";
 import { HomeComponent } from './home/home.component';
-/*const routes: Routes = [
-  {
-    path: 'admin',
-    component: AdminComponent
-  },
-  {
-    path: 'student/:standard/:rollNumber',
-    component: StudentComponent
-  }
-];*/
+import { OwlModule } from 'ngx-owl-carousel';
 @NgModule({
   declarations: [
     AppComponent,
@@ -60,6 +51,7 @@ import { HomeComponent } from './home/home.component';
     HttpClientModule,
     HttpClientXsrfModule,
     BrowserAnimationsModule,
+    OwlModule,
     NgHttpLoaderModule// RoutesModule
   ],
   providers: [DemoService, AdminStudentService, AuthService, AdminGuard, StudentGuard],
