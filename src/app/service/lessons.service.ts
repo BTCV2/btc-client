@@ -19,7 +19,7 @@ export class LessonsService {
   getLessons(lessonParams): Observable<Lesson[]> {
     console.log('this.httpOptions', this.httpOptions);
     return this.http.get(`${this.constants.base_server_url}/${lessonParams.standard}/${lessonParams.subject}/lesson`, this.httpOptions)
-      .map((res) => {
+      .map((res: any) => {
           return res.map(item => {
             return new Lesson(item.lessonNumber, item.lessonName);
           });
