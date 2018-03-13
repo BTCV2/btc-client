@@ -5,8 +5,8 @@
 @import '~@swimlane/ngx-datatable/release/index.css';
 @import '~@swimlane/ngx-datatable/release/themes/material.css';
 @import '~@swimlane/ngx-datatable/release/assets/icons.css';
-@import "~bootstrap/dist/css/bootstrap.css";
-@import "~bootstrap/dist/css/bootstrap-grid.css";
+/*@import "~bootstrap/dist/css/bootstrap.css";
+@import "~bootstrap/dist/css/bootstrap-grid.css";*/
 @import "~owl.carousel/dist/assets/owl.carousel.min.css";
 @import "loader.scss";
 .align_c{
@@ -28,6 +28,27 @@
   font-family: Helvetica;
 }
 
+/*.mat-form-field-underline{
+  width: 0px !important;
+}
+.mat-form-field-wrapper{
+  padding: 0px !important;
+}
+.mat-form-field-label-wrapper{
+  position: static !important;
+}*/
+/*input{
+  border: 0px solid #ffffff !important;
+  background-color: #ffffff !important;
+  border-radius: 5px;
+ !* margin: 0px !important;
+  padding: 0px !important;
+  height: 40px !important;*!
+}*/
+.mat-dialog-container{
+  border-radius: 5px !important;
+  background-color: #e8e8e8;
+}
 .loader {
   height: 20px;
   width: 250px;
@@ -124,4 +145,7 @@
 
 @media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2 / 1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
   .iti-flag {background-image: url("~ngx-intl-tel-input/resource/img/flags@2x.png");}
+}
+.tile[_ngcontent-c3]{
+  box-shadow: none !important;
 }

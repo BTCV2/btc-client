@@ -1,10 +1,14 @@
 .btc-container-1{
   background-image: linear-gradient(to bottom, #e0e0e0, rgba(238, 238, 238, 0));
 }
+.btc-container-2{
+ /* background-image: linear-gradient(to bottom, #e0e0e0, rgba(238, 238, 238, 0));*/
+  background-image: linear-gradient(to bottom, rgba(224, 224, 224, 0.2), rgba(238, 238, 238, 0));
+}
 
 .btc-lorem{
   padding-top: 93px;
-  font-family: sans-serif;
+  font-family: ProximaNova;
   font-size: 36px;
   line-height: 1.33;
   text-align: left;
@@ -13,7 +17,7 @@
 .btc-lorem-content{
   width: 380px;
   height: 72px;
-  font-family: sans-serif;
+  font-family: ProximaNova;
   font-size: 16px;
   font-weight: normal;
   font-style: normal;
@@ -32,7 +36,50 @@
   margin-bottom: 163px;
   color: white !important;
 }
-
+.join-now-l{
+  padding: 8px 40px;
+  line-height: 21px;
+  border-radius: 3px;
+  background-color: #333333;
+  margin-bottom: 163px;
+}
+.btc-about-us{
+  padding-top: 48px;
+  margin-bottom: 45px;
+  font-family: sans-serif;
+  font-size: 36px;
+  line-height: 1.33;
+  text-align: center;
+  color: #4d4d4d;
+}
+.btc-lorem-content-2 {
+  width: 620px;
+  height: 150px;
+  font-family: sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  text-align: left;
+  color: #666666;
+  margin: 15px 0px 25px 0px;
+}
+.btc-lorem-content-3 {
+  width: 193px;
+  height: 24px;
+  font-family: sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.5;
+  text-align: left;
+  color: #333333;
+}
+.consectetur-adipisci {
+  height: 24px;
+  font-family: sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  text-align: left;
+  color: #666666;
+}
 
 .About-us {
   height: 43px;
@@ -59,11 +106,7 @@
   height: 150px;
   font-family: ProximaNova;
   font-size: 16px;
-  font-weight: normal;
-  font-style: normal;
-  font-stretch: normal;
   line-height: 1.5;
-  letter-spacing: normal;
   text-align: left;
   color: rgb(102, 102, 102);
 }
@@ -71,21 +114,11 @@
   display: inline-block;
   clear: both;
 }
-
 .Courses-Offered {
-  height: 884px;
-  background-image: linear-gradient(to bottom, rgba(224, 224, 224, 0.2), rgba(238, 238, 238, 0));
-}
-
-.Courses-offered-Title {
-  height: 48px;
   font-family: ProximaNova;
   font-size: 36px;
-  font-weight: normal;
-  font-style: normal;
-  font-stretch: normal;
   line-height: 1.33;
-  letter-spacing: normal;
+  text-align: center;
   padding-top: 56px;
   color: rgb(77, 77, 77);
 }
@@ -100,12 +133,10 @@
   max-width: 50%;
 }
 .courses{
-  margin-top:150px;
-  margin-right: auto;
-  margin-right: auto;
+  margin-top:46px;
 }
 .course{
-  height: 300px;
+  /*height: 300px;*/
   transition: all 0.5s;
 }
 .course:hover{
@@ -114,14 +145,15 @@
 .course-header{
   height: 110px;
   width: 110px;
-  border: solid #666666;
+  border: solid #eeeeee;
   border-radius: 50%;
   margin: auto;
-  background-color: #666666;
+  background-color: #eeeeee;
 }
 
 .Course-title {
- margin-top: 5.1%;
+  margin-top: 23px;
+  margin-bottom: 10px;
   height: 25px;
   font-family: ProximaNova;
   font-size: 21px;
@@ -134,6 +166,7 @@
   color: rgb(51, 51, 51);
 }
 .Course-details {
+  margin-top: 10px;
   height: 87px;
   font-family: ProximaNova;
   font-size: 16px;
@@ -144,4 +177,170 @@
   letter-spacing: normal;
   text-align: center;
   color: rgb(102, 102, 102);
+}
+.carousel-demo {
+  margin: 50px;
+}
+.trophy{
+  align-items: center;
+  text-align: center;
+}
+
+/*.trophy > p {
+  margin-bottom: 0rem;
+}*/
+.marks{
+  height: 48px;
+  font-family: ProximaNova;
+  font-size: 24px;
+  font-weight: 600;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 2;
+  letter-spacing: normal;
+  text-align: center;
+  color: rgb(77, 77, 77);
+}
+
+.subject-scored {
+  height: 17px;
+  font-family: ProximaNova;
+  font-size: 14px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: center;
+  color: rgb(102, 102, 102);
+}
+
+.achieverName{
+  height: 22px;
+  font-family: ProximaNova;
+  font-size: 18px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: center;
+  color: rgb(51, 51, 51);
+}
+.year{
+  height: 17px;
+  font-family: ProximaNova;
+  font-size: 14px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: center;
+  color: rgb(102, 102, 102);
+}
+
+.leftRs {
+  position: absolute;
+  margin: auto;
+  top: 0;
+  bottom: 0;
+  width: 50px;
+  height: 50px;
+  box-shadow: 1px 2px 10px -1px rgba(0, 0, 0, .3);
+  border-radius: 999px;
+  left: 0;
+}
+
+.rightRs {
+  position: absolute;
+  margin: auto;
+  top: 0;
+  bottom: 0;
+  width: 50px;
+  height: 50px;
+  box-shadow: 1px 2px 10px -1px rgba(0, 0, 0, .3);
+  border-radius: 999px;
+  right: 0;
+}
+
+.achivements{
+  height: 48px;
+  font-family: ProximaNova;
+  font-size: 36px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.33;
+  letter-spacing: normal;
+  text-align: center;
+  padding-top: 74px;
+  margin-top: 74px;
+  margin-bottom: 86px;
+  color: rgb(77, 77, 77);
+}
+.Read-more {
+  font-family: Lato;
+  font-size: 16px;
+  font-weight: 500;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.5;
+  letter-spacing: normal;
+  text-align: center;
+  color: #333333;
+}
+.btc-container-achieve{
+  background-color: rgba(216, 216, 216, 0.1);
+}
+.btc-container-why{
+
+}
+
+.tab {
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+}
+
+/* Style the buttons inside the tab */
+.tab button {
+  background-color: #ffffff;
+  outline: none;
+  cursor: pointer;
+  padding: 10px 109px;
+  transition: 0.3s;
+  font-size: 12px;
+  border-radius: 3px;
+  border: 1px solid #e6e6e6;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+  background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+  background-color: #f7f7f7;
+}
+
+/* Style the tab content */
+.tabcontent {
+  text-align: center;
+  display: none;
+  padding: 6px 12px;
+  border: 1px solid #e6e6e6;
+  background-color: #e6e6e6;
+  margin-top: 30px;
+}
+.Why-BTC {
+  margin-top: 60px;
+  margin-bottom: 46px;
+  font-family: ProximaNova;
+  font-size: 36px;
+  line-height: 1.33;
+  text-align: center;
+  color: #4d4d4d;
+
 }

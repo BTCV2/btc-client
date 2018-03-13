@@ -8,10 +8,11 @@ import {AdminGuard} from "../auth/admin-guard.guard";
 import {StudentGuard} from "../auth/student.guard";
 import {UnauthorizedComponent} from "../unauthorized/unauthorized.component";
 import {HomeComponent} from "../home/home.component";
+/*import {HomeComponent} from "../home/home.component";*/
 const router: Routes = [
   {
     path: '',
-    redirectTo: 'login',
+    redirectTo: 'home',
     pathMatch: 'full'
   },
   {
