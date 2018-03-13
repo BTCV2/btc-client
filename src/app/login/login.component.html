@@ -1,12 +1,24 @@
-<form [formGroup]="loginForm" (submit) = "login()">
+<div class="btc-login">
+  <div class="btc-login-title">Login to check your progress</div>
+  <a class="modal__close demo-close" (click)="onNoClick()">
+    <i class="material-icons modal-icon">close</i>
+  </a>
+  <form [formGroup]="loginForm" (submit) = "login()">
+    <div class="row modal-box">
+      <div class="col s10 m6 l6 offset-s1 offset-m3 offset-l3">
+        <div class="input-field inputs">
+          <input id="user_name" type="text" class="validate" formControlName="userName">
+          <label for="user_name">User Name</label>
+        </div>
+        <div class="input-field inputs">
+          <input id="password" type="password" class="validate" formControlName="password">
+          <label for="password">Password</label>
+        </div>
+        <div class="sign-in">
+          <a class="btn-sign btn" data-target="modal1" (click)="login()">SIGN IN</a>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
 
-  <mat-form-field class="mdc-layout-grid__cell  mdc-layout-grid__cell--span-4-phone mdc-layout-grid__cell--span-6-desktop align_c">
-    <input matInput placeholder="ÜserName" formControlName="userName">
-    <mat-error>This field is required</mat-error>
-  </mat-form-field>
-  <mat-form-field class="mdc-layout-grid__cell  mdc-layout-grid__cell--span-4-phone mdc-layout-grid__cell--span-6-desktop align_c">
-    <input matInput placeholder="Password" formControlName="password">
-    <mat-error>This field is required</mat-error>
-  </mat-form-field>
-  <button mat-button >LOGIN</button>
-</form>

@@ -26,7 +26,12 @@ import { UnauthorizedComponent } from './unauthorized/unauthorized.component';
 import {FancyImageUploaderModule} from "ng2-fancy-image-uploader";
 import {ImageUploadModule} from "angular2-image-upload";
 import { HomeComponent } from './home/home.component';
-import { OwlModule } from 'ngx-owl-carousel';
+import {ImageCropperComponent} from "ng2-img-cropper";
+/*import { OwlModule } from 'ngx-owl-carousel';*/
+
+import {NgxCarouselModule} from "ngx-carousel";
+import { JoinnowComponent } from './joinnow/joinnow.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,7 +44,9 @@ import { OwlModule } from 'ngx-owl-carousel';
     StudentsyllabusComponent,
     LoginComponent,
     UnauthorizedComponent,
-    HomeComponent
+    HomeComponent,
+    ImageCropperComponent,
+    JoinnowComponent
   ],
   imports: [
     BtcRouterModule,
@@ -51,7 +58,8 @@ import { OwlModule } from 'ngx-owl-carousel';
     HttpClientModule,
     HttpClientXsrfModule,
     BrowserAnimationsModule,
-    OwlModule,
+    NgxCarouselModule,
+    /*OwlModule,*/
     NgHttpLoaderModule// RoutesModule
   ],
   providers: [DemoService, AdminStudentService, AuthService, AdminGuard, StudentGuard],
@@ -59,7 +67,9 @@ import { OwlModule } from 'ngx-owl-carousel';
   bootstrap: [AppComponent],
   entryComponents: [
     MatSpinner,
-    LoaderComponent
+    LoaderComponent,
+    LoginComponent,
+    JoinnowComponent
   ]
 })
 export class AppModule { }
