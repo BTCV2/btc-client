@@ -1,42 +1,80 @@
-<!-- [columns]="marks"-->
-<!--[rows]="datarows"-->
-
-<ngx-datatable
-  [rows]="datarows"
-  class="material"
-  [columnMode]="'force'"
-  [headerHeight]="50"
-  [footerHeight]="50"
-  [rowHeight]="'auto'"
-  [reorderable]="reorderable"
-  [columns]="marks">
-</ngx-datatable>
-
-<ngx-datatable
-  [rows]="datarows"
-  class="material"
-  [columnMode]="'force'"
-  [headerHeight]="50"
-  [footerHeight]="50"
-  [rowHeight]="'auto'"
-  [reorderable]="reorderable">
-  <ngx-datatable-column name={{mark}} *ngFor="let mark of marksdemo">
-    <ng-template ngx-datatable-cell-template let-rowIndex="rowIndex" let-value="datarows" let-row="row">
+<div *ngIf="role==='student'">
+  <ngx-datatable
+    [rows]="datarows"
+    class="material"
+    [columnMode]="'force'"
+    [headerHeight]="50"
+    [footerHeight]="50"
+    [rowHeight]="'auto'"
+    [reorderable]="reorderable"
+    [columns]="marks">
+  </ngx-datatable>
+</div>
+<div *ngIf="role==='admin'">
+  <ngx-datatable
+    [rows]="datarows"
+    class="material"
+    [columnMode]="'force'"
+    [headerHeight]="50"
+    [footerHeight]="50"
+    [rowHeight]="'auto'"
+    [reorderable]="reorderable">
+    <ngx-datatable-column name={{mark}} *ngFor="let mark of marksdemo">
+      <ng-template ngx-datatable-cell-template let-rowIndex="rowIndex" let-value="datarows" let-row="row">
             <span
               *ngIf="!editing[rowIndex + '-Lessons']"
               title="Double click to edit"
               (dblclick)="editing[rowIndex + '-Lessons'] = true"
-              >
+            >
               {{datarows[rowIndex][mark]}}
             </span>
-      <input
-        autofocus
-        (blur)="updateValue($event, 'lessons', rowIndex)"
-        *ngIf="editing[rowIndex+ '-Lessons']"
-        type="text"
-        [value]="datarows[rowIndex][mark]"
-      />
-    </ng-template>
-  </ngx-datatable-column>
-</ngx-datatable>
+       <!-- <mat-form-field>
+          <mat-select autofocus
+                      (blur)="updateValue($event, 'lessons', rowIndex)"
+                      *ngIf="editing[rowIndex+ '-Lessons'] && mark !== 'edit' && mark !=='Lessons'"
+                      type="text"
+                      [value]="datarows[rowIndex][mark]">
+            <mat-option value="INCOMPLETE">
+              INCOMPLETE
+            </mat-option>
+            <mat-option value="COMPLETE">
+              COMPLETE
+            </mat-option>
+          </mat-select>
+        </mat-form-field>-->
+       <!-- <mat-form-field>
+          <mat-select
+                      (blur)="updateValue($event, 'lessons', rowIndex)"
+                      *ngIf="editing[rowIndex+ '-Lessons'] && mark !== 'edit' && mark !=='Lessons'"
+                      type="text"
+                      [value]="datarows[rowIndex][mark]">
+            <mat-option value="INCOMPLETE">
+              INCOMPLETE
+            </mat-option>
+            <mat-option value="COMPLETE">
+              COMPLETE
+            </mat-option>
+          </mat-select>
+        </mat-form-field>-->
+        <select
+          autofocus
+          (blur)="updateValue($event, 'lessons', rowIndex)"
+          *ngIf="editing[rowIndex+ '-Lessons'] && mark !== 'edit' && mark !=='Lessons'"
+          type="text"
+          [value]="datarows[rowIndex][mark]"
+        >
+          <option value="INCOMPLETE">
+            INCOMPLETE
+          </option>
+          <option value="COMPLETE">
+            COMPLETE
+          </option>
+        </select>
+        <button *ngIf="mark === 'edit'" (click)="updateValue($event, mark, rowIndex)"> SAVE</button>
+      </ng-template>
+    </ngx-datatable-column>
+  </ngx-datatable>
+</div>
+
+
 

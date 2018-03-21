@@ -6,16 +6,19 @@
   <form [formGroup]="loginForm" (submit) = "login()">
     <div class="row modal-box">
       <div class="col s10 m6 l6 offset-s1 offset-m3 offset-l3">
-        <div class="input-field inputs">
-          <input id="user_name" type="text" class="validate" formControlName="userName">
-          <label for="user_name">User Name</label>
-        </div>
-        <div class="input-field inputs">
-          <input id="password" type="password" class="validate" formControlName="password">
-          <label for="password">Password</label>
-        </div>
+        <mat-form-field>
+          <input id="user_name" type="text"  formControlName="userName" matInput placeholder="User Name" >
+          <!--<label for="user_name">User Name</label>-->
+        </mat-form-field>
+        <mat-form-field>
+          <input id="password" type="password"  formControlName="password" matInput placeholder="Password">
+          <!--<label for="password">Password</label>-->
+        </mat-form-field>
         <div class="sign-in">
           <a class="btn-sign btn" data-target="modal1" (click)="login()">SIGN IN</a>
+        </div>
+        <div *ngIf="invalidCredentials">
+          <span>Invalid UserName & Password</span>
         </div>
       </div>
     </div>

@@ -1,26 +1,42 @@
 import { Component, Inject } from '@angular/core';
-import {DemoService} from './demo.service';
 import { MatSpinner } from '@angular/material';
 import {LoaderComponent} from "./loader/loader.component";
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 import {LoginComponent} from "./login/login.component";
 import {JoinnowComponent} from "./joinnow/joinnow.component";
+import {LogoutComponent} from "./logout/logout.component";
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css'],
-  providers: [DemoService]
+  styleUrls: ['./app.component.css']
 })
 export class AppComponent {
   public loaderComponent = LoaderComponent;
   title = 'app';
   public matSpinner = MatSpinner;
   data: any;
+  login: boolean;
   constructor(public dialog: MatDialog) {
+    this.login = false;
   }
   openLogin(): void {
     let dialogRef = this.dialog.open(LoginComponent, {
       width: '700px'
+    });
+    dialogRef.componentInstance.loginStatus = false;
+    dialogRef.afterClosed().subscribe(result => {
+      this.login = dialogRef.componentInstance.loginStatus;
+    });
+  }
+
+  openLogout(): void {
+    let dialogRef = this.dialog.open(LogoutComponent, {
+      width: '500px'
+    });
+  /*  dialogRef.componentInstance.loginStatus = false;*/
+    dialogRef.afterClosed().subscribe(result => {
+      this.login = false;
+     /* this.login = dialogRef.componentInstance.loginStatus;*/
     });
   }
 
@@ -29,9 +45,4 @@ export class AppComponent {
       width: '700px'
     });
   }
-    /*dialogRef.afterClosed().subscribe(result => {
-
-    });*/
- /* }
-  }*/
 }

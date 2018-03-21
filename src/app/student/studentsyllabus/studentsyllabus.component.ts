@@ -13,6 +13,7 @@ export class StudentsyllabusComponent implements OnInit {
   datarows = [];
   temprows = [];
   marksdemo = [];
+  role: string;
   editing= {};
   columns = [
     {prop: 'Name'},
@@ -25,6 +26,7 @@ export class StudentsyllabusComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.role = localStorage.getItem('role');
     this.datarows = [];
     const lessonParams = {
       standard: '12',
@@ -42,14 +44,15 @@ export class StudentsyllabusComponent implements OnInit {
           'Ten': 'INCOMPLETE'
         });
       });
-      console.log("cniee",data);
     },
     err => {
       console.log(err);
     },
       () => {
       this.datarows = this.temprows;
-        console.log('DONE');
+        if ( this.role === 'admin' ) {
+          this.marksdemo.push('edit');
+        }
       });
   }
   updateValue(event, cell, rowIndex) {
