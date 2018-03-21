@@ -5,7 +5,8 @@
       <span class="right">
             <span class="icon-space">
               <i class="small-icon material-icons">exit_to_app</i>
-              <a class="log-in" (click)="openLogin()" >Log in</a>
+              <a *ngIf="!login"class="log-in" (click)="openLogin()" >Log in</a>
+              <a *ngIf="login" class="log-in" (click)="openLogout()" >Log out</a>
             </span>
             <span>
               <i class="small-icon material-icons">phone</i>
@@ -22,31 +23,34 @@
       <span class="right">
         <span class="log-in icon-space" href="#">About us</span>
         <span class="contact-us icon-space" href="#">Courses offered</span>
-        <span class="log-in icon-space" href="#whybtc">Why BTC?</span>
+        <span class="log-in icon-space" [ngx-scroll-to]="'#whybtc'">Why BTC?</span>
         <span class="contact-us icon-space" href="#ächivements">Achievements</span>
         <span class="waves-effect join-now btn" (click)="openJoinNow()">JOIN NOW</span>
       </span>
     </div>
   </div>
 </div>
-<!--<nav>
-  <div class="nav-wrapper">
-    <a href="#" class="brand-logo">Logo</a>
-    <a href="#!" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
-    <ul class="right hide-on-med-and-down">
-      <li><a href="sass.html">Sass</a></li>
-      <li><a href="badges.html">Components</a></li>
-      <li><a href="collapsible.html">Javascript</a></li>
-      <li><a href="mobile.html">Mobile</a></li>
-    </ul>
-    <ul class="side-nav" id="mobile-demo">
-      <li><a href="sass.html">Sass</a></li>
-      <li><a href="badges.html">Components</a></li>
-      <li><a href="collapsible.html">Javascript</a></li>
-      <li><a href="mobile.html">Mobile</a></li>
-    </ul>
-  </div>
-</nav>-->
+<!--<div class="navbar-fixed">
+  <nav>
+    <div class="nav-wrapper">
+      <a href="#!" class="brand-logo">Logo</a>
+      <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="sass.html">Sass</a></li>
+        <li><a href="badges.html">Components</a></li>
+        <li><a href="collapsible.html">Javascript</a></li>
+        <li><a href="mobile.html">Mobile</a></li>
+      </ul>
+      <ul class="side-nav" id="mobile-demo">
+        <li><a href="sass.html">Sass</a></li>
+        <li><a href="badges.html">Components</a></li>
+        <li><a href="collapsible.html">Javascript</a></li>
+        <li><a href="mobile.html">Mobile</a></li>
+      </ul>
+    </div>
+  </nav>
+</div>-->
+
 <router-outlet></router-outlet>
 <!--<router-outlet></router-outlet>-->
 

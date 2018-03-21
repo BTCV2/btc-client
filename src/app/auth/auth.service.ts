@@ -43,9 +43,10 @@ export class AuthService {
   public getToken() {
     return this.token;
   }
-  logout() {
+  public logout() {
     this.loggedIn = false;
     this.role = '';
+    localStorage.clear();
     this.userName = '';
   }
 }

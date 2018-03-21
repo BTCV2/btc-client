@@ -75,18 +75,18 @@
         <form [formGroup]="studentInfoFromGroup">
           <div>
             <ng-template matStepLabel>Fill out Student's Details</ng-template>
-            <div class="mdc-layout-grid">
-              <div class="mdc-layout-grid__inner">
+            <div>
+              <div>
 
-                <mat-form-field class="mdc-layout-grid__cell  mdc-layout-grid__cell--span-4-phone mdc-layout-grid__cell--span-6-desktop align_c">
+                <mat-form-field>
                   <input matInput placeholder="First Name" formControlName="firstName" required>
                   <mat-error>This field is required</mat-error>
                 </mat-form-field>
-                <mat-form-field class="mdc-layout-grid__cell  mdc-layout-grid__cell--span-4-phone mdc-layout-grid__cell--span-6-desktop align_c">
+                <mat-form-field >
                   <input matInput placeholder="Last Name" formControlName="lastName" required>
                   <mat-error>This field is required</mat-error>
                 </mat-form-field >
-                <mat-form-field class="mdc-layout-grid__cell  mdc-layout-grid__cell--span-4-phone mdc-layout-grid__cell--span-6-desktop align_c">
+                <mat-form-field >
                   <mat-select placeholder="standard" formControlName="standard" (change)="getRollNumber()" [(ngModel)]="standards">
                     <mat-option value="9">9</mat-option>
                     <mat-option value="10">10</mat-option>
@@ -96,12 +96,12 @@
                   </mat-select>
                   <mat-error>This field is required</mat-error>
                 </mat-form-field>
-                <mat-form-field class="mdc-layout-grid__cell  mdc-layout-grid__cell--span-4-phone mdc-layout-grid__cell--span-6-desktop align_c">
+                <mat-form-field >
                   <input matInput placeholder="Roll Number " formControlName="rollNumber" [(ngModel)]="rollnumber">
                   <mat-error>This field is required</mat-error>
                 </mat-form-field>
 
-                <mat-form-field class="mdc-layout-grid__cell  mdc-layout-grid__cell--span-4-phone mdc-layout-grid__cell--span-6-desktop align_c">
+                <mat-form-field >
                   <input matInput placeholder="School Name" formControlName="school" required>
                   <mat-error>This field is required</mat-error>
                 </mat-form-field>

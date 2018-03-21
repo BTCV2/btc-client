@@ -19,18 +19,20 @@ import {StudentComponent} from './student/student.component';
 import { StudentsyllabusComponent } from './student/studentsyllabus/studentsyllabus.component';
 import {BtcRouterModule} from './router/router.module';
 import { LoginComponent } from './login/login.component';
-import {AuthService} from "./auth/auth.service";
-import {AdminGuard} from "./auth/admin-guard.guard";
-import {StudentGuard} from "./auth/student.guard";
+import {AuthService} from './auth/auth.service';
+import {AdminGuard} from './auth/admin-guard.guard';
+import {StudentGuard} from './auth/student.guard';
 import { UnauthorizedComponent } from './unauthorized/unauthorized.component';
-import {FancyImageUploaderModule} from "ng2-fancy-image-uploader";
-import {ImageUploadModule} from "angular2-image-upload";
+import {FancyImageUploaderModule} from 'ng2-fancy-image-uploader';
+import {ImageUploadModule} from 'angular2-image-upload';
 import { HomeComponent } from './home/home.component';
-import {ImageCropperComponent} from "ng2-img-cropper";
-/*import { OwlModule } from 'ngx-owl-carousel';*/
+import {ImageCropperComponent} from 'ng2-img-cropper';
+import { ScrollToModule } from '@nicky-lenaers/ngx-scroll-to';
 
-import {NgxCarouselModule} from "ngx-carousel";
+import {NgxCarouselModule} from 'ngx-carousel';
 import { JoinnowComponent } from './joinnow/joinnow.component';
+import { StudentprofileComponent } from './student/studentprofile/studentprofile.component';
+import { LogoutComponent } from './logout/logout.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +48,9 @@ import { JoinnowComponent } from './joinnow/joinnow.component';
     UnauthorizedComponent,
     HomeComponent,
     ImageCropperComponent,
-    JoinnowComponent
+    JoinnowComponent,
+    StudentprofileComponent,
+    LogoutComponent
   ],
   imports: [
     BtcRouterModule,
@@ -59,6 +63,7 @@ import { JoinnowComponent } from './joinnow/joinnow.component';
     HttpClientXsrfModule,
     BrowserAnimationsModule,
     NgxCarouselModule,
+    ScrollToModule.forRoot(),
     /*OwlModule,*/
     NgHttpLoaderModule// RoutesModule
   ],
@@ -69,7 +74,8 @@ import { JoinnowComponent } from './joinnow/joinnow.component';
     MatSpinner,
     LoaderComponent,
     LoginComponent,
-    JoinnowComponent
+    JoinnowComponent,
+    LogoutComponent
   ]
 })
 export class AppModule { }
