@@ -13,8 +13,7 @@ export class AdminGuard implements CanActivate {
       if (localStorage.getItem('role') === next.data.role) {
         return true;
       }
-    }
-    else {
+    } else {
       this.router.navigate(['/unauthorized']);
       return false;
     }
