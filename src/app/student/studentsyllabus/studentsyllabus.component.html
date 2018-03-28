@@ -70,7 +70,7 @@
             COMPLETE
           </option>
         </select>
-        <button *ngIf="mark === 'edit'" (click)="updateValue($event, mark, rowIndex)"> SAVE</button>
+        <button mat-raised-button color="accent" *ngIf="mark === 'edit'" (click)="updateValue($event, mark, rowIndex)"> SAVE</button>
       </ng-template>
     </ngx-datatable-column>
   </ngx-datatable>
