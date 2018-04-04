@@ -25,4 +25,11 @@ export class AdminStudentService {
     console.log('this.httpOptions', this.httpOptions);
     return this.http.get(this.constants.base_server_url + '/student/' + standard + '/getRollNumber', this.httpOptions);
   }
+  getStudent(rollNumber){
+    return this.http.get(`${this.constants.base_server_url}/student/${rollNumber}`, this.httpOptions);
+  }
+  updateStudent(student: any){
+    return this.http.put(this.constants.base_server_url + '/student/'+student.rollNumber+'/update', student, this.httpOptions);
+  
+  }
 }

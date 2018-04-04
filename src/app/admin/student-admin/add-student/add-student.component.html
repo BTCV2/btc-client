@@ -137,7 +137,6 @@
               <button mat-raised-button matStepperPrevious color="accent">Back</button>
               <button mat-raised-button matStepperNext color="accent">Next</button>
             </div>
-            <button mat-button matStepperNext>Next</button>
           </div>
         </form>
 
@@ -149,7 +148,24 @@
             <ng-template matStepLabel>
               Image uploader
             </ng-template>
-            <image-upload url="https://httpbin.org/status/200"></image-upload>
+            <input type="file" (change)="fileChangeEvent($event)" />
+
+<div>
+  <image-cropper
+    
+      [imageChangedEvent]="imageChangedEvent"
+      [maintainAspectRatio]="true"
+      [aspectRatio]="4 / 3"
+      [resizeToWidth]="128"
+      format="png"
+      (imageCropped)="imageCropped($event)"
+      (imageLoaded)="imageLoaded()"
+      (loadImageFailed)="loadImageFailed()"
+      style="max-height: 33vh"
+      [style.display]="cropperReady ? null : 'none'"
+  ></image-cropper>
+</div>
+<img [src]="croppedImage" />
             <div>
               <button mat-raised-button matStepperPrevious color="accent">Back</button>
               <button mat-raised-button color="accent" type="submit" (click)="createStudentHorizontal()">Save</button>

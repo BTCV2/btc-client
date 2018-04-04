@@ -10,4 +10,5 @@ export interface IStudent {
   phoneNumber: string;
   parentName: string;
   email: string;
+  image: any;
 }

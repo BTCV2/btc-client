@@ -7,11 +7,11 @@
         <div class="image">
           <div class="circle-1"></div>
           <div class="circle-2"></div>
-          <img src="http://100dayscss.com/codepen/jessica-potter.jpg" width="70" height="70" alt="Jessica Potter">
+          <img [src]="profile.image" width="70" height="70" [alt]="profile.firstName">
         </div>
 
-        <div class="name">Jessica Potter</div>
-        <div class="job">Visual Artist</div>
+        <div class="name">{{profile.firstName}} &nbsp; {{profile.lastName}}</div>
+        <div class="job">STANDARD : {{profile.standard}}</div>
 
       </div>
 

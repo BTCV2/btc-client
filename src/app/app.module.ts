@@ -28,12 +28,13 @@ import {ImageUploadModule} from 'angular2-image-upload';
 import { HomeComponent } from './home/home.component';
 import {ImageCropperComponent} from 'ng2-img-cropper';
 import { ScrollToModule } from '@nicky-lenaers/ngx-scroll-to';
-
+import { NgxImgModule } from 'ngx-img';
 import {NgxCarouselModule} from 'ngx-carousel';
 import { JoinnowComponent } from './joinnow/joinnow.component';
 import { StudentprofileComponent } from './student/studentprofile/studentprofile.component';
 import { LogoutComponent } from './logout/logout.component';
-
+import { ImageCropperModule } from './image-cropper/image-cropper.module';
+import {StudentService} from './service/student.service'
 @NgModule({
   declarations: [
     AppComponent,
@@ -56,6 +57,7 @@ import { LogoutComponent } from './logout/logout.component';
     BtcRouterModule,
     FancyImageUploaderModule,
     ImageUploadModule.forRoot(),
+    NgxImgModule.forRoot(),
     BrowserModule,
     ReactiveFormsModule,
     MaterialModule,
@@ -64,10 +66,10 @@ import { LogoutComponent } from './logout/logout.component';
     BrowserAnimationsModule,
     NgxCarouselModule,
     ScrollToModule.forRoot(),
-    /*OwlModule,*/
+    ImageCropperModule,
     NgHttpLoaderModule// RoutesModule
   ],
-  providers: [DemoService, AdminStudentService, AuthService, AdminGuard, StudentGuard],
+  providers: [DemoService, AdminStudentService, AuthService, AdminGuard, StudentGuard, StudentService],
   exports: [HttpClientModule, ReactiveFormsModule],
   bootstrap: [AppComponent],
   entryComponents: [

@@ -3,6 +3,7 @@ import {AbstractControl, FormBuilder, FormGroup, Validators} from '@angular/form
 import {AdminStudentService} from '../../../service/admin-student.service';
 import {IStudent} from '../../../Models/Student';
 import {MatSnackBar} from '@angular/material';
+import{base64} from 'base64-img';
 @Component({
   selector: 'app-add-student',
   templateUrl: './add-student.component.html',
@@ -26,11 +27,15 @@ export class AddStudentComponent implements OnInit {
   standards = 9;
   standardArray =[9,10,11,12]
   rollnumber: any;
+  image:any;
+  imageChangedEvent: any = '';
+  croppedImage: any = '';
+  cropperReady = false;
   ngOnInit() {
     this.studentInfoFromGroup = this._formBuilder.group({
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
-      rollNumber: [{value: this.rollnumber, disabled: true}, Validators.required],
+      rollNumber: ['', Validators.required],
       standard: ['', Validators.required],
       school: ['', Validators.required]
     });
@@ -40,14 +45,14 @@ export class AddStudentComponent implements OnInit {
       email: ['', Validators.email]
     });
     this.imageInfoFromGroup = this._formBuilder.group({
-      email: ['', Validators.email]
+      image: ['',Validators.nullValidator]
     });
     this.formGroup = this._formBuilder.group({
       formArray: this._formBuilder.array([
         this._formBuilder.group({
           firstName: ['', Validators.required],
           lastName: ['', Validators.required],
-          rollNumber: [{value: this.rollnumber, disabled: true}, Validators.required],
+          rollNumber: [{value: this.rollnumber, disabled: true}, Validators.required,Validators.minLength(3)],
           standard: ['', Validators.required],
           school: ['', Validators.required]
         }),
@@ -57,7 +62,7 @@ export class AddStudentComponent implements OnInit {
           email: ['', Validators.email]
         }),
         this._formBuilder.group({
-          email: ['', Validators.email]
+          email: ['']
         }),
       ])
     });
@@ -72,7 +77,8 @@ export class AddStudentComponent implements OnInit {
     for (let i = 0; i < formGroup.length; i++) {
       const demo = formGroup[i];
        for(let key in demo) {
-        result[key] = demo[key];
+          result[key] = demo[key];
+          console.log("KETYS", key);
       }
     }
     const student: IStudent = result;
@@ -86,9 +92,17 @@ export class AddStudentComponent implements OnInit {
       }
     });
   }
-
+  // onSelect(image) {
+  //   this.image = image;
+  // }
+  onReset(){
+    
+  }
   createStudentHorizontal() {
-    const StudentObject = Object.assign(this.studentInfoFromGroup.value, this.parentInfoFromGroup.value, this.imageInfoFromGroup.value);
+    console.log('dmeo',this.studentInfoFromGroup.value);
+    const StudentObject = Object.assign(this.studentInfoFromGroup.value, this.parentInfoFromGroup.value);
+    StudentObject.image = this.image;
+    console.log('StudentObject',StudentObject)
     this.service.addStudent(StudentObject).subscribe((res) => {
       if (res) {
         this.studentInfoFromGroup.reset();
@@ -104,5 +118,21 @@ export class AddStudentComponent implements OnInit {
         });
       }
     });
+  }
+  
+  fileChangeEvent(event: any): void {
+      this.imageChangedEvent = event;
+  }
+  imageCropped(image: string) {
+  
+      this.croppedImage = image;
+      this.image = image;
+      console.log('IMAGE',this.image);
+  }
+  imageLoaded() {
+    this.cropperReady = true;
+  }
+  imageLoadFailed () {
+    console.log('Load failed');
   }
 }

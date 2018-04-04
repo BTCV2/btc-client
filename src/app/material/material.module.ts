@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatButtonModule, MatCheckboxModule, MatToolbarModule, MatSidenavModule, MatTabsModule, MatCardModule, MatIconModule,
  MatTooltipModule, MatStepperModule, MatFormFieldModule, MatInputModule, MatSelectModule, MatDialogModule} from '@angular/material';
-import { FlexLayoutModule } from '@angular/flex-layout';
+//import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatProgressSpinnerModule, MatSnackBarModule } from '@angular/material';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 @NgModule({
@@ -12,7 +12,6 @@ import { NgxDatatableModule } from '@swimlane/ngx-datatable';
     BrowserAnimationsModule,
     MatButtonModule,
     MatCheckboxModule,
-    FlexLayoutModule,
     MatToolbarModule,
     MatSidenavModule,
     MatTabsModule,
@@ -33,7 +32,7 @@ import { NgxDatatableModule } from '@swimlane/ngx-datatable';
     BrowserAnimationsModule,
     MatButtonModule,
     MatCheckboxModule,
-    FlexLayoutModule,
+    //FlexLayoutModule,
     MatToolbarModule,
     MatSidenavModule,
     MatTabsModule,

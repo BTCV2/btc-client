@@ -15,7 +15,7 @@ export class StudentAdminComponent implements OnInit {
     this.studentOperations = 'create';
   }
   editStudent = () => {
-    this.studentOperations = 'view';
+    this.studentOperations = 'edit';
   }
   deleteStudent = () => {
     this.studentOperations = 'delete';
