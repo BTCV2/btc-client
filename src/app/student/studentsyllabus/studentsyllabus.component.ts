@@ -34,7 +34,7 @@ export class StudentsyllabusComponent implements OnInit {
     };
     this.marks = [{prop: 'Lessons'}, {prop: 'One'}, {prop: 'Three'}, {prop: 'Five'}, {prop: 'Ten', sortable: false}];
     this.marksdemo = ['Lessons', 'One', 'Three', 'Five', 'Ten'];
-    this.lessonservice.getLessons(lessonParams).subscribe(data => {
+   /* this.lessonservice.getLessons(lessonParams).subscribe(data => {
       data.forEach((value, index) => {
         this.temprows.push({
           'Lessons': value.lessonName,
@@ -53,7 +53,7 @@ export class StudentsyllabusComponent implements OnInit {
         if ( this.role === 'admin' ) {
           this.marksdemo.push('edit');
         }
-      });
+      });*/
   }
   updateValue(event, cell, rowIndex) {
     console.log('inline editing rowIndex', rowIndex)

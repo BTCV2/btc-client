@@ -17,7 +17,7 @@ export class AppComponent {
   data: any;
   login: boolean;
   constructor(public dialog: MatDialog) {
-    this.login = false;
+    this.login = (localStorage.getItem('loggedIn')==='true'? true : false);
   }
   openLogin(): void {
     let dialogRef = this.dialog.open(LoginComponent, {
@@ -25,7 +25,8 @@ export class AppComponent {
     });
     dialogRef.componentInstance.loginStatus = false;
     dialogRef.afterClosed().subscribe(result => {
-      this.login = dialogRef.componentInstance.loginStatus;
+     // this.login = dialogRef.componentInstance.loginStatus;
+      this.login = (localStorage.getItem('loggedIn')==='true'? true : false);
     });
   }
 
