@@ -21,6 +21,8 @@
       "styles": [
         "styles.css",
         "../node_modules/cropperjs/dist/cropper.css",
+        "../src/assets/angular-bootstrap-md/scss/mdb.scss",
+        "../src/assets/angular-bootstrap-md/scss/mdb-free.scss",
         "../src/assets/materialize-css/sass/materialize.scss"
       ],
       "scripts": [
