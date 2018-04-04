@@ -2,7 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatButtonModule, MatCheckboxModule, MatToolbarModule, MatSidenavModule, MatTabsModule, MatCardModule, MatIconModule,
- MatTooltipModule, MatStepperModule, MatFormFieldModule, MatInputModule, MatSelectModule, MatDialogModule} from '@angular/material';
+ MatTooltipModule, MatStepperModule, MatFormFieldModule, MatInputModule, MatSelectModule, MatDialogModule, MatDatepickerModule,
+ MatNativeDateModule} from '@angular/material';
 //import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatProgressSpinnerModule, MatSnackBarModule } from '@angular/material';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
@@ -25,7 +26,9 @@ import { NgxDatatableModule } from '@swimlane/ngx-datatable';
     MatProgressSpinnerModule,
     MatSnackBarModule,
     NgxDatatableModule,
-    MatDialogModule
+    MatDialogModule,
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
   declarations: [],
   exports: [
@@ -47,6 +50,8 @@ import { NgxDatatableModule } from '@swimlane/ngx-datatable';
     MatSnackBarModule,
     NgxDatatableModule,
     MatDialogModule,
+    MatDatepickerModule,
+    MatNativeDateModule
 
   ]
 })
