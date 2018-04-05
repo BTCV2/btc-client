@@ -47,3 +47,7 @@
   font-size: 18px;
   color: white;
 }
+input[type=text], input[type=text]:focus {
+  border-bottom: none !important;
+  box-shadow: 0 0 0 0 #4285F4 !important;
+}
