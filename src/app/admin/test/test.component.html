@@ -1,0 +1,41 @@
+<div class="card card-image mb-3">
+  <form [formGroup] = "testForm" class="row">
+      <mat-form-field class="col s12 m6">
+          <input matInput formControlName = "rollNumber" placeholder="Enter Roll Number">
+          <mat-error>
+            This field is required
+          </mat-error>
+      </mat-form-field>
+    <mat-form-field class="col s12 m6">
+        <input matInput formControlName = "subject" placeholder="Enter  Subject">
+        <mat-error>
+          This field is required
+        </mat-error>
+    </mat-form-field>
+    <mat-form-field class="col s12 m6">
+        <input matInput formControlName = "mark" placeholder="Enter  Marks Obtained">
+        <mat-error>
+          This field is required
+        </mat-error>
+    </mat-form-field>
+    <mat-form-field class="col s12 m6">
+        <input matInput formControlName = "fullMark" placeholder="Enter  Full Marks">
+        <mat-error>
+          This field is required
+        </mat-error>
+    </mat-form-field>
+    <mat-form-field class="col s12 m6">
+        <input matInput [matDatepicker]="picker" formControlName = "date" required placeholder="Date" placeholder="Enter Date">
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                    <mat-error>This field is required</mat-error>
+        <mat-error>
+          This field is required
+        </mat-error>
+    </mat-form-field>
+    <div class="col s12 m12"></div>
+    <div class="pull-right">
+        <button type="button" class="btn btn-success btn-rounded waves-light" mdbRippleRadius (click)="saveTest()">Save Test</button>
+      </div>
+  </form>
+</div>

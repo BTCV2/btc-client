@@ -40,6 +40,8 @@ import {AttendanceService} from './service/attendance.service';
 import { AttendanceComponent } from './admin/attendance/attendance.component';
 import { MDBBootstrapModule } from '../assets/angular-bootstrap-md/src/free/index';
 import {MDBBootstrapModulePro} from '../assets/angular-bootstrap-md/src/pro/index';
+import { TestComponent } from './admin/test/test.component';
+import {TestService} from './service/test.service'
 @NgModule({
   declarations: [
     AppComponent,
@@ -57,7 +59,8 @@ import {MDBBootstrapModulePro} from '../assets/angular-bootstrap-md/src/pro/inde
     JoinnowComponent,
     StudentprofileComponent,
     LogoutComponent,
-    AttendanceComponent
+    AttendanceComponent,
+    TestComponent
   ],
   imports: [
     BtcRouterModule,
@@ -79,7 +82,7 @@ import {MDBBootstrapModulePro} from '../assets/angular-bootstrap-md/src/pro/inde
     NgHttpLoaderModule// RoutesModule
   ],
   providers: [DemoService, AdminStudentService, AuthService, AdminGuard, StudentGuard, StudentService,
-    AttendanceService],
+    AttendanceService, TestService],
   exports: [HttpClientModule, ReactiveFormsModule],
   bootstrap: [AppComponent],
   entryComponents: [
