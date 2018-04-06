@@ -36,6 +36,7 @@ import { StudentprofileComponent } from './student/studentprofile/studentprofile
 import { LogoutComponent } from './logout/logout.component';
 import { ImageCropperModule } from './image-cropper/image-cropper.module';
 import {StudentService} from './service/student.service';
+import {AttendanceService} from './service/attendance.service';
 import { AttendanceComponent } from './admin/attendance/attendance.component';
 import { MDBBootstrapModule } from '../assets/angular-bootstrap-md/src/free/index';
 import {MDBBootstrapModulePro} from '../assets/angular-bootstrap-md/src/pro/index';
@@ -77,7 +78,8 @@ import {MDBBootstrapModulePro} from '../assets/angular-bootstrap-md/src/pro/inde
     FormsModule,
     NgHttpLoaderModule// RoutesModule
   ],
-  providers: [DemoService, AdminStudentService, AuthService, AdminGuard, StudentGuard, StudentService],
+  providers: [DemoService, AdminStudentService, AuthService, AdminGuard, StudentGuard, StudentService,
+    AttendanceService],
   exports: [HttpClientModule, ReactiveFormsModule],
   bootstrap: [AppComponent],
   entryComponents: [

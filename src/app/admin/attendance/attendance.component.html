@@ -1,34 +1,41 @@
 <div>
   <h2>Attendance</h2>
 </div>
-<form [formGroup]="attendance" class="row">
+<div class="card card-image mb-3">
+        <form [formGroup]="attendance" class="row">
   
-      <mat-form-field class="col s12 m6">
-          <input matInput formControlName = "rollNumber" required placeholder="Roll Number">
-          <mat-error>This field is required</mat-error>
-      </mat-form-field>
-      <mat-form-field class="col s12 m6">
-          <input matInput [matDatepicker]="picker" formControlName = "date" required placeholder="Date">
-          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-          <mat-datepicker #picker></mat-datepicker>
-          <mat-error>This field is required</mat-error>
-      </mat-form-field>
-     
- <mat-form-field class="col s12 m6">
-    <mat-select placeholder="Type" formControlName="type">
-        <mat-option value="present">present</mat-option>
-        <mat-option value="absent">absent</mat-option>
-      </mat-select>
-    <mat-error>This field is required</mat-error>
-</mat-form-field>
-      <mat-form-field class="col s12 m6">
-          <input matInput formControlName = "remarks" required placeholder="Remarks">
-          <mat-error>This field is required</mat-error>
-      </mat-form-field>
-      <mdb-time-picker class="col s12 m6" matInput [twelvehour]="true" [darktheme]="false" [placeholder]="'Selected time'" 
-      [showClock]="false" [ngModel]="lightClock" formControlName = "checkin" ></mdb-time-picker>
-      <mdb-time-picker class="col s12 m6" matInput [twelvehour]="true" [darktheme]="false" [placeholder]="'Selected time'"
-       [showClock]="false" [ngModel]="lightClock" formControlName = "checkout" ></mdb-time-picker>
-      
-</form>
+                <mat-form-field class="col s12 m6">
+                    <input matInput formControlName = "rollNumber" required placeholder="Roll Number">
+                    <mat-error>This field is required</mat-error>
+                </mat-form-field>
+                <mat-form-field class="col s12 m6">
+                    <input matInput [matDatepicker]="picker" formControlName = "date" required placeholder="Date">
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                    <mat-error>This field is required</mat-error>
+                </mat-form-field>
+               
+           <mat-form-field class="col s12 m6">
+              <mat-select placeholder="Type" formControlName="type">
+                  <mat-option value="present">present</mat-option>
+                  <mat-option value="absent">absent</mat-option>
+                </mat-select>
+              <mat-error>This field is required</mat-error>
+          </mat-form-field>
+                <mat-form-field class="col s12 m6">
+                    <input matInput formControlName = "remarks" required placeholder="Remarks">
+                    <mat-error>This field is required</mat-error>
+                </mat-form-field>
+                <mdb-time-picker class="col s12 m6" matInput [twelvehour]="true" [darktheme]="false" [placeholder]="'Check-in time'" 
+                [showClock]="false" [ngModel]="lightClock" formControlName = "checkin" ></mdb-time-picker>
+                <mdb-time-picker class="col s12 m6" matInput [twelvehour]="true" [darktheme]="false" [placeholder]="'Check-out time'"
+                 [showClock]="false" [ngModel]="lightClock" formControlName = "checkout" ></mdb-time-picker>
+                <div class="pull-right">
+                  <button type="button" class="btn btn-info btn-rounded waves-light" mdbRippleRadius (click)="getAttendance()">Get Attendance</button>
+                 <button type="button" class="btn btn-default btn-rounded waves-light" mdbRippleRadius (click)="checkIn()">Check-In</button>
+                  <button type="button" class="btn btn-warning btn-rounded waves-light" mdbRippleRadius (click)="checkOut()">Check-Out</button>
+                </div>
+          </form>
+</div>
+
 
