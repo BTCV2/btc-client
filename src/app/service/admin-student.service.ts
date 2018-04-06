@@ -18,12 +18,10 @@ export class AdminStudentService {
     };
   }
   addStudent(student: any) {
-    console.log(this.constants.base_server_url + '/student/create', student);
     return this.http.post(this.constants.base_server_url + '/student/create', student, this.httpOptions);
   }
   getRollNumber(standard) {
-    console.log('this.httpOptions', this.httpOptions);
-    return this.http.get(this.constants.base_server_url + '/student/' + standard + '/getRollNumber', this.httpOptions);
+     return this.http.get(this.constants.base_server_url + '/student/' + standard + '/getRollNumber', this.httpOptions);
   }
   getStudent(rollNumber){
     return this.http.get(`${this.constants.base_server_url}/student/${rollNumber}`, this.httpOptions);
