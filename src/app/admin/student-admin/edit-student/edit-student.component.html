@@ -4,28 +4,28 @@
           <input matInput formControlName = "searchRollNumber" required placeholder="Search...">
           <mat-error>This field is required</mat-error>
         </mat-form-field>
-        <button mat-raised-button type="submit">Search</button>
+        <button class="btn btn-light-green" type="submit">Search</button>
   </form>
   
 </div>
 <div>
   <mat-horizontal-stepper [linear]="true">
-    <mat-step [stepControl]="studentInfoFromGroup">
-      <form [formGroup]="studentInfoFromGroup">
+    <mat-step [stepControl]="studentInfoFromGroup" >
+      <form [formGroup]="studentInfoFromGroup" class="row">
         <div>
           <ng-template matStepLabel>Fill out Student's Details</ng-template>
           <div>
             <div>
   
-              <mat-form-field>
+              <mat-form-field class="col s12 m6">
                 <input matInput placeholder="First Name" formControlName="firstName" required>
                 <mat-error>This field is required</mat-error>
               </mat-form-field>
-              <mat-form-field >
+              <mat-form-field class="col s12 m6">
                 <input matInput placeholder="Last Name" formControlName="lastName" required>
                 <mat-error>This field is required</mat-error>
               </mat-form-field >
-              <mat-form-field >
+              <mat-form-field class="col s12 m6">
                 <mat-select placeholder="standard" formControlName="standard" (change)="getRollNumber()" [(ngModel)]="standards">
                   <mat-option value="9">9</mat-option>
                   <mat-option value="10">10</mat-option>
@@ -35,46 +35,46 @@
                 </mat-select>
                 <mat-error>This field is required</mat-error>
               </mat-form-field>
-              <mat-form-field >
+              <mat-form-field class="col s12 m6">
                 <input matInput placeholder="Roll Number " formControlName="rollNumber" [(ngModel)]="rollnumber">
                 <mat-error>This field is required</mat-error>
               </mat-form-field>
   
-              <mat-form-field >
+              <mat-form-field class="col s12 m6">
                 <input matInput placeholder="School Name" formControlName="school" required>
                 <mat-error>This field is required</mat-error>
               </mat-form-field>
             </div>
           </div>
   
-          <div>
-            <button mat-raised-button matStepperNext color="accent">Next</button>
+          <div class="pull-right">
+            <button  matStepperNext  class="btn btn-default">Next</button>
           </div>
         </div>
       </form>
   
     </mat-step>
     <mat-step [stepControl]="parentInfoFromGroup">
-      <form [formGroup]="parentInfoFromGroup">
+      <form [formGroup]="parentInfoFromGroup" class="row">
         <div>
           <ng-template matStepLabel>
             <div>Fill out Parent's Details</div>
           </ng-template>
-          <mat-form-field>
+          <mat-form-field class="col s12 m6">
             <input matInput placeholder="Parent Name" formControlName="parentName" required>
             <mat-error>This field is required</mat-error>
           </mat-form-field>
-          <mat-form-field>
+          <mat-form-field class="col s12 m6">
             <input matInput placeholder="Phone Number" formControlName="phoneNumber" required>
             <mat-error>This field is required</mat-error>
           </mat-form-field>
-          <mat-form-field>
+          <mat-form-field class="col s12 m6">
             <input matInput placeholder="E-mail Address" formControlName="email">
             <mat-error>This field is required</mat-error>
           </mat-form-field>
-          <div>
-            <button mat-raised-button matStepperPrevious color="accent">Back</button>
-            <button mat-raised-button matStepperNext color="accent">Next</button>
+          <div class="pull-right">
+            <button  matStepperPrevious class="btn btn-info">Back</button>
+            <button  matStepperNext  class="btn btn-default">Next</button>
           </div>
         </div>
       </form>
@@ -105,10 +105,10 @@
   ></image-cropper>
   </div>
   <img [src]="croppedImage" />
-          <div>
-            <button mat-raised-button matStepperPrevious color="accent">Back</button>
-            <button mat-raised-button color="accent" type="submit" (click)="updateStudent()">Save</button>
-            <button type="button"mat-raised-button (click)="linearVerticalStepper.reset()" color="accent">Reset</button>
+          <div class="pull-right">
+            <button  matStepperPrevious class="btn btn-info">Back</button>
+            <button  class="btn btn-success" type="submit" (click)="updateStudent()">Save</button>
+            <button type="button" (click)="linearVerticalStepper.reset()" class="btn btn-warning">Reset</button>
           </div>
         </div>
       </form>
