@@ -12,7 +12,7 @@ class='material '
 [footerHeight]="50"
 [scrollbarV]="true"
 [scrollbarH]="false"
-[rows]="attendance"
+[rows]="test"
 [rowHeight]="45"
 [limit]="controls.pageSize"
 (page)="onPage($event)"
@@ -21,8 +21,8 @@ class='material '
         <ng-template let-row="row" ngx-datatable-row-detail-template>
             <div>
                 <div><strong>Details</strong></div>
-                <div>{{row.type}}, {{row.checkin}} to {{row.ckeckout}} & 
-                    {{row.remarks}}
+                <div>{{row.subject}}, {{row.mark}}  {{row.fullMark}} 
+                   
                 </div>
             </div>
         </ng-template>
@@ -64,41 +64,52 @@ class='material '
         <ngx-datatable-column  name="type" [minWidth]="30" [width]="70" [canAutoResize]="true" [cellClass]="getCellClass">
 
             <ng-template let-column="column"  let-sort="sortFn" ngx-datatable-header-template>
-                <span class="mobile-hidden">{{'Type'}}</span>
+                <span class="mobile-hidden">{{'Subject'}}</span>
             </ng-template>
 
             <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
-                <span class="mobile-hidden ">{{row.type}}</span>
+                <span class="mobile-hidden ">{{row.subject}}</span>
             </ng-template>
         </ngx-datatable-column>
         <ngx-datatable-column  name="checkin" [minWidth]="30" [width]="70" [canAutoResize]="true" [cellClass]="getCellClass">
 
             <ng-template let-column="column"  let-sort="sortFn" ngx-datatable-header-template>
-                <span class="mobile-hidden">{{'Check In Time'}}</span>
+                <span class="mobile-hidden">{{'Mark Scored'}}</span>
             </ng-template>
 
             <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
-                <span class="mobile-hidden ">{{row.checkin}}</span>
+                <span class="mobile-hidden ">{{row.mark}}</span>
             </ng-template>
         </ngx-datatable-column>
         <ngx-datatable-column  name="checkout" [minWidth]="30" [width]="70" [canAutoResize]="true" [cellClass]="getCellClass">
 
             <ng-template let-column="column"  let-sort="sortFn" ngx-datatable-header-template>
-                <span class="mobile-hidden">{{'Check Out Time'}}</span>
+                <span class="mobile-hidden">{{'Mark Written'}}</span>
             </ng-template>
 
             <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
-                <span class="mobile-hidden ">{{row.checkout}}</span>
+                <span class="mobile-hidden ">{{row.fullMark}}</span>
             </ng-template>
         </ngx-datatable-column>
-        <ngx-datatable-column  name="remarks" [minWidth]="30" [width]="70" [canAutoResize]="true" [cellClass]="getCellClass">
+        <ngx-datatable-column  name="percentage" [minWidth]="30" [width]="70" [canAutoResize]="true" [cellClass]="getCellClass">
+
+                <ng-template let-column="column"  let-sort="sortFn" ngx-datatable-header-template>
+                    <span class="mobile-hidden">{{'Percentage'}}</span>
+                </ng-template>
+    
+                <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+                    <span class="mobile-hidden "> {{row.percentage}}</span>
+                </ng-template>
+            </ngx-datatable-column>
+        <ngx-datatable-column  name="result" [minWidth]="30" [width]="70" [canAutoResize]="true" [cellClass]="getCellClass">
 
             <ng-template let-column="column"  let-sort="sortFn" ngx-datatable-header-template>
-                <span class="mobile-hidden">{{'Remarks'}}</span>
+                <span class="mobile-hidden">{{'Result'}}</span>
             </ng-template>
 
             <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
-                <span class="mobile-hidden ">{{row.remarks}}</span>
+                <span class="mobile-hidden " *ngIf ="row.percentage >= 40">Pass</span>
+                <span class="mobile-hidden " *ngIf ="row.percentage < 40">Fail</span>
             </ng-template>
         </ngx-datatable-column>
         <div style="padding-left: 5px;">
