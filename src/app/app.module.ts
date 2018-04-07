@@ -42,7 +42,8 @@ import { MDBBootstrapModule } from '../assets/angular-bootstrap-md/src/free/inde
 import {MDBBootstrapModulePro} from '../assets/angular-bootstrap-md/src/pro/index';
 import { TestComponent } from './admin/test/test.component';
 import {TestService} from './service/test.service';
-import { StudentattendanceComponent } from './student/studentattendance/studentattendance.component'
+import { StudentattendanceComponent } from './student/studentattendance/studentattendance.component';
+import { StudenttestComponent } from './student/studenttest/studenttest.component'
 @NgModule({
   declarations: [
     AppComponent,
@@ -62,7 +63,8 @@ import { StudentattendanceComponent } from './student/studentattendance/studenta
     LogoutComponent,
     AttendanceComponent,
     TestComponent,
-    StudentattendanceComponent
+    StudentattendanceComponent,
+    StudenttestComponent
   ],
   imports: [
     BtcRouterModule,

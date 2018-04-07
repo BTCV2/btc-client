@@ -1,16 +1,17 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import {AttendanceService} from '../../service/attendance.service';
+import { Component, OnInit, ViewChild, Input } from '@angular/core';
+import {TestService} from '../../service/test.service';
 import{ActivatedRoute} from '@angular/router';
 import { DatePipe } from '@angular/common';
 @Component({
-  selector: 'app-studentattendance',
-  templateUrl: './studentattendance.component.html',
-  styleUrls: ['./studentattendance.component.scss'],
+  selector: 'app-studenttest',
+  templateUrl: './studenttest.component.html',
+  styleUrls: ['./studenttest.component.scss']
 })
-export class StudentattendanceComponent implements OnInit {
+export class StudenttestComponent implements OnInit {
 
-  constructor(private attendanceService:AttendanceService, private route: ActivatedRoute) { }
-  attendance: any;
+  constructor(private testService:TestService, private route: ActivatedRoute) { }
+  test: any;
+  @Input() percentage: any;
   @ViewChild('myTable') table: any;
   temp: any;
   timeout: any;
@@ -35,13 +36,13 @@ onDetailToggle(event) {
   ngOnInit() {
     this.route.params.subscribe(
       params => {
-        this.attendanceService.getAllAttendance(params['rollNumber']).subscribe(
+        this.testService.getTest(params['rollNumber']).subscribe(
           (res) => {
-            this.attendance = res;
+            this.test = res;
             this.temp = res;
           },
           (err) => {
-            console.log('ATTENDANCE ERROR',err);
+            console.log('TEST ERROR',err);
           },
           () => {
             console.log('COMPLETED')
@@ -49,7 +50,6 @@ onDetailToggle(event) {
         )
       }
     )
-    
   }
   onPage(event) {
     clearTimeout(this.timeout);
@@ -57,12 +57,11 @@ onDetailToggle(event) {
         console.log('paged!', event);
     }, 100);
 }
-
 updatePageSize(value) {
 
   if (!this.controls.filter) {
       // update the rows
-      this.attendance = [...this.temp];
+      this.test = [...this.temp];
       // Whenever the filter changes, always go back to the first page
       this.table.offset = 0;
   }
