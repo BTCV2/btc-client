@@ -1,0 +1,117 @@
+<!-- [selected]="selected"
+[selectionType]="'checkbox'"
+[selectAllRowsOnPage]="false"
+[displayCheck]="displayCheck" -->
+
+<ngx-datatable
+style="height: 64vh"
+#myTable
+class='material '
+[columnMode]="'force'"
+[headerHeight]="50"
+[footerHeight]="50"
+[scrollbarV]="true"
+[scrollbarH]="false"
+[rows]="attendance"
+[rowHeight]="45"
+[limit]="controls.pageSize"
+(page)="onPage($event)"
+>
+<ngx-datatable-row-detail [rowHeight]="100" #myDetailRow (toggle)="onDetailToggle($event)">
+        <ng-template let-row="row" ngx-datatable-row-detail-template>
+            <div>
+                <div><strong>Details</strong></div>
+                <div>{{row.type}}, {{row.checkin}} to {{row.ckeckout}} & 
+                    {{row.remarks}}
+                </div>
+            </div>
+        </ng-template>
+    </ngx-datatable-row-detail>
+    <!-- Column Templates -->
+
+    <ngx-datatable-column
+            [width]="40"
+            [maxWidth]="40"
+            [sortable]="false"
+            [canAutoResize]="false"
+            [draggable]="false"
+            [resizeable]="false"
+            [headerCheckboxable]="true"
+            [checkboxable]="true"
+            [cellClass]="getCellClass">
+    </ngx-datatable-column>
+<ngx-datatable-column [width]="30" [maxWidth]="30" [cellClass]="getCellClass">
+    <ng-template let-row="row" let-expanded="expanded" ngx-datatable-cell-template>
+        <a class="desktop-hidden fa"
+           [class.fa-plus]="!expanded"
+           [class.fa-minus]="expanded"
+           title="Expand/Collapse Row"
+           (click)="toggleExpandRow(row)">
+        </a>
+    </ng-template>
+</ngx-datatable-column>
+<ngx-datatable-column  name="date" [minWidth]="150" [width]="200" [canAutoResize]="true"
+                              [cellClass]="getCellClass">
+
+             <ng-template let-column="column" let-sort="sortFn" ngx-datatable-header-template>
+                 {{'Date'}}
+             </ng-template>
+
+            <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+                {{row.date}}
+            </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column  name="type" [minWidth]="30" [width]="70" [canAutoResize]="true" [cellClass]="getCellClass">
+
+            <ng-template let-column="column"  let-sort="sortFn" ngx-datatable-header-template>
+                <span class="mobile-hidden">{{'Type'}}</span>
+            </ng-template>
+
+            <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+                <span class="mobile-hidden ">{{row.type}}</span>
+            </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column  name="checkin" [minWidth]="30" [width]="70" [canAutoResize]="true" [cellClass]="getCellClass">
+
+            <ng-template let-column="column"  let-sort="sortFn" ngx-datatable-header-template>
+                <span class="mobile-hidden">{{'Check In Time'}}</span>
+            </ng-template>
+
+            <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+                <span class="mobile-hidden ">{{row.checkin}}</span>
+            </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column  name="checkout" [minWidth]="30" [width]="70" [canAutoResize]="true" [cellClass]="getCellClass">
+
+            <ng-template let-column="column"  let-sort="sortFn" ngx-datatable-header-template>
+                <span class="mobile-hidden">{{'Check Out Time'}}</span>
+            </ng-template>
+
+            <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+                <span class="mobile-hidden ">{{row.checkout}}</span>
+            </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column  name="remarks" [minWidth]="30" [width]="70" [canAutoResize]="true" [cellClass]="getCellClass">
+
+            <ng-template let-column="column"  let-sort="sortFn" ngx-datatable-header-template>
+                <span class="mobile-hidden">{{'Remarks'}}</span>
+            </ng-template>
+
+            <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+                <span class="mobile-hidden ">{{row.remarks}}</span>
+            </ng-template>
+        </ngx-datatable-column>
+        <div style="padding-left: 5px;">
+            <datatable-pager
+                    [pagerLeftArrowIcon]="'datatable-icon-left'"
+                    [pagerRightArrowIcon]="'datatable-icon-right'"
+                    [pagerPreviousIcon]="'datatable-icon-prev'"
+                    [pagerNextIcon]="'datatable-icon-skip'"
+                    [page]="curPage"
+                    [size]="pageSize"
+                    [count]="rowCount"
+                    [hidden]="!((rowCount / pageSize) > 1)"
+                    (change)="myTable.onFooterPage($event)">
+            </datatable-pager>
+        </div>
+</ngx-datatable>

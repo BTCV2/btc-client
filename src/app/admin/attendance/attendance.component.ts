@@ -59,7 +59,7 @@ export class AttendanceComponent implements OnInit {
   }
 
   getAttendance = () => {
-    this.service.getAttendance(this.attendance.value).subscribe(
+    this.service.getAttendance(this.attendance.value.rollNumber).subscribe(
       (res) => {
         const result = res[0];
         this.attendance.patchValue({
