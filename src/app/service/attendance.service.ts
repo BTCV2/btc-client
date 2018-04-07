@@ -24,8 +24,12 @@ export class AttendanceService {
     return this.http.put(`${this.constants.base_server_url}/attendance/${attendance.rollNumber}`, attendance, this.httpOptions);
   
    }
-   getAttendance = (attendance) => {
-    return this.http.get(`${this.constants.base_server_url}/attendance/${attendance.rollNumber}`, this.httpOptions);
+   getAttendance = (rollNumber) => {
+    return this.http.get(`${this.constants.base_server_url}/attendance/${rollNumber}`, this.httpOptions);
+  
+   }
+   getAllAttendance = (rollNumber) => {
+    return this.http.get(`${this.constants.base_server_url}/attendance/${rollNumber}/.search`, this.httpOptions);
   
    }
 }
