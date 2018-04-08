@@ -57,3 +57,9 @@
   border-radius: 3px;
   background-color: #333333;
 }
+@import url(http://weloveiconfonts.com/api/?family=typicons);
+[class*="typicons-"]:before {
+  font-family: 'Typicons', sans-serif;
+}
+
+

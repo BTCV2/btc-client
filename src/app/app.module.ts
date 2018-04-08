@@ -43,7 +43,8 @@ import {MDBBootstrapModulePro} from '../assets/angular-bootstrap-md/src/pro/inde
 import { TestComponent } from './admin/test/test.component';
 import {TestService} from './service/test.service';
 import { StudentattendanceComponent } from './student/studentattendance/studentattendance.component';
-import { StudenttestComponent } from './student/studenttest/studenttest.component'
+import { StudenttestComponent } from './student/studenttest/studenttest.component';
+import {ChatModule} from './chat/chat.module'
 @NgModule({
   declarations: [
     AppComponent,
@@ -83,6 +84,7 @@ import { StudenttestComponent } from './student/studenttest/studenttest.componen
     ScrollToModule.forRoot(),
     ImageCropperModule,
     FormsModule,
+    ChatModule,
     NgHttpLoaderModule// RoutesModule
   ],
   providers: [DemoService, AdminStudentService, AuthService, AdminGuard, StudentGuard, StudentService,

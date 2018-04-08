@@ -16,7 +16,9 @@ export class AppComponent {
   public matSpinner = MatSpinner;
   data: any;
   login: boolean;
+  chatToggle:boolean;
   constructor(public dialog: MatDialog) {
+    this.chatToggle = false;
     this.login = (localStorage.getItem('loggedIn')==='true'? true : false);
   }
   openLogin(): void {
