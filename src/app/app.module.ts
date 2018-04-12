@@ -44,7 +44,11 @@ import { TestComponent } from './admin/test/test.component';
 import {TestService} from './service/test.service';
 import { StudentattendanceComponent } from './student/studentattendance/studentattendance.component';
 import { StudenttestComponent } from './student/studenttest/studenttest.component';
-import {ChatModule} from './chat/chat.module'
+
+import { SyllabusComponent } from './admin/syllabus/syllabus.component';
+import{SyllabusService} from './service/syllabus.service';
+import {ChatModule} from "./chat/chat.module";
+import {ChatDialogComponent} from "./chat/chat-dialog/chat-dialog.component";
 @NgModule({
   declarations: [
     AppComponent,
@@ -65,7 +69,9 @@ import {ChatModule} from './chat/chat.module'
     AttendanceComponent,
     TestComponent,
     StudentattendanceComponent,
-    StudenttestComponent
+    StudenttestComponent,
+    SyllabusComponent,
+    ChatDialogComponent
   ],
   imports: [
     BtcRouterModule,
@@ -88,7 +94,7 @@ import {ChatModule} from './chat/chat.module'
     NgHttpLoaderModule// RoutesModule
   ],
   providers: [DemoService, AdminStudentService, AuthService, AdminGuard, StudentGuard, StudentService,
-    AttendanceService, TestService],
+    AttendanceService, TestService, SyllabusService],
   exports: [HttpClientModule, ReactiveFormsModule],
   bootstrap: [AppComponent],
   entryComponents: [
