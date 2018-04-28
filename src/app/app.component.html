@@ -1,7 +1,7 @@
 <div class="btc-header-container">
   <div class="container">
     <div class="btc-header">
-      <span class="btc-title">Balaji Tuition Center</span>
+      <a class="btc-title" href="#">Balaji Tuition Center</a>
       <span class="right">
             <span class="icon-space">
               <i class="small-icon material-icons">exit_to_app</i>
@@ -16,17 +16,16 @@
     </div>
   </div>
 </div>
-<div class="btc-menu-container">
+<div class="btc-menu-container" *ngIf="showMenu">
   <div class="container">
     <div class="btc-menu">
       <span class="btc-logo">LOGO</span>
       <span class="right">
-        <span class="log-in icon-space" href="#">About us</span>
-        <span class="contact-us icon-space" href="#">Courses offered</span>
+        <span class="log-in icon-space" href="'#about-us'">About us</span>
+        <span class="contact-us icon-space" [ngx-scroll-to]="'#courses'">Courses offered</span>
         <span class="log-in icon-space" [ngx-scroll-to]="'#whybtc'">Why BTC?</span>
-        <span class="contact-us icon-space" href="#ächivements">Achievements</span>
-        <span class="btn btn-elegant" (click)="openJoinNow()">JOIN NOW</span>
-        <!-- <span class="waves-effect join-now btn" (click)="openJoinNow()">JOIN NOW</span>-->
+        <span class="contact-us icon-space" [ngx-scroll-to]="'#ächivements'">Achievements</span>
+        <span class="waves-effect join-now btn" (click)="openJoinNow()">JOIN NOW</span>
       </span>
     </div>
   </div>
