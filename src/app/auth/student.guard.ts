@@ -6,14 +6,17 @@ import {
 import { Observable } from 'rxjs/Observable';
 import {AuthService} from "./auth.service";
 import 'rxjs/add/operator/switchMap';
+import {AppComponent} from "../app.component";
 @Injectable()
 export class StudentGuard implements CanActivate {
+
   rollNumber = '';
   constructor(private authService: AuthService, private router: Router, private route: ActivatedRoute){
   }
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
+    AppComponent.showMenu = false;
       if (localStorage.getItem('loggedIn')) {
         this.rollNumber = next.params.rollNumber;
         if (localStorage.getItem('role') === 'admin' || localStorage.getItem('userName') ===  this.rollNumber ) {

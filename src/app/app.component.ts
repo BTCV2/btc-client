@@ -5,6 +5,7 @@ import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 import {LoginComponent} from "./login/login.component";
 import {JoinnowComponent} from "./joinnow/joinnow.component";
 import {LogoutComponent} from "./logout/logout.component";
+import {Router} from "@angular/router";
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -17,9 +18,15 @@ export class AppComponent {
   data: any;
   login: boolean;
   chatToggle:boolean;
-  constructor(public dialog: MatDialog) {
+  public static showMenu: boolean;
+  constructor(public dialog: MatDialog, public router: Router) {
     this.chatToggle = false;
+    AppComponent.showMenu = true;
     this.login = (localStorage.getItem('loggedIn')==='true'? true : false);
+  }
+
+  get showMenu() {
+    return AppComponent.showMenu;
   }
   openLogin(): void {
     let dialogRef = this.dialog.open(LoginComponent, {
