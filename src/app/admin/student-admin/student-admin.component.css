@@ -2,14 +2,14 @@
 .mat-fab[alt="addStudent"]{
   width:100px !important;
   height: 100px !important;
-  background-image: url("../../../assets/icons/add-user.svg");
+  background-image: url("../../../assets/icons/user-plus.svg");
 }
 
 
 .mat-fab[alt="deleteStudent"]{
   width:100px !important;
   height: 100px !important;
-  background-image: url("../../../assets/icons/delete-user.svg");
+  background-image: url("../../../assets/icons/user-times.svg");
 }
 
 .mat-fab[alt="editStudent"]{
@@ -21,8 +21,27 @@
 .mat-fab[alt="viewStudent"]{
   width:100px !important;
   height: 100px !important;
-  background-image: url("../../../assets/icons/viewStudent.svg");
+  background-image: url("../../../assets/icons/user-circle.svg");
 }
 .clear{
   clear: both;
+}
+.icons{
+  text-align: center;
+  padding: 20px 15px;
+}
+.add-icon{
+  color: #94bb20;
+}
+.view-icon{
+  color: #61116a;
+}
+.delete-icon{
+  color: #d31245;
+}
+.edit-icon{
+  color: #f8971d;
+}
+.fa-6x{
+  font-size: 6rem;
 }

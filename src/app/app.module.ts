@@ -49,6 +49,7 @@ import { SyllabusComponent } from './admin/syllabus/syllabus.component';
 import{SyllabusService} from './service/syllabus.service';
 import {ChatModule} from "./chat/chat.module";
 import {ChatDialogComponent} from "./chat/chat-dialog/chat-dialog.component";
+import {SetUpAccountComponent} from "./set-up-account/set-up-account.component";
 @NgModule({
   declarations: [
     AppComponent,
@@ -71,7 +72,8 @@ import {ChatDialogComponent} from "./chat/chat-dialog/chat-dialog.component";
     StudentattendanceComponent,
     StudenttestComponent,
     SyllabusComponent,
-    ChatDialogComponent
+    ChatDialogComponent,
+    SetUpAccountComponent
   ],
   imports: [
     BtcRouterModule,
@@ -94,7 +96,7 @@ import {ChatDialogComponent} from "./chat/chat-dialog/chat-dialog.component";
     NgHttpLoaderModule// RoutesModule
   ],
   providers: [DemoService, AdminStudentService, AuthService, AdminGuard, StudentGuard, StudentService,
-    AttendanceService, TestService, SyllabusService],
+    AttendanceService, TestService, SyllabusService,SetUpAccountComponent],
   exports: [HttpClientModule, ReactiveFormsModule],
   bootstrap: [AppComponent],
   entryComponents: [

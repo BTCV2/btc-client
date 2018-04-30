@@ -8,6 +8,7 @@ import {AdminGuard} from "../auth/admin-guard.guard";
 import {StudentGuard} from "../auth/student.guard";
 import {UnauthorizedComponent} from "../unauthorized/unauthorized.component";
 import {HomeComponent} from "../home/home.component";
+import {SetUpAccountComponent} from "../set-up-account/set-up-account.component";
 /*import {HomeComponent} from "../home/home.component";*/
 const router: Routes = [
   {
@@ -28,6 +29,10 @@ const router: Routes = [
   {
     path: 'login',
     component: LoginComponent
+  },
+  {
+    path: 'setUpAccount',
+    component: SetUpAccountComponent
   },
   {
     path: 'unauthorized',
