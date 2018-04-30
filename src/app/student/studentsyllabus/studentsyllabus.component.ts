@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {LessonsService} from '../../service/lessons.service';
+import {FormBuilder, FormGroup} from "@angular/forms";
 
 @Component({
   selector: 'app-studentsyllabus',
@@ -14,18 +15,15 @@ export class StudentsyllabusComponent implements OnInit {
   temprows = [];
   marksdemo = [];
   role: string;
+  formGroup: FormGroup;
   editing= {};
-  columns = [
-    {prop: 'Name'},
-    {prop: 'Gender'},
-    {prop: 'Company', sortable: false}
-  ];
-  rows = [{Name: 'Goutham', Gender: 'Male', Company: 'HID'}, {Name: 'Goutham', Gender: 'Male', Company: 'HID'}]
-
-  constructor(private lessonservice: LessonsService) {
+  constructor(private lessonservice: LessonsService, private formBuilder: FormBuilder) {
   }
 
   ngOnInit() {
+    this.formGroup = this.formBuilder.group({
+      completeStatus : ['']
+    })
     this.role = localStorage.getItem('role');
     this.datarows = [];
     const lessonParams = {
@@ -34,7 +32,7 @@ export class StudentsyllabusComponent implements OnInit {
     };
     this.marks = [{prop: 'Lessons'}, {prop: 'One'}, {prop: 'Three'}, {prop: 'Five'}, {prop: 'Ten', sortable: false}];
     this.marksdemo = ['Lessons', 'One', 'Three', 'Five', 'Ten'];
-   /* this.lessonservice.getLessons(lessonParams).subscribe(data => {
+    this.lessonservice.getLessons(lessonParams).subscribe(data => {
       data.forEach((value, index) => {
         this.temprows.push({
           'Lessons': value.lessonName,
@@ -53,13 +51,15 @@ export class StudentsyllabusComponent implements OnInit {
         if ( this.role === 'admin' ) {
           this.marksdemo.push('edit');
         }
-      });*/
+      });
   }
   updateValue(event, cell, rowIndex) {
-    console.log('inline editing rowIndex', rowIndex)
+    console.log('inline editing rowIndex', rowIndex, cell)
     this.editing[rowIndex + '-' + cell] = false;
-    this.datarows[rowIndex][cell] = event.target.value;
+    console.log(' event.target.value',  event.target.textContent);
+    this.datarows[rowIndex][cell] = event.target.textContent;
     this.datarows = [...this.datarows];
+    console.log('this.datarows',this.datarows);
     console.log('UPDATED!', this.datarows[rowIndex][cell]);
   }
 }

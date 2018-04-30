@@ -22,27 +22,29 @@
     <ngx-datatable-column name={{mark}} *ngFor="let mark of marksdemo">
       <ng-template ngx-datatable-cell-template let-rowIndex="rowIndex" let-value="datarows" let-row="row">
             <span
-              *ngIf="!editing[rowIndex + '-Lessons']"
+              *ngIf="!editing[rowIndex + 'Lessons']"
               title="Double click to edit"
-              (dblclick)="editing[rowIndex + '-Lessons'] = true"
+              (dblclick)="editing[rowIndex + 'Lessons'] = true"
             >
               {{datarows[rowIndex][mark]}}
             </span>
-       <!-- <mat-form-field>
-          <mat-select autofocus
-                      (blur)="updateValue($event, 'lessons', rowIndex)"
-                      *ngIf="editing[rowIndex+ '-Lessons'] && mark !== 'edit' && mark !=='Lessons'"
-                      type="text"
-                      [value]="datarows[rowIndex][mark]">
-            <mat-option value="INCOMPLETE">
-              INCOMPLETE
-            </mat-option>
-            <mat-option value="COMPLETE">
-              COMPLETE
-            </mat-option>
-          </mat-select>
-        </mat-form-field>-->
-       <!-- <mat-form-field>
+        <form [formGroup]="formGroup">
+          <mat-form-field *ngIf="editing[rowIndex+ 'Lessons'] && mark !== 'edit' && mark !=='Lessons'">
+            <mat-select
+              (blur)="updateValue($event, mark , rowIndex)"
+              formControlName="completeStatus"
+              [value]="datarows[rowIndex][mark]">
+              <mat-option value="INCOMPLETE">
+                INCOMPLETE
+              </mat-option>
+              <mat-option value="COMPLETE">
+                COMPLETE
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </form>
+
+        <!--<mat-form-field>
           <mat-select
                       (blur)="updateValue($event, 'lessons', rowIndex)"
                       *ngIf="editing[rowIndex+ '-Lessons'] && mark !== 'edit' && mark !=='Lessons'"
@@ -56,6 +58,8 @@
             </mat-option>
           </mat-select>
         </mat-form-field>-->
+
+
         <select
           autofocus
           (blur)="updateValue($event, 'lessons', rowIndex)"
