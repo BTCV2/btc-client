@@ -138,7 +138,7 @@
 }
 
 .tile{
-  box-shadow: 0 2px 5px 0 white, 0 2px 10px 0 white !important;
+  box-shadow: 0 2px 5px 0 white, 0 2px 10px 0 white;
 }
 .trophy{
   -webkit-box-align: center;

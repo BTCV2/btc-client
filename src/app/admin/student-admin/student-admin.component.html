@@ -2,30 +2,17 @@
   <mat-card-content>
     <div>
       <div class="row">
-        <div matTooltip="Add Student!" class="col s6 m3">
-          <button mat-fab (click)="addStudent()" alt="addStudent">
-          </button>
+        <div matTooltip="Add Student!" class="col s6 m3 icons">
+          <i class="fa fa-user-plus fa-6x add-icon" (click)="addStudent()" aria-hidden="true"></i>
         </div>
-        <div matTooltip="View Student!" class="col s6 m3">
-
-          <button mat-fab (click)="viewStudent()" alt="viewStudent">
-
-          </button>
-
+        <div matTooltip="View Student!" class="col s6 m3 icons">
+          <i class="fa fa-user-circle-o fa-6x view-icon" (click)="viewStudent()" aria-hidden="true"></i>
         </div>
-        <div matTooltip="Delete Student!" class="col s6 m3">
-
-          <button mat-fab (click)="addStudent()" alt="deleteStudent">
-
-          </button>
-
+        <div matTooltip="Edit Student!" class=" col s6 m3 icons">
+          <i class="fa fa-user fa-6x edit-icon" (click)="editStudent()" aria-hidden="true"></i>
         </div>
-        <div matTooltip="Edit Student!" class=" col s6 m3">
-
-          <button mat-fab (click)="editStudent()" alt="editStudent">
-
-          </button>
-
+        <div matTooltip="Delete Student!" class="col s6 m3 icons">
+          <i class="fa fa-user-times fa-6x delete-icon" (click)="addStudent()" aria-hidden="true"></i>
         </div>
       </div>
     </div>

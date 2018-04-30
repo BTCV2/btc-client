@@ -29,7 +29,11 @@ export class LoginComponent implements OnInit {
     this.authService.login(this.user).subscribe(res => {
       this.loginStatus = true;
       this.onNoClick();
-       if (res.scope === 'admin' ) {
+      console.log("Login Response", res);
+      if(res.firstLogin === 'Y'){
+        this.router.navigate(['/setUpAccount']);
+      }
+       else if (res.scope === 'admin' ) {
           this.router.navigate(['/admin']);
       } else {
         const standard = res.username.slice(4, 6);
