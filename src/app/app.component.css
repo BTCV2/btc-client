@@ -19,10 +19,18 @@
 .icon-space{
   padding-right:30px;
 }
+.side-nav-space{
+  padding-bottom:20px;
+}
+.button-collapse{
+  float: right;
+  color: #4a4a4a;
+}
 
 .btc-title{
   font-family: sans-serif;
   font-size: 14px;
+  color: white;
 }
 .log-in {
   cursor: pointer;

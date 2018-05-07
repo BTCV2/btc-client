@@ -1,13 +1,11 @@
 <div>
   <div class="row">
     <div class="col s12 m8 l6">
-        <div class="card card-cascade wider">
-            <div class="view overlay hm-white-slight waves-light text-center" mdbRippleRadius>
-                <h2>Enter Syllabus</h2>
-            </div>
-        </div>
-        <div class="card-body text-center">
-            <form [formGroup]="syllabusForm" class="row">
+      <div>
+        <div class="title">Syllabus</div>
+      </div>
+        <div class="card card-image mb-3">
+            <form [formGroup]="syllabusForm" class="row syllabus-content">
                 <mat-form-field class="col s12 m5">
                   <mat-select  formControlName="standard" placeholder="Select Class">
                   <mat-option value="9">9</mat-option>
@@ -30,80 +28,77 @@
                   <div class="col s6 m2">
                       <button class="btn btn-cyan waves-light" mdbRippleRadius (click)="getSyllabus()">Get</button>
                   </div>
-                  <mat-form-field class="col s12 m4">
+                  <mat-form-field class="col s12 m5">
                       <input matInput formControlName="lessonNumber" placeholder="Lesson Number">
                       <mat-error>This Field is required.</mat-error>
                     </mat-form-field>
-                    
+
                     <mat-form-field class="col s12 m5">
                         <input matInput formControlName="lessonName" placeholder="Lesson Name">
                         <mat-error>This Field is required.</mat-error>
                       </mat-form-field>
-                      <div class="col s6 m3">
+                      <div class="col s6 m2">
                           <button class="btn btn-cyan waves-light" mdbRippleRadius (click)="addLessonToChip()">Add </button>
                       </div>
                       <!-- <div class="col s6 m2">
                           <button class="btn btn-cyan waves-light" mdbRippleRadius (click)="addLessonToChip()">Save</button>
                       </div> -->
-                    
             </form>
         </div>
         <div *ngIf="chips.length > 0">
             <h6 *ngFor="let chip of chips" class="badge green col l6 m6 s6 chip-margin">{{chip.lessonNumber}}: {{chip.lessonName}} <i class="close fa fa-times pull-right" (click)="removeChip(chip)"></i> </h6>
           <div class="pull-right">
               <button class="btn btn-cyan waves-light" mdbRippleRadius (click)="updateLessons()">Save Lesson</button>
-                    
+
           </div>
           </div>
     </div>
-    
+
     <div class="col s12 m4 l6">
-            <div class="card card-cascade wider">
-                    <div class="view overlay hm-white-slight waves-light text-center" mdbRippleRadius>
-                        <h2>Enter Marks</h2>
-                    </div>
-                </div>
-            <form [formGroup]="marksForm" class="row">
-                    <mat-form-field class="col s12 m6">
-                            <mat-select  formControlName="standard" placeholder="Select Class">
-                            <mat-option value="9">9</mat-option>
-                            <mat-option value="10">10</mat-option>
-                            <mat-option value="11">11</mat-option>
-                            <mat-option value="12">12</mat-option>
-                          </mat-select>
-                            <mat-error>This Field is required.</mat-error>
-                          </mat-form-field>
-                          <mat-form-field class="col s12 m6">
-                              <mat-select  formControlName="subject" placeholder="Select Subject">
-                              <mat-option value="maths">maths</mat-option>
-                              <mat-option value="physics">physics</mat-option>
-                              <mat-option value="chemistry">chemistry</mat-option>
-                              <mat-option value="social">social</mat-option>
-                              <mat-option value="science">science</mat-option>
-                            </mat-select>
-                              <mat-error>This Field is required.</mat-error>
-                            </mat-form-field>
-                            <mat-form-field class="col s12 m6">
-                                    <input matInput formControlName="marks" placeholder="Marks">
-                                    
-                            </mat-form-field>
-                            <div class="col s6 m3">
-                                    <button class="btn btn-cyan waves-light" mdbRippleRadius (click)="getMarks()">GET </button>
-                                </div>
-                            <div class="col s6 m3">
-                                    <button class="btn btn-cyan waves-light pull-right" mdbRippleRadius (click)="addMarkToChip()">Add </button>
-                                </div>
-            </form>
+      <div>
+        <div class="title">Marks</div>
+      </div>
+      <div class="card card-image mb-3">
+        <form [formGroup]="marksForm" class="row syllabus-content">
+          <mat-form-field class="col s12 m5">
+            <mat-select  formControlName="standard" placeholder="Select Class">
+              <mat-option value="9">9</mat-option>
+              <mat-option value="10">10</mat-option>
+              <mat-option value="11">11</mat-option>
+              <mat-option value="12">12</mat-option>
+            </mat-select>
+            <mat-error>This Field is required.</mat-error>
+          </mat-form-field>
+          <mat-form-field class="col s12 m5">
+            <mat-select  formControlName="subject" placeholder="Select Subject">
+              <mat-option value="maths">maths</mat-option>
+              <mat-option value="physics">physics</mat-option>
+              <mat-option value="chemistry">chemistry</mat-option>
+              <mat-option value="social">social</mat-option>
+              <mat-option value="science">science</mat-option>
+            </mat-select>
+            <mat-error>This Field is required.</mat-error>
+          </mat-form-field>
+          <div class="col s6 m2">
+            <button class="btn btn-cyan waves-light" mdbRippleRadius (click)="getMarks()">GET </button>
+          </div>
+          <mat-form-field class="col s12 m5">
+            <input matInput formControlName="marks" placeholder="Marks">
+          </mat-form-field>
+          <div class="col s6 m2 offset-m5">
+            <button class="btn btn-cyan waves-light" mdbRippleRadius (click)="addMarkToChip()">Add </button>
+          </div>
+        </form>
             <div *ngIf="markchips.length > 0">
                     <h6 *ngFor="let chip of markchips" class="badge green col l6 m6 s6 chip-margin">{{chip}} <i class="close fa fa-times pull-right" (click)="removeMarkChip(chip)"></i> </h6>
-                 
-                 
+
+
                     <div class="pull-right">
                       <button class="btn btn-cyan waves-light" mdbRippleRadius (click)="updateMarks()">Save Marks</button>
-                            
+
                   </div>
                   </div>
     </div>
   </div>
   </div>
- 
+

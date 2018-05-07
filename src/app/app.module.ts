@@ -50,6 +50,8 @@ import{SyllabusService} from './service/syllabus.service';
 import {ChatModule} from "./chat/chat.module";
 import {ChatDialogComponent} from "./chat/chat-dialog/chat-dialog.component";
 import {SetUpAccountComponent} from "./set-up-account/set-up-account.component";
+import {SetPasswordService} from "./service/set-password.service";
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -96,7 +98,7 @@ import {SetUpAccountComponent} from "./set-up-account/set-up-account.component";
     NgHttpLoaderModule// RoutesModule
   ],
   providers: [DemoService, AdminStudentService, AuthService, AdminGuard, StudentGuard, StudentService,
-    AttendanceService, TestService, SyllabusService,SetUpAccountComponent],
+    AttendanceService, TestService, SyllabusService,SetUpAccountComponent,SetPasswordService],
   exports: [HttpClientModule, ReactiveFormsModule],
   bootstrap: [AppComponent],
   entryComponents: [

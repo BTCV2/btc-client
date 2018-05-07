@@ -4,6 +4,7 @@ import {User} from "./user";
 import {AuthService} from "../auth/auth.service";
 import {Router, ActivatedRoute} from '@angular/router';
 import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material";
+import {AppComponent} from "../app.component";
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -29,13 +30,14 @@ export class LoginComponent implements OnInit {
     this.authService.login(this.user).subscribe(res => {
       this.loginStatus = true;
       this.onNoClick();
-      console.log("Login Response", res);
       if(res.firstLogin === 'Y'){
-        this.router.navigate(['/setUpAccount']);
+        this.router.navigate(['/setUpAccount', res.username, res.scope]);
       }
        else if (res.scope === 'admin' ) {
+          AppComponent.login = true;
           this.router.navigate(['/admin']);
       } else {
+        AppComponent.login = true;
         const standard = res.username.slice(4, 6);
         this.router.navigate(['/student', standard , res.username]);
       }

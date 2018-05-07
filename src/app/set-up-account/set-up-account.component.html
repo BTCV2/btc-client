@@ -10,21 +10,24 @@
       <div>
         <h4 class="dark-grey-text mb-5">Please set your password</h4>
       </div>
-
-      <!--Body-->
-      <div class="md-form">
-        <input type="text" id="Form-email1" class="form-control">
-        <label for="Form-email1">New Password</label>
+      <form [formGroup]="passwordForm" (submit) = "savePassword()" class="row modal-box">
+        <div class="row">
+        <mat-form-field class="col s12 m4">
+          <input matInput type="password" placeholder="New Password" formControlName="newPassword" required>
+          <mat-error>This field is required</mat-error>
+        </mat-form-field>
+        <mat-form-field class="col s12 m4">
+          <input matInput type="password" placeholder="Confirm Password" formControlName="confirmPassword" required>
+          <mat-error>This field is required</mat-error>
+        </mat-form-field >
+        <!--<div class="col s12 m6">
+          <input matInput type="password" placeholder="Confirm Password" formControlName="confirmPassword" required>
+        </div>-->
+        </div>
+      <div class="text-center">
+        <button type="button" class="btn btn-outline-save waves-effect" (click)="savePassword()">Save & Logout</button>
       </div>
-
-      <div class="md-form pb-3">
-        <input type="password" id="Form-pass1" class="form-control">
-        <label for="Form-pass1">Confirm password</label>
-      </div>
-
-      <div class="text-center mb-3">
-        <button type="button" class="btn btn-outline-save waves-effect">Save & Logout</button>
-      </div>
+      </form>
     </div>
     <!--Footer-->
   </div>
