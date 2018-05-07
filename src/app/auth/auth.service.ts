@@ -46,7 +46,9 @@ export class AuthService {
   public logout() {
     this.loggedIn = false;
     this.role = '';
+    localStorage.setItem('loggedIn','false');
     localStorage.clear();
     this.userName = '';
+
   }
 }

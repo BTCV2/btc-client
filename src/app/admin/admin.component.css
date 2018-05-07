@@ -10,7 +10,8 @@
 .mat-tab-label-container{
   margin-bottom: 20px !important;
 }
-.label{
-  font-size: 16px !important;
-  color: white !important;
+.card-padd{
+  padding-left: 50px !important;
+  padding-right: 50px !important;
 }
+

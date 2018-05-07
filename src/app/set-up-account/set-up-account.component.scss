@@ -19,3 +19,8 @@
   color: #59698d !important;
   background-color: transparent;
 }
+
+input[type=password], input[type=password]:focus {
+  border-bottom: none !important;
+  box-shadow: 0 0 0 0 #4285F4 !important;
+}

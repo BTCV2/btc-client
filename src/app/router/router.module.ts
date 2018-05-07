@@ -31,7 +31,7 @@ const router: Routes = [
     component: LoginComponent
   },
   {
-    path: 'setUpAccount',
+    path: 'setUpAccount/:username/:scope',
     component: SetUpAccountComponent
   },
   {

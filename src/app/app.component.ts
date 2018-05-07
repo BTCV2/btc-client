@@ -6,6 +6,7 @@ import {LoginComponent} from "./login/login.component";
 import {JoinnowComponent} from "./joinnow/joinnow.component";
 import {LogoutComponent} from "./logout/logout.component";
 import {Router} from "@angular/router";
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -16,17 +17,29 @@ export class AppComponent {
   title = 'app';
   public matSpinner = MatSpinner;
   data: any;
-  login: boolean;
+  public static login: boolean;
   chatToggle:boolean;
   public static showMenu: boolean;
   constructor(public dialog: MatDialog, public router: Router) {
     this.chatToggle = false;
     AppComponent.showMenu = true;
-    this.login = (localStorage.getItem('loggedIn')==='true'? true : false);
+    if(!AppComponent.login){
+      AppComponent.login = (localStorage.getItem('loggedIn')==='true'? true : false);
+    }
+
+  }
+  ngOnInit(){
+    if(!AppComponent.login){
+      AppComponent.login = (localStorage.getItem('loggedIn')==='true'? true : false);
+    }
   }
 
   get showMenu() {
     return AppComponent.showMenu;
+  }
+
+  get showLogin() {
+    return AppComponent.login
   }
   openLogin(): void {
     let dialogRef = this.dialog.open(LoginComponent, {
@@ -35,7 +48,7 @@ export class AppComponent {
     dialogRef.componentInstance.loginStatus = false;
     dialogRef.afterClosed().subscribe(result => {
      // this.login = dialogRef.componentInstance.loginStatus;
-      this.login = (localStorage.getItem('loggedIn')==='true'? true : false);
+      AppComponent.login = (localStorage.getItem('loggedIn')==='true'? true : false);
     });
   }
 
@@ -45,7 +58,7 @@ export class AppComponent {
     });
   /*  dialogRef.componentInstance.loginStatus = false;*/
     dialogRef.afterClosed().subscribe(result => {
-      this.login = false;
+      AppComponent.login = false;
      /* this.login = dialogRef.componentInstance.loginStatus;*/
     });
   }

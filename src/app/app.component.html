@@ -5,8 +5,8 @@
       <span class="right">
             <span class="icon-space">
               <i class="small-icon material-icons">exit_to_app</i>
-              <a *ngIf="!login"class="log-in" (click)="openLogin()" >Log in</a>
-              <a *ngIf="login" class="log-in" (click)="openLogout()" >Log out</a>
+              <a *ngIf="!showLogin"class="log-in" (click)="openLogin()" >Log in</a>
+              <a *ngIf="showLogin" class="log-in" (click)="openLogout()" >Log out</a>
             </span>
             <span>
               <i class="small-icon material-icons">phone</i>
@@ -19,20 +19,27 @@
 
 <div class="btc-menu-container" *ngIf="showMenu">
   <div class="container">
-    <div class="btc-menu">
-      <span class="btc-logo">LOGO</span>
-      <span class="right">
+    <div class="btc-menu nav-wrapper">
+      <a href="#!" class="btc-logo">LOGO</a>
+      <a href="#" data-activates="mobile-demo" class="button-collapse hide-on-large-only"><i class="material-icons fa-3x">menu</i></a>
+      <span class="right hide-on-med-and-down">
         <span class="log-in icon-space" href="'#about-us'">About us</span>
         <span class="contact-us icon-space" [ngx-scroll-to]="'#courses'">Courses offered</span>
         <span class="log-in icon-space" [ngx-scroll-to]="'#whybtc'">Why BTC?</span>
         <span class="contact-us icon-space" [ngx-scroll-to]="'#ächivements'">Achievements</span>
         <span class="waves-effect join-now btn" (click)="openJoinNow()">JOIN NOW</span>
       </span>
+      <span class="side-nav" id="mobile-demo" style="background: #243a51; padding: 20px 20px;">
+        <div class="log-in side-nav-space" href="'#about-us'">About us</div>
+        <div class="contact-us side-nav-space" [ngx-scroll-to]="'#courses'">Courses offered</div>
+        <div class="log-in side-nav-space" [ngx-scroll-to]="'#whybtc'">Why BTC?</div>
+        <div class="contact-us side-nav-space" [ngx-scroll-to]="'#ächivements'">Achievements</div>
+        <div class="waves-effect join-now btn" (click)="openJoinNow()">JOIN NOW</div>
+      </span>
     </div>
   </div>
 </div>
-<!--<div class="navbar-fixed">
-  <nav>
+  <!--<nav>
     <div class="nav-wrapper">
       <a href="#!" class="brand-logo">Logo</a>
       <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
@@ -49,13 +56,13 @@
         <li><a href="mobile.html">Mobile</a></li>
       </ul>
     </div>
-  </nav>
-</div>-->
+  </nav>-->
+
 
 <router-outlet></router-outlet>
 <!--<router-outlet></router-outlet>-->
 
-<app-chat-dialog></app-chat-dialog>
+<!--<app-chat-dialog></app-chat-dialog>-->
 
 
 <!--
