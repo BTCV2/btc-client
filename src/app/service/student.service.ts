@@ -7,11 +7,12 @@ import {AuthService} from "../auth/auth.service";
 export class StudentService {
   constants: Constants;
   httpOptions: any;
-  constructor(private http: HttpClient, private authService: AuthService) { 
+  constructor(private http: HttpClient, private authService: AuthService) {
     this.constants = new Constants();
   this.httpOptions = {
     headers: new HttpHeaders({
-      'Authorization':'Bearer '+ localStorage.getItem('token')
+      'Authorization':'Bearer '+ localStorage.getItem('token'),
+      'Content-Type':'application/json'
     })
   };
   }

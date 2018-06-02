@@ -22,13 +22,15 @@
     <ngx-datatable-column name={{mark}} *ngFor="let mark of marksdemo">
       <ng-template ngx-datatable-cell-template let-rowIndex="rowIndex" let-value="datarows" let-row="row">
             <span
-              *ngIf="!editing[rowIndex + 'Lessons']"
+              *ngIf="!editing[rowIndex + 'Lessons'] && mark !=='Lessons'"
               title="Double click to edit"
-              (dblclick)="editing[rowIndex + 'Lessons'] = true"
-            >
+              (dblclick)="editing[rowIndex + 'Lessons'] = true">
               {{datarows[rowIndex][mark]}}
             </span>
         <form [formGroup]="formGroup">
+          <span *ngIf=" mark ==='Lessons'">
+            {{datarows[rowIndex][mark]}}
+          </span>
           <mat-form-field *ngIf="editing[rowIndex+ 'Lessons'] && mark !== 'edit' && mark !=='Lessons'">
             <mat-select
               (blur)="updateValue($event, mark , rowIndex)"
@@ -60,7 +62,7 @@
         </mat-form-field>-->
 
 
-        <select
+        <!--<select
           autofocus
           (blur)="updateValue($event, 'lessons', rowIndex)"
           *ngIf="editing[rowIndex+ '-Lessons'] && mark !== 'edit' && mark !=='Lessons'"
@@ -73,7 +75,7 @@
           <option value="COMPLETE">
             COMPLETE
           </option>
-        </select>
+        </select>-->
         <button mat-raised-button color="accent" *ngIf="mark === 'edit'" (click)="updateValue($event, mark, rowIndex)"> SAVE</button>
       </ng-template>
     </ngx-datatable-column>

@@ -5,6 +5,7 @@ import {AuthService} from "../auth/auth.service";
 import {Router, ActivatedRoute} from '@angular/router';
 import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material";
 import {AppComponent} from "../app.component";
+import {HttpHeaders} from "@angular/common/http";
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -13,10 +14,12 @@ import {AppComponent} from "../app.component";
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   user: User;
+  httpOptions: any;
   invalidCredentials: boolean;
   loginStatus:boolean;
   constructor(private fb: FormBuilder, private authService: AuthService, private router: Router, private route: ActivatedRoute, public dialogRef: MatDialogRef<LoginComponent>,
-              @Inject(MAT_DIALOG_DATA) public data: any) { }
+              @Inject(MAT_DIALOG_DATA) public data: any) {
+  }
 
   ngOnInit() {
     this.invalidCredentials = false;

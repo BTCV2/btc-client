@@ -63,12 +63,12 @@ export class EditStudentComponent implements OnInit {
       }
     });
   }
-  
+
   fileChangeEvent(event: any): void {
       this.imageChangedEvent = event;
   }
   imageCropped(image: string) {
-  
+
       this.croppedImage = image;
       this.image = image;
       console.log('IMAGE',this.image);
@@ -106,7 +106,8 @@ export class EditStudentComponent implements OnInit {
       () =>{
       }
     );
-    
+}
+  loadImageFailed () {
+    console.log('IMAGE FAILED TO LOAD')
   }
-
 }

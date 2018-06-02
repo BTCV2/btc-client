@@ -13,7 +13,8 @@ export class AdminStudentService {
     this.constants = new Constants();
     this.httpOptions = {
       headers: new HttpHeaders({
-        'Authorization':'Bearer '+ localStorage.getItem('token')
+        'Authorization':'Bearer '+ localStorage.getItem('token'),
+        'Content-Type':'application/json'
       })
     };
   }
@@ -28,6 +29,6 @@ export class AdminStudentService {
   }
   updateStudent(student: any){
     return this.http.put(this.constants.base_server_url + '/student/'+student.rollNumber+'/update', student, this.httpOptions);
-  
+
   }
 }

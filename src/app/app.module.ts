@@ -27,7 +27,7 @@ import { UnauthorizedComponent } from './unauthorized/unauthorized.component';
 import {FancyImageUploaderModule} from 'ng2-fancy-image-uploader';
 import {ImageUploadModule} from 'angular2-image-upload';
 import { HomeComponent } from './home/home.component';
-import {ImageCropperComponent} from 'ng2-img-cropper';
+//import {ImageCropperComponent} from 'ng2-img-cropper';
 import { ScrollToModule } from '@nicky-lenaers/ngx-scroll-to';
 import { NgxImgModule } from 'ngx-img';
 import {NgxCarouselModule} from 'ngx-carousel';
@@ -65,7 +65,7 @@ import {SetPasswordService} from "./service/set-password.service";
     LoginComponent,
     UnauthorizedComponent,
     HomeComponent,
-    ImageCropperComponent,
+    //ImageCropperComponent,
     JoinnowComponent,
     StudentprofileComponent,
     LogoutComponent,
