@@ -96,7 +96,7 @@ export class AddStudentComponent implements OnInit {
   //   this.image = image;
   // }
   onReset(){
-    
+
   }
   createStudentHorizontal() {
     console.log('dmeo',this.studentInfoFromGroup.value);
@@ -119,12 +119,12 @@ export class AddStudentComponent implements OnInit {
       }
     });
   }
-  
+
   fileChangeEvent(event: any): void {
       this.imageChangedEvent = event;
   }
   imageCropped(image: string) {
-  
+
       this.croppedImage = image;
       this.image = image;
       console.log('IMAGE',this.image);
@@ -134,5 +134,8 @@ export class AddStudentComponent implements OnInit {
   }
   imageLoadFailed () {
     console.log('Load failed');
+  }
+  loadImageFailed () {
+    console.log('IMAGE FAILED TO LOAD')
   }
 }

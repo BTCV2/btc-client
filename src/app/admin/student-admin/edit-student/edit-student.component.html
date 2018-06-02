@@ -6,7 +6,7 @@
         </mat-form-field>
         <button class="btn btn-light-green" type="submit">Search</button>
   </form>
-  
+
 </div>
 <div>
   <mat-horizontal-stepper [linear]="true">
@@ -16,7 +16,7 @@
           <ng-template matStepLabel>Fill out Student's Details</ng-template>
           <div>
             <div>
-  
+
               <mat-form-field class="col s12 m6">
                 <input matInput placeholder="First Name" formControlName="firstName" required>
                 <mat-error>This field is required</mat-error>
@@ -26,12 +26,13 @@
                 <mat-error>This field is required</mat-error>
               </mat-form-field >
               <mat-form-field class="col s12 m6">
-                <mat-select placeholder="standard" formControlName="standard" (change)="getRollNumber()" [(ngModel)]="standards">
+                <!--(change)="getRollNumber()"-->
+                <mat-select placeholder="standard" formControlName="standard"  [(ngModel)]="standards">
                   <mat-option value="9">9</mat-option>
                   <mat-option value="10">10</mat-option>
                   <mat-option value="11">11</mat-option>
                   <mat-option value="12">12</mat-option>
-  
+
                 </mat-select>
                 <mat-error>This field is required</mat-error>
               </mat-form-field>
@@ -39,20 +40,20 @@
                 <input matInput placeholder="Roll Number " formControlName="rollNumber" [(ngModel)]="rollnumber">
                 <mat-error>This field is required</mat-error>
               </mat-form-field>
-  
+
               <mat-form-field class="col s12 m6">
                 <input matInput placeholder="School Name" formControlName="school" required>
                 <mat-error>This field is required</mat-error>
               </mat-form-field>
             </div>
           </div>
-  
+
           <div class="pull-right">
             <button  matStepperNext  class="btn btn-default">Next</button>
           </div>
         </div>
       </form>
-  
+
     </mat-step>
     <mat-step [stepControl]="parentInfoFromGroup">
       <form [formGroup]="parentInfoFromGroup" class="row">
@@ -78,20 +79,20 @@
           </div>
         </div>
       </form>
-  
+
     </mat-step>
     <mat-step [stepControl]="imageInfoFromGroup">
       <form [formGroup]="imageInfoFromGroup">
         <div>
-  
+
           <ng-template matStepLabel>
             Image uploader
           </ng-template>
           <input type="file" (change)="fileChangeEvent($event)" />
-  
+
   <div>
   <image-cropper
-  
+
     [imageChangedEvent]="imageChangedEvent"
     [maintainAspectRatio]="true"
     [aspectRatio]="4 / 3"
@@ -108,11 +109,11 @@
           <div class="pull-right">
             <button  matStepperPrevious class="btn btn-info">Back</button>
             <button  class="btn btn-success" type="submit" (click)="updateStudent()">Save</button>
-            <button type="button" (click)="linearVerticalStepper.reset()" class="btn btn-warning">Reset</button>
+            <button type="button" (click)="studentInfoFromGroup.reset()" class="btn btn-warning">Reset</button>
           </div>
         </div>
       </form>
-  
+
     </mat-step>
   </mat-horizontal-stepper>
 </div>

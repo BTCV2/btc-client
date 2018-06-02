@@ -12,7 +12,8 @@ export class SyllabusService {
     this.constants = new Constants();
     this.httpOptions = {
       headers: new HttpHeaders({
-        'Authorization':'Bearer '+ localStorage.getItem('token')
+        'Authorization':'Bearer '+ localStorage.getItem('token'),
+        'Content-Type':'application/json'
       })
     }
    }
@@ -23,7 +24,7 @@ export class SyllabusService {
 
    updateLessons = (standard,subject,payload) =>{
     return this.http.put(`${this.constants.base_server_url}/${standard}/${subject}/lesson`, payload,this.httpOptions)
-    
+
    }
 
    getMarks = (standard,subject)  => {
@@ -32,7 +33,7 @@ export class SyllabusService {
 
    updateMarks = (standard,subject,payload) =>{
     return this.http.put(`${this.constants.base_server_url}/${standard}/${subject}/lesson`, payload,this.httpOptions)
-    
+
    }
 
 

@@ -21,14 +21,14 @@
       "styles": [
         "styles.css",
         "../node_modules/cropperjs/dist/cropper.css",
+        "../src/assets/materialize-css/sass/materialize.scss",
         "../src/assets/angular-bootstrap-md/scss/mdb.scss",
-        "../src/assets/angular-bootstrap-md/scss/mdb-free.scss",
-        "../src/assets/materialize-css/sass/materialize.scss"
+        "../src/assets/angular-bootstrap-md/scss/mdb-free.scss"
       ],
       "scripts": [
+        "../src/assets/materialize-css/dist/js/materialize.js",
         "../node_modules/jquery/dist/jquery.js",
-        "../node_modules/cropperjs/dist/cropper.js",
-        "../src/assets/materialize-css/dist/js/materialize.js"
+        "../node_modules/cropperjs/dist/cropper.js"
       ],
       "environmentSource": "environments/environment.ts",
       "environments": {

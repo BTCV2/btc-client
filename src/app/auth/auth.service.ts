@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Constants} from "../constants";
 import {Observable} from "rxjs/Observable";
 import * as jwtDecoder from 'jwt-decode';
@@ -9,13 +9,19 @@ export class AuthService {
   private role: string;
   private userName: string;
   private token: string;
+  httpOptions:any;
   constants: Constants;
   constructor(private http: HttpClient) {
     this.constants = new Constants();
     this.loggedIn = false;
+    this.httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json'
+      })
+    };
   }
   login(user: any) {
-     return this.http.post(`${this.constants.base_server_url}/login`, user)
+     return this.http.post(`${this.constants.base_server_url}/login`, user, this.httpOptions)
        .map( (res: any) => {
          this.token = res.id_token;
           const decoder = jwtDecoder(res.id_token);

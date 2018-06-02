@@ -27,9 +27,10 @@
                     <mat-error>This field is required</mat-error>
                 </mat-form-field>
                 <mdb-time-picker class="col s12 m6" matInput [twelvehour]="true" [darktheme]="false" [placeholder]="'Check-in time'"
-                [showClock]="false" [ngModel]="lightClock" formControlName = "checkin" ></mdb-time-picker>
+                [showClock]="false"  formControlName = "checkin" ></mdb-time-picker>
                 <mdb-time-picker class="col s12 m6" matInput [twelvehour]="true" [darktheme]="false" [placeholder]="'Check-out time'"
-                 [showClock]="false" [ngModel]="lightClock" formControlName = "checkout" ></mdb-time-picker>
+                 [showClock]="false"  formControlName = "checkout" ></mdb-time-picker>
+          <!--[ngModel]="lightClock"-->
                 <div class="pull-right">
                   <button type="button" class="btn btn-info btn-rounded waves-light" mdbRippleRadius (click)="getAttendance()">Get Attendance</button>
                  <button type="button" class="btn btn-default btn-rounded waves-light" mdbRippleRadius (click)="checkIn()">Check-In</button>

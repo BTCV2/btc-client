@@ -27,6 +27,7 @@ export class TestComponent implements OnInit {
         this.snackBar.open('Test has been Saved', 'Done', {
           duration: 2000,
         });
+        this.testForm.reset();
       },
       (err) => {
         console.log(err)

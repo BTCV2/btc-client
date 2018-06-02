@@ -12,7 +12,8 @@ export class LessonsService {
     this.constants = new Constants();
     this.httpOptions = {
       headers: new HttpHeaders({
-        'Authorization':'Bearer '+ localStorage.getItem('token')
+        'Authorization':'Bearer '+ localStorage.getItem('token'),
+        'Content-Type':'application/json'
       })
     };
   }
