@@ -59,7 +59,9 @@ export class AddStudentComponent implements OnInit {
         this._formBuilder.group({
           parentName: ['', Validators.required],
           phoneNumber: ['', Validators.maxLength(11)],
-          email: ['', Validators.email]
+          email: ['', Validators.email],
+          feesMode: ['', Validators.required],
+          lastFeesPaid: ['', Validators.required]
         }),
         this._formBuilder.group({
           email: ['']
@@ -78,7 +80,6 @@ export class AddStudentComponent implements OnInit {
       const demo = formGroup[i];
        for(let key in demo) {
           result[key] = demo[key];
-          console.log("KETYS", key);
       }
     }
     const student: IStudent = result;
@@ -99,10 +100,8 @@ export class AddStudentComponent implements OnInit {
 
   }
   createStudentHorizontal() {
-    console.log('dmeo',this.studentInfoFromGroup.value);
     const StudentObject = Object.assign(this.studentInfoFromGroup.value, this.parentInfoFromGroup.value);
     StudentObject.image = this.image;
-    console.log('StudentObject',StudentObject)
     this.service.addStudent(StudentObject).subscribe((res) => {
       if (res) {
         this.studentInfoFromGroup.reset();

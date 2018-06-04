@@ -36,7 +36,9 @@ export class EditStudentComponent implements OnInit {
     this.parentInfoFromGroup = this._formBuilder.group({
       parentName: ['', Validators.required],
       phoneNumber: ['', Validators.maxLength(11)],
-      email: ['', Validators.email]
+      email: ['', Validators.email],
+      feesMode: ['', Validators.required],
+      lastFeesPaid: ['', Validators.required]
     });
     this.imageInfoFromGroup = this._formBuilder.group({
       image: ['',Validators.nullValidator]
@@ -94,7 +96,9 @@ export class EditStudentComponent implements OnInit {
         this.parentInfoFromGroup.patchValue({
           parentName: response.parentName,
           phoneNumber: response.phoneNumber,
-          email: response.email
+          email: response.email,
+          feesMode: response.feesMode,
+          lastFeesPaid: response.lastFeesPaid
         })
         this.croppedImage = response.image;
         this.imageInfoFromGroup.patchValue({
