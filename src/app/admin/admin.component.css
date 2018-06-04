@@ -14,4 +14,6 @@
   padding-left: 50px !important;
   padding-right: 50px !important;
 }
-
+.admin-container{
+  min-height: 721px !important;
+}

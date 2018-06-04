@@ -4,26 +4,26 @@
     <i class="material-icons modal-icon">close</i>
   </a>
   <form [formGroup]="loginForm" (submit) = "login()" class="row modal-box">
-   
-        <mat-form-field class="col s12 m6 offset-s1 offset-m3 offset-l3">
+
+        <mat-form-field class="col s12 m6 offset-m3 offset-l3">
           <input id="user_name" type="text"  formControlName="userName" matInput placeholder="User Name" >
           <mat-error>This field is required</mat-error>
         </mat-form-field>
-        <mat-form-field class="col s12 m6 offset-s1 offset-m3 offset-l3">
+        <mat-form-field class="col s12 m6 offset-m3 offset-l3">
           <input id="password" type="password"  formControlName="password" matInput placeholder="Password">
           <mat-error>This field is required</mat-error>
         </mat-form-field>
         <!-- <div class="sign-in">
           <a class="btn-sign btn" data-target="modal1" (click)="login()">SIGN IN</a>
         </div> -->
-        <div class="col s12 m6 offset-s1 offset-m3 offset-l3 text-center">
+        <div class="col s12 m6 offset-m3 offset-l3 text-center">
           <div class="text-center">
             <button type="button" class="btn btn-default btn-block btn-rounded z-depth-1" data-target="modal1" (click)="login()">Sign in</button>
         </div>
           <div *ngIf="invalidCredentials">
             <span>Invalid UserName & Password</span>
           </div>
-        </div>   
+        </div>
   </form>
 </div>
 

@@ -1,13 +1,17 @@
 .btc-container-1{
-  background-image: url("../../assets/images/giphy-downsized.gif");
+  background-image: url("../../assets/images/1635-1.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
   /*background-image: linear-gradient(to bottom, #e0e0e0, rgba(238, 238, 238, 0));*/
   /*background-image: linear-gradient(to bottom, #1C2331, #b0bec5);*/
-  padding-bottom: 40px;
+  padding-bottom: 5rem;
 }
 .btc-container-2{
  /* background-image: linear-gradient(to bottom, #e0e0e0, rgba(238, 238, 238, 0));*/
  /* background-image: linear-gradient(to bottom, rgba(224, 224, 224, 0.2), rgba(238, 238, 238, 0));*/
-  background-image: linear-gradient(to bottom, #1C2331, #929fba );
+  /*background-image: linear-gradient(to bottom, #1C2331, #929fba );*/
+  /*background-image: linear-gradient(60deg, #fff8e1 0%, #f0f4c3 100%);*/
+  background-image: linear-gradient(15deg, #f0f4c3 0%, #80d0c7 50%, #13547a 100%);
 }
 
 .btc-lorem{
@@ -51,7 +55,7 @@
 .btc-about-us{
   padding-top: 48px;
   margin-bottom: 45px;
-  font-family: sans-serif;
+  font-family: ProximaNova;
   font-size: 36px;
   line-height: 1.33;
   text-align: center;
@@ -60,7 +64,7 @@
 .btc-lorem-content-2 {
   width: 620px;
   height: 150px;
-  font-family: sans-serif;
+  font-family: ProximaNova;
   font-size: 16px;
   line-height: 1.5;
   text-align: left;
@@ -70,7 +74,7 @@
 .btc-lorem-content-3 {
   width: 193px;
   height: 24px;
-  font-family: sans-serif;
+  font-family: ProximaNova;
   font-size: 16px;
   font-weight: 500;
   line-height: 1.5;
@@ -79,7 +83,7 @@
 }
 .consectetur-adipisci {
   height: 24px;
-  font-family: sans-serif;
+  font-family: ProximaNova;
   font-size: 16px;
   line-height: 1.5;
   text-align: left;
@@ -125,8 +129,7 @@
   line-height: 1.33;
   text-align: center;
   padding-top: 56px;
-  /*color: rgb(77, 77, 77);*/
-  color: white;
+  color: rgb(77, 77, 77);
 }
 
 .course-cards{
@@ -298,8 +301,10 @@
   color: #333333;
 }
 .btc-container-achieve{
-  background-color: rgba(216, 216, 216, 0.1);
+  /*background-color: rgba(216, 216, 216, 0.1);*/
   /*background-color: #1C2331 !important;*/
+  background-image: linear-gradient(15deg, #13547a 0%, #80d0c7 50%, #f0f4c3 100%);
+  /*background-image: linear-gradient(to top, #d5dee7 0%, #ffafbd 0%, #f0f4c3 100%);*/
 }
 .btc-container-why{
 
@@ -415,4 +420,13 @@ footer div.social-media-links a:hover svg circle {
   font-size: 12px;
   color: white;
   font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+.card-radius{
+  border-radius: 20px !important;
+}
+.contact-us-content{
+  display: inline-block;
+  padding-left: 40px;
+  justify-content: center;
+  align-self: center;
 }
