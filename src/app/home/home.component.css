@@ -62,8 +62,8 @@
   color: #4d4d4d;
 }
 .btc-lorem-content-2 {
-  width: 620px;
-  height: 150px;
+  /*width: 620px;*/
+ /* height: 150px;*/
   font-family: ProximaNova;
   font-size: 16px;
   line-height: 1.5;
@@ -321,7 +321,7 @@
   background-color: #ffffff;
   outline: none;
   cursor: pointer;
-  padding: 10px 109px;
+  padding: 10px 11%;
   transition: 0.3s;
   font-size: 12px;
   border-radius: 3px;
