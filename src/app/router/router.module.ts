@@ -46,9 +46,8 @@ const router: Routes = [
 ]
 @NgModule({
   imports: [
-    CommonModule,
     RouterModule.forRoot(
-      router
+      router, {useHash: true}
     )
   ],
   declarations: [],
