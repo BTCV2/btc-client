@@ -122,11 +122,11 @@
 
 <div class="btc-container-why section scrollspy" id="whybtc">
   <div class="container">
-    <div class="Why-BTC">Why BTC?</div>
+    <div class="Why-BTC row">Why BTC?</div>
     <div class="tab">
-      <button class="tablinks" (click)="openCity($event, 'Incident')">Incident Management</button>
-      <button class="tablinks"  (click)="openCity($event, 'Service')">Service Catalog</button>
-      <button class="tablinks"  (click)="openCity($event, 'Asset')">Asset Management</button>
+      <button class=" tablinks col col-lg-4 col-xs-4" (click)="openCity($event, 'Incident')">Incident Management</button>
+      <button class=" tablinks col-lg-4 col-xs-4"  (click)="openCity($event, 'Service')">Service Catalog</button>
+      <button class=" tablinks col-lg-4 col-xs-4"  (click)="openCity($event, 'Asset')">Asset Management</button>
     </div>
     <div id="Incident" class="tabcontent">
       <img src="assets/images/asset-management.png">
@@ -161,9 +161,11 @@
     </ngx-carousel>
   </div>
 </div>
-
-<div class="btc-container-why section scrollspy" id="contactus" style="display: flex"><iframe src="https://www.google.com/maps/embed?pb=!1m20!1m8!1m3!1d253.6462354456573!2d80.18525703250978!3d13.081481335908308!3m2!1i1024!2i768!4f13.1!4m9!3e0!4m3!3m2!1d13.0814667!2d80.1852724!4m3!3m2!1d13.0814677!2d80.1852727!5e0!3m2!1sen!2sin!4v1528095453639" width="800" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
-  <div class="contact-us-content">
+<!--style="display: flex"-->
+<div class="btc-container-why section scrollspy row" id="contactus" >
+  <iframe class="col col-lg-6 col-sm-12 hide-on-small-only" src="https://www.google.com/maps/embed?pb=!1m20!1m8!1m3!1d253.6462354456573!2d80.18525703250978!3d13.081481335908308!3m2!1i1024!2i768!4f13.1!4m9!3e0!4m3!3m2!1d13.0814667!2d80.1852724!4m3!3m2!1d13.0814677!2d80.1852727!5e0!3m2!1sen!2sin!4v1528095453639" width="60%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+  <iframe class="col col-lg-6 col-sm-12 hide-on-med-and-up" src="https://www.google.com/maps/embed?pb=!1m20!1m8!1m3!1d253.6462354456573!2d80.18525703250978!3d13.081481335908308!3m2!1i1024!2i768!4f13.1!4m9!3e0!4m3!3m2!1d13.0814667!2d80.1852724!4m3!3m2!1d13.0814677!2d80.1852727!5e0!3m2!1sen!2sin!4v1528095453639"  height="450"  width="100%" frameborder="0" style="border:0" allowfullscreen></iframe>
+  <div class="contact-us-content col col-lg-6 col-sm-12">
     <div class="cell-sm-6 cell-lg-12">
       <h6 class="text-bold">Contact us</h6>
       <div class="text-subline"></div>
