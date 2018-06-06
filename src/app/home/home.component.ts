@@ -1,5 +1,8 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {NgxCarousel} from "ngx-carousel";
+import {JoinnowComponent} from "../joinnow/joinnow.component";
+import {MatDialog} from "@angular/material";
+import {AppComponent} from "../app.component";
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -19,9 +22,10 @@ export class HomeComponent implements OnInit {
   public carouselTileTwo: NgxCarousel;
   private evt: any;
   private cityName: any;
-  constructor() { }
+  constructor(public dialog: MatDialog) { }
 
   ngOnInit() {
+    AppComponent.showMenu = true;
     this.imgags = [
       'assets/bg.jpg',
       'assets/car.png',
@@ -140,5 +144,11 @@ export class HomeComponent implements OnInit {
     }
     document.getElementById('Incident').style.display = "block";
     /*this.evt.currentTarget.className += " active";*/
+  }
+
+  openJoinNow(): void {
+    let dialogRef = this.dialog.open(JoinnowComponent, {
+      width: '700px'
+    });
   }
 }

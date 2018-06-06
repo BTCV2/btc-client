@@ -74,3 +74,10 @@
   min-height: 100vh !important;
 }
 
+.custom-fixed-nav-bar{
+  background-color: white;
+  position: fixed;
+  width: 100%;
+  top: -20px;
+}
+

@@ -51,6 +51,7 @@ import {ChatModule} from "./chat/chat.module";
 import {ChatDialogComponent} from "./chat/chat-dialog/chat-dialog.component";
 import {SetUpAccountComponent} from "./set-up-account/set-up-account.component";
 import {SetPasswordService} from "./service/set-password.service";
+import {WINDOW_PROVIDERS} from "./service/window.service";
 
 @NgModule({
   declarations: [
@@ -98,7 +99,7 @@ import {SetPasswordService} from "./service/set-password.service";
     NgHttpLoaderModule// RoutesModule
   ],
   providers: [DemoService, AdminStudentService, AuthService, AdminGuard, StudentGuard, StudentService,
-    AttendanceService, TestService, SyllabusService,SetUpAccountComponent,SetPasswordService],
+    AttendanceService, TestService, SyllabusService,SetUpAccountComponent,SetPasswordService, WINDOW_PROVIDERS ],
   exports: [HttpClientModule, ReactiveFormsModule],
   bootstrap: [AppComponent],
   entryComponents: [

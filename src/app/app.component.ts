@@ -6,6 +6,9 @@ import {LoginComponent} from "./login/login.component";
 import {JoinnowComponent} from "./joinnow/joinnow.component";
 import {LogoutComponent} from "./logout/logout.component";
 import {Router} from "@angular/router";
+import { HostListener} from "@angular/core";
+import {DOCUMENT} from "@angular/common";
+import {WINDOW} from "./service/window.service";
 
 @Component({
   selector: 'app-root',
@@ -15,12 +18,14 @@ import {Router} from "@angular/router";
 export class AppComponent {
   public loaderComponent = LoaderComponent;
   title = 'app';
+  fixedNavbar: boolean;
   public matSpinner = MatSpinner;
   data: any;
   public static login: boolean;
   chatToggle:boolean;
   public static showMenu: boolean;
-  constructor(public dialog: MatDialog, public router: Router) {
+  constructor(public dialog: MatDialog, public router: Router, @Inject(DOCUMENT) private document: Document,
+              @Inject(WINDOW) private window: Window) {
     this.chatToggle = false;
     AppComponent.showMenu = true;
     if(!AppComponent.login){
@@ -28,7 +33,8 @@ export class AppComponent {
     }
 
   }
-  ngOnInit(){
+  ngOnInit() {
+    this.fixedNavbar = false;
     if(!AppComponent.login){
       AppComponent.login = (localStorage.getItem('loggedIn')==='true'? true : false);
     }
@@ -67,5 +73,16 @@ export class AppComponent {
     let dialogRef = this.dialog.open(JoinnowComponent, {
       width: '700px'
     });
+  }
+  @HostListener("window:scroll", [])
+  onWindowScroll() {
+    let number = this.window.pageYOffset || this.document.documentElement.scrollTop || this.document.body.scrollTop || 0;
+    console.log('SCROLLING', number);
+    if(number > 40 ) {
+      this.fixedNavbar = true;
+    }
+    else{
+      this.fixedNavbar = false;
+    }
   }
 }
