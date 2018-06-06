@@ -17,7 +17,8 @@
   </div>
 </div>
 
-<div class="btc-menu-container" *ngIf="showMenu">
+<div class="btc-menu-container" *ngIf="showMenu"  [ngClass]="{'custom-fixed-nav-bar':fixedNavbar}">
+  <!--<mdb-navbar SideClass ="fixed-top scrolling-navbar">-->
   <div class="container">
     <div class="btc-menu nav-wrapper">
       <a href="#!" class="btc-logo">BTC</a>
@@ -42,7 +43,7 @@
       </mdb-sidenav>
     </div>
   </div>
-
+  <!--</mdb-navbar>-->
 
   <!-- SideNav slide-out button -->
 <!--
