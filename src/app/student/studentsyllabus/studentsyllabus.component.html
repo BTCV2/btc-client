@@ -1,4 +1,16 @@
-<div *ngIf="role==='student'">
+<form [formGroup] = "subjectForm" class="row">
+  <mat-form-field class="col s6 m4">
+    <mat-select  formControlName="subject" placeholder="Select Subject" (change)="toggleSyllabusTable()">
+      <mat-option value="physics">physics</mat-option>
+      <mat-option value="maths">maths</mat-option>
+      <mat-option value="chemistry">chemistry</mat-option>
+      <mat-option value="science">science</mat-option>
+      <mat-option value="social">social</mat-option>
+    </mat-select>
+    <mat-error>This Field is required.</mat-error>
+  </mat-form-field>
+</form>
+<div *ngIf="(role==='student') && showSyllabusTable">
   <ngx-datatable
     [rows]="datarows"
     class="material"
@@ -10,7 +22,7 @@
     [columns]="marks">
   </ngx-datatable>
 </div>
-<div *ngIf="role==='admin'">
+<div *ngIf="role==='admin'  && showSyllabusTable ">
   <ngx-datatable
     [rows]="datarows"
     class="material"
