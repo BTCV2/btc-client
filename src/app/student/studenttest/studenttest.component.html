@@ -20,10 +20,13 @@ class='material '
 <ngx-datatable-row-detail [rowHeight]="100" #myDetailRow (toggle)="onDetailToggle($event)">
         <ng-template let-row="row" ngx-datatable-row-detail-template>
             <div>
-                <div><strong>Details</strong></div>
+                <!--<div><strong>Details</strong></div>
                 <div>{{row.subject}}, {{row.mark}}  {{row.fullMark}}
-
-                </div>
+                </div>-->
+              <div><strong>Details</strong></div>
+              <div><span class="label">Subject :</span> {{row.subject}}</div>
+              <div><span class="label">Marks Scored / Marks Written :</span> {{row.mark}} out of {{row.fullMark}}</div>
+              <div><span class="label">Percentage :</span> {{row.percentage}}</div>
             </div>
         </ng-template>
     </ngx-datatable-row-detail>

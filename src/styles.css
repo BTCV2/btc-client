@@ -148,3 +148,11 @@
   padding: 20px;
   background-color: white;
 }
+.capitalize{
+  text-transform: capitalize;
+}
+.label{
+  font-family: Roboto;
+  font-weight: 400;
+  color: #555555;
+}

@@ -5,28 +5,30 @@
     <div class="row pull-right">
        <a (click)="toggleChat()" *ngIf="isClosed"> <i class="material-icons  col s2 m1 l1">add_circle</i></a>
        <a (click)="toggleChat()" *ngIf="!isClosed"> <i class="material-icons  col s2 m1 l1">indeterminate_check_box</i></a>
-    </div>  
+    </div>
   </div>
 </div>
 <div class="chat-body" [ngStyle]="{'display':isClosed ? 'none' : 'inline'}">
     <ng-container *ngFor="let message of messages | async">
-    
+
       <div class="message" [ngClass]="{ 'from': message.sentBy === 'bot',
                                         'to':   message.sentBy === 'user' }">
         {{ message.content }}
       </div>
-    
-    </ng-container> 
+
+    </ng-container>
 </div>
-<div class="chat-footer" [ngStyle]="{'display':isClosed ? 'none' : 'inline'}">
+<div class="row chat-footer" style="margin: 0px" > <!--[ngStyle]="{'display':isClosed ? 'none' : 'inline'}">
     <!-- <mat-form-field> -->
-        <input [(ngModel)]="formValue" (keyup.enter)="sendMessage()" type="text" matInput>
+  <div class="col s10 l10 m10" id="chat">
+    <input [(ngModel)]="formValue" (keyup.enter)="sendMessage()" type="text" matInput placeholder="Ping me">
+  </div>
       <!-- </mat-form-field> -->
       <a (click)="sendMessage()"><i class="material-icons pull-right col s1 m1 l1 send-button">send</i></a>
       <!-- <div class="md-form col s12 l12 m12">
           <input type="test" id="materialFormLoginEmailEx" class="form-control">
           <a (click)="sendMessage()"><i class="material-icons  pull-right">send</i></a>
       </div> -->
-      
+
   </div>
 </div>

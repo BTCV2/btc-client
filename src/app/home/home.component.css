@@ -199,7 +199,7 @@
   margin-bottom: 0rem;
 }*/
 .marks{
-  height: 48px;
+  /*height: 48px;*/
   font-family: ProximaNova;
   font-size: 24px;
   font-weight: 600;
@@ -212,7 +212,7 @@
 }
 
 .subject-scored {
-  height: 17px;
+  /*height: 17px;*/
   font-family: ProximaNova;
   font-size: 14px;
   font-weight: normal;
@@ -225,7 +225,7 @@
 }
 
 .achieverName{
-  height: 22px;
+  /*height: 22px;*/
   font-family: ProximaNova;
   font-size: 18px;
   font-weight: normal;
@@ -237,7 +237,7 @@
   color: rgb(51, 51, 51);
 }
 .year{
-  height: 17px;
+ /* height: 17px;*/
   font-family: ProximaNova;
   font-size: 14px;
   font-weight: normal;
@@ -251,26 +251,32 @@
 
 .leftRs {
   position: absolute;
-  margin: auto;
-  top: 0;
+  padding: 0px !important;
+  color: #333333;
+  top: 90px;
   bottom: 0;
   width: 50px;
   height: 50px;
   box-shadow: 1px 2px 10px -1px rgba(0, 0, 0, .3);
   border-radius: 999px;
-  left: 0;
+  left: -15px;
 }
 
 .rightRs {
   position: absolute;
-  margin: auto;
-  top: 0;
+  color: #333333;
+  padding: 0px !important;
+  top: 90px;
   bottom: 0;
   width: 50px;
   height: 50px;
   box-shadow: 1px 2px 10px -1px rgba(0, 0, 0, .3);
   border-radius: 999px;
-  right: 0;
+  right: -15px;
+}
+.angle{
+  font-size: 2rem;
+  color: gray;
 }
 
 .achivements{
