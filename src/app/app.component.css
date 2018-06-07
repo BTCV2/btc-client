@@ -79,5 +79,6 @@
   position: fixed;
   width: 100%;
   top: -20px;
+  z-index: 1 !important;
 }
 
