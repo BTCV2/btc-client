@@ -18,11 +18,18 @@ export class LessonsService {
     };
   }
   getLessons(lessonParams): Observable<Lesson[]> {
-    return this.http.get(`${this.constants.base_server_url}/${lessonParams.standard}/${lessonParams.subject}/lesson`, this.httpOptions)
+    return this.http.get(`${this.constants.base_server_url}/${lessonParams.standard}/${lessonParams.subject}/lesson`
+      , this.httpOptions)
       .map((res: any) => {
           return res.map(item => {
             return new Lesson(item.lessonNumber, item.lessonName);
           });
         });
+  }
+
+  getMarks(lessonParams) {
+    return this.http.get(`${this.constants.base_server_url}/${lessonParams.standard}/${lessonParams.subject}/mark`
+      , this.httpOptions);
+
   }
 }

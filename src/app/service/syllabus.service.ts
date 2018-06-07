@@ -32,7 +32,12 @@ export class SyllabusService {
    }
 
    updateMarks = (standard,subject,payload) =>{
-    return this.http.put(`${this.constants.base_server_url}/${standard}/${subject}/lesson`, payload,this.httpOptions)
+    return this.http.put(`${this.constants.base_server_url}/${standard}/${subject}/mark`, payload,this.httpOptions)
+
+   }
+
+   getStudentSyllabus = (standard, subject, rollNumber) => {
+     return this.http.get(`${this.constants.base_server_url}/${standard}/${rollNumber}/${subject}/syllabus`, this.httpOptions)
 
    }
 
