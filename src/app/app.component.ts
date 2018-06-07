@@ -77,7 +77,6 @@ export class AppComponent {
   @HostListener("window:scroll", [])
   onWindowScroll() {
     let number = this.window.pageYOffset || this.document.documentElement.scrollTop || this.document.body.scrollTop || 0;
-    console.log('SCROLLING', number);
     if(number > 40 ) {
       this.fixedNavbar = true;
     }
