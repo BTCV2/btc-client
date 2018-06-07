@@ -113,6 +113,7 @@ export class StudentsyllabusComponent implements OnInit {
       subject: this.subjectForm.value.subject
     };
     this.lessonservice.getLessons(lessonParams).subscribe(data => {
+        this.temprows = [];
       if( this.studentCompletedSyllabus.length < 1){
       data.forEach((value, index) => {
         let syllabusTemp:any = {};

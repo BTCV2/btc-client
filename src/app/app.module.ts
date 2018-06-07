@@ -27,6 +27,7 @@ import { UnauthorizedComponent } from './unauthorized/unauthorized.component';
 import {FancyImageUploaderModule} from 'ng2-fancy-image-uploader';
 import {ImageUploadModule} from 'angular2-image-upload';
 import { HomeComponent } from './home/home.component';
+import { LoadingBarHttpClientModule } from '@ngx-loading-bar/http-client';
 //import {ImageCropperComponent} from 'ng2-img-cropper';
 import { ScrollToModule } from '@nicky-lenaers/ngx-scroll-to';
 import { NgxImgModule } from 'ngx-img';
@@ -96,6 +97,7 @@ import {WINDOW_PROVIDERS} from "./service/window.service";
     ImageCropperModule,
     FormsModule,
     ChatModule,
+    LoadingBarHttpClientModule,
     NgHttpLoaderModule// RoutesModule
   ],
   providers: [DemoService, AdminStudentService, AuthService, AdminGuard, StudentGuard, StudentService,
