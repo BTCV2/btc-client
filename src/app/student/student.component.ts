@@ -6,10 +6,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./student.component.css']
 })
 export class StudentComponent implements OnInit {
-
+  testChartData = [];
+  attendanceChartData= [];
   constructor() { }
 
   ngOnInit() {
+  }
+  getTestChartData = (event) => {
+    this.testChartData = event;
+    console.log('testChartData',this.testChartData)
+  }
+
+  getAttendanceChartData = (event) => {
+    this.attendanceChartData = event;
   }
 
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import {Component, EventEmitter, OnInit, Output, ViewChild} from '@angular/core';
 import {AttendanceService} from '../../service/attendance.service';
 import{ActivatedRoute} from '@angular/router';
 import { DatePipe } from '@angular/common';
@@ -12,6 +12,7 @@ export class StudentattendanceComponent implements OnInit {
   constructor(private attendanceService:AttendanceService, private route: ActivatedRoute) { }
   attendance: any;
   @ViewChild('myTable') table: any;
+  @Output() attendanceChartData = new EventEmitter<any>()
   temp: any;
   timeout: any;
   pageSize: number = 10;
@@ -39,6 +40,7 @@ onDetailToggle(event) {
           (res) => {
             this.attendance = res;
             this.temp = res;
+            this.attendanceChartData.emit(res);
           },
           (err) => {
             console.log('ATTENDANCE ERROR',err);
@@ -49,7 +51,7 @@ onDetailToggle(event) {
         )
       }
     )
-    
+
   }
   onPage(event) {
     clearTimeout(this.timeout);

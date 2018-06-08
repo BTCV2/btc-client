@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, Input } from '@angular/core';
+import {Component, OnInit, ViewChild, Input, EventEmitter, Output} from '@angular/core';
 import {TestService} from '../../service/test.service';
 import{ActivatedRoute} from '@angular/router';
 import { DatePipe } from '@angular/common';
@@ -13,6 +13,7 @@ export class StudenttestComponent implements OnInit {
   test: any;
   @Input() percentage: any;
   @ViewChild('myTable') table: any;
+  @Output() testChartData = new EventEmitter<any>();
   temp: any;
   timeout: any;
   pageSize: number = 10;
@@ -40,6 +41,7 @@ onDetailToggle(event) {
           (res) => {
             this.test = res;
             this.temp = res;
+            this.testChartData.emit(res);
           },
           (err) => {
             console.log('TEST ERROR',err);
