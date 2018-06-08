@@ -11,7 +11,7 @@
             </span>
             <span>
               <i class="small-icon material-icons">phone</i>
-              <a class="contact-us">Contact us</a>
+              <a class="contact-us" [ngx-scroll-to]="'#contactus'">Contact us</a>
             </span>
           </span>
     </div>
@@ -23,7 +23,7 @@
   <div class="container">
     <div class="btc-menu nav-wrapper">
       <a href="#!" class="btc-logo">BTC</a>
-      <a href="#" data-activates="mobile-demo" (click)="sidenav.toggle()" class="button-collapse hide-on-large-only"><i class="material-icons fa-3x">menu</i></a>
+      <a  data-activates="mobile-demo" (click)="sidenav.toggle()" class="button-collapse hide-on-large-only"><i class="material-icons fa-3x">menu</i></a>
       <span class="right hide-on-med-and-down">
         <span class="log-in icon-space" href="'#about-us'">About us</span>
         <span class="contact-us icon-space" [ngx-scroll-to]="'#courses'">Courses offered</span>
@@ -34,7 +34,7 @@
       </span>
       <mdb-sidenav #sidenav class="fixed" [fixed]="true" hide-on-large-only>
       <span style="padding: 20px 20px;">
-        <div class="log-in side-nav-space" href="'#about-us'">About us</div>
+        <div class="log-in side-nav-space" [ngx-scroll-to]="'#about-us'">About us</div>
         <div class="contact-us side-nav-space" [ngx-scroll-to]="'#courses'">Courses offered</div>
         <div class="log-in side-nav-space" [ngx-scroll-to]="'#whybtc'">Why BTC?</div>
         <div class="contact-us side-nav-space" [ngx-scroll-to]="'#ächivements'">Achievements</div>
@@ -44,43 +44,9 @@
       </mdb-sidenav>
     </div>
   </div>
-  <!--</mdb-navbar>-->
-
-  <!-- SideNav slide-out button -->
-<!--
-  <a (click)="sidenav.toggle()" class="btn btn-primary p-3 button-collapse"><i class="fa fa-bars"></i></a>
--->
-  <!--/. SideNav slide-out button -->
-
-  <!-- Sidebar navigation -->
-<!--
-  <mdb-sidenav #sidenav class="fixed" [fixed]="true">
--->
-
-<!--
-  </mdb-sidenav>
--->
-  <!--/. Sidebar navigation -->
 
 </div>
-  <!--<nav>
-    <div class="nav-wrapper">
-      <a href="#!" class="brand-logo">Logo</a>
-      <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
-      <ul class="right hide-on-med-and-down">
-        <li><a href="sass.html">Sass</a></li>
-        <li><a href="badges.html">Components</a></li>
-        <li><a href="collapsible.html">Javascript</a></li>
-        <li><a href="mobile.html">Mobile</a></li>
-      </ul>
-      <ul class="side-nav" id="mobile-demo">
-        <li><a href="sass.html">Sass</a></li>
-        <li><a href="badges.html">Components</a></li>
-        <li><a href="collapsible.html">Javascript</a></li>
-        <li><a href="mobile.html">Mobile</a></li>
-      </ul>
-    </div>
-  </nav>-->
+
 
 
 <router-outlet></router-outlet>
@@ -88,81 +54,3 @@
 
 <app-chat-dialog *ngIf="showMenu"></app-chat-dialog>
 
-
-<!--
-<div style="height: 100vh;">
-
-  <mat-toolbar color="primary">
-
-    <span>Responsive Navigation</span>
-
-    <span class="example-spacer"></span>
-
-    <div fxShow="true" fxHide.lt-md="true" fxLayoutAlign="end end">
-
-      &lt;!&ndash; The following menu items will be hidden on both SM and XS screen sizes &ndash;&gt;
-
-      <a routerLink="/admin" routerLinkActive="active" mat-button>Admin</a>
-
-      <a href="#" mat-button>Menu Item 2</a>
-
-      <a href="#" mat-button>Menu Item 3</a>
-
-      <a href="#" mat-button>Menu Item 4</a>
-
-      <a href="#" mat-button>Menu Item 5</a>
-
-      <a href="#" mat-button>Menu Item 6</a>
-
-    </div>
-
-    <div fxShow="true" fxHide.gt-sm="true">
-
-      <a (click)="sidenav.open()">Show Side Menu</a>
-
-    </div>
-
-  </mat-toolbar>
-
-  <mat-sidenav-container fxFlexFill color="primary">
-
-    <mat-sidenav #sidenav fxLayout="column">
-
-      <div fxLayout="column">
-
-        <a (click)="sidenav.close()" href="#" mat-button>Close</a>
-
-        <a routerLink="/admin" routerLinkActive="active" mat-button>Admin</a>
-
-        <a href="#" mat-button>Menu Item 2</a>
-
-        <a href="#" mat-button>Menu Item 3</a>
-
-        <a href="#" mat-button>Menu Item 4</a>
-
-        <a href="#" mat-button>Menu Item 5</a>
-
-        <a href="#" mat-button>Menu Item 6</a>
-
-      </div>
-
-    </mat-sidenav>
-
-    <mat-sidenav-content fxFlexFill>
-      <div class="container">
-        <div>
-
-            <router-outlet></router-outlet>
-          <spinner [entryComponent]="loaderComponent"  [debounceDelay]="200"></spinner>
-        </div>
-
-      </div>
-
-    </mat-sidenav-content>
-
-  </mat-sidenav-container>
-
-</div>
-
-
--->
