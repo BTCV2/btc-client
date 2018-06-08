@@ -29,6 +29,7 @@ import {ImageUploadModule} from 'angular2-image-upload';
 import { HomeComponent } from './home/home.component';
 import { LoadingBarHttpClientModule } from '@ngx-loading-bar/http-client';
 //import {ImageCropperComponent} from 'ng2-img-cropper';
+import {NgxChartsModule} from '@swimlane/ngx-charts';
 import { ScrollToModule } from '@nicky-lenaers/ngx-scroll-to';
 import { NgxImgModule } from 'ngx-img';
 import {NgxCarouselModule} from 'ngx-carousel';
@@ -53,7 +54,13 @@ import {ChatDialogComponent} from "./chat/chat-dialog/chat-dialog.component";
 import {SetUpAccountComponent} from "./set-up-account/set-up-account.component";
 import {SetPasswordService} from "./service/set-password.service";
 import {WINDOW_PROVIDERS} from "./service/window.service";
-
+import { StudentChartsComponent } from './student/student-charts/student-charts.component';
+import * as FusionCharts from 'fusioncharts';
+import * as Charts from 'fusioncharts/fusioncharts.charts';
+import * as FintTheme from 'fusioncharts/themes/fusioncharts.theme.fint';
+import { FusionChartsModule } from 'angular4-fusioncharts';
+import { StudentAttendanceChartComponent } from './student/student-attendance-chart/student-attendance-chart.component';
+FusionChartsModule.fcRoot(FusionCharts, Charts, FintTheme);
 @NgModule({
   declarations: [
     AppComponent,
@@ -77,7 +84,9 @@ import {WINDOW_PROVIDERS} from "./service/window.service";
     StudenttestComponent,
     SyllabusComponent,
     ChatDialogComponent,
-    SetUpAccountComponent
+    SetUpAccountComponent,
+    StudentChartsComponent,
+    StudentAttendanceChartComponent
   ],
   imports: [
     BtcRouterModule,
@@ -98,6 +107,8 @@ import {WINDOW_PROVIDERS} from "./service/window.service";
     FormsModule,
     ChatModule,
     LoadingBarHttpClientModule,
+    NgxChartsModule,
+    FusionChartsModule,
     NgHttpLoaderModule// RoutesModule
   ],
   providers: [DemoService, AdminStudentService, AuthService, AdminGuard, StudentGuard, StudentService,
