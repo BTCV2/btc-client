@@ -11,15 +11,21 @@
   </mat-form-field>
 </form>
 <div *ngIf="(role==='student') && showSyllabusTable">
-  <ngx-datatable
+  <ngx-datatable *ngIf="loading"
     [rows]="datarows"
     class="material"
+    #myTable
     [columnMode]="'force'"
     [headerHeight]="50"
     [footerHeight]="50"
     [rowHeight]="'auto'"
-    [reorderable]="reorderable"
+    [reorderable]="true"
     [columns]="marks">
+    <ngx-datatable-column  name={{mark}} *ngFor="let mark of marksdemo">
+      <ng-template ngx-datatable-cell-template  let-rowIndex="rowIndex" let-value="datarows" let-row="row">
+      <app-data-table-cell  [datarows]="datarows" [rowIndex]="rowIndex" [mark]="mark"></app-data-table-cell>
+      </ng-template>
+    </ngx-datatable-column>
   </ngx-datatable>
 </div>
 <div *ngIf="role==='admin'  && showSyllabusTable ">
@@ -30,20 +36,21 @@
     [headerHeight]="50"
     [footerHeight]="50"
     [rowHeight]="'auto'"
-    [reorderable]="reorderable">
-    <ngx-datatable-column name={{mark}} *ngFor="let mark of marksdemo">
+    >
+    <ngx-datatable-column   name={{mark}} *ngFor="let mark of marksdemo">
       <ng-template ngx-datatable-cell-template let-rowIndex="rowIndex" let-value="datarows" let-row="row">
             <span
-              *ngIf="!editing[rowIndex + 'Lessons'] && mark !=='Lessons'"
+              *ngIf="!editing[rowIndex + 'Lesson'] && mark !=='Lesson'"
               title="Double click to edit"
-              (dblclick)="editing[rowIndex + 'Lessons'] = true">
+              (dblclick)="editing[rowIndex + 'Lesson'] = true">
               {{datarows[rowIndex][mark]}}
             </span>
         <form [formGroup]="formGroup">
-          <span *ngIf=" mark ==='Lessons'">
-            {{datarows[rowIndex][mark]}}
+
+          <span *ngIf=" mark ==='Lesson'">
+           {{datarows[rowIndex][mark]}}
           </span>
-          <mat-form-field *ngIf="editing[rowIndex+ 'Lessons'] && mark !== 'edit' && mark !=='Lessons'">
+          <mat-form-field *ngIf="editing[rowIndex+ 'Lesson'] && mark !=='Lesson' && mark !== 'edit' ">
             <mat-select
               (blur)="updateValue($event, mark , rowIndex)"
               formControlName="completeStatus"
@@ -88,7 +95,7 @@
             COMPLETE
           </option>
         </select>-->
-        <button mat-raised-button color="accent" *ngIf="mark === 'edit'" (click)="updateValue($event, mark, rowIndex)"> SAVE</button>
+        <button mat-raised-button color="accent" *ngIf="mark === 'edit'" (click)="updateSyllabus($event, mark , rowIndex)"> SAVE</button>
       </ng-template>
     </ngx-datatable-column>
   </ngx-datatable>

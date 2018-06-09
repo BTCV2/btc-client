@@ -37,7 +37,12 @@ export class SyllabusService {
    }
 
    getStudentSyllabus = (standard, subject, rollNumber) => {
-     return this.http.get(`${this.constants.base_server_url}/${standard}/${rollNumber}/${subject}/syllabus`, this.httpOptions)
+     return this.http.get(`${this.constants.base_server_url}/student/${standard}/${rollNumber}/${subject}/syllabus`, this.httpOptions)
+
+   }
+
+   updateStudentSyllabus = (standard, subject, rollNumber , syllabus) => {
+     return this.http.put(`${this.constants.base_server_url}/student/${standard}/${rollNumber}/${subject}/syllabus`, syllabus,this.httpOptions)
 
    }
 

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, TemplateRef, ViewChild} from '@angular/core';
 import {LessonsService} from '../../service/lessons.service';
 import {FormBuilder, FormGroup} from "@angular/forms";
 import {SyllabusService} from "../../service/syllabus.service";
@@ -11,6 +11,8 @@ import {ActivatedRoute} from "@angular/router";
   providers: [LessonsService]
 })
 export class StudentsyllabusComponent implements OnInit {
+  @ViewChild('myTable') table: any;
+  loading:boolean;
   lessons: Array<any>;
   marks: Array<any>;
   datarows = [];
@@ -29,6 +31,7 @@ export class StudentsyllabusComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.loading= true;
     this.showSyllabusTable = false;
     this.subjectForm = this.formBuilder.group({
       subject: ['']
@@ -85,7 +88,8 @@ export class StudentsyllabusComponent implements OnInit {
           } });
         this.marks = marks;
         this.marksdemo = marksdemo;
-        this.getLessonAndUpdate();
+        /*this.getLessonAndUpdate();*/
+        this.getStudentSyllabusCompletion();
       }
     )
   }
@@ -93,54 +97,54 @@ export class StudentsyllabusComponent implements OnInit {
   getStudentSyllabusCompletion = () => {
     this.syllabusService.getStudentSyllabus(this.standard,this.subjectForm.value.subject,this.rollNumber).subscribe(
       (res:any) => {
-        this.studentCompletedSyllabus = res.lessonName;
-      console.log(res);
+        this.studentCompletedSyllabus = res;
       },
       (err) => {
         this.studentCompletedSyllabus = [];
         this.getLessonAndUpdate();
       },
       () => {
-
+        this.getLessonAndUpdate();
       }
     );
   }
 
   getLessonAndUpdate = () => {
-    console.log('this.subjectForm.value.subject',this.subjectForm.value.subject);
+
     const lessonParams = {
       standard: this.standard,
       subject: this.subjectForm.value.subject
     };
     this.lessonservice.getLessons(lessonParams).subscribe(data => {
         this.temprows = [];
-      if( this.studentCompletedSyllabus.length < 1){
-      data.forEach((value, index) => {
+      /*if( this.studentCompletedSyllabus.length < 1){*/
+      data.forEach((value) => {
+        let completedLessonStatus: any  = this.studentCompletedSyllabus.filter((lesson) => {
+          return (value.lessonName === lesson.lessonName);
+        });
+
         let syllabusTemp:any = {};
         this.marks.forEach((v) => {
+          console.log('completedLessonStatus',completedLessonStatus,completedLessonStatus.length);
           if( v.prop === 'Lesson') {
             syllabusTemp.Lesson = value.lessonName;
-          } else{
-            syllabusTemp[v.prop] =  'INCOMPLETE';
+          } else {
+            if( completedLessonStatus.length > 0 ){
+              completedLessonStatus[0].marks.forEach(marks => {
+                console.log('MARKS',marks);
+                if( v.prop === marks.mark){
+                  syllabusTemp[v.prop] = marks.status;
+                }
+              })
+            } else {
+              syllabusTemp[v.prop] =  'INCOMPLETE';
+            }
           }
         });
         this.temprows.push(syllabusTemp);
-        this.datarows = this.temprows;
-        console.log(' this.datarows completed', this.datarows);
-        if ( this.role === 'admin' ) {
-          this.marksdemo.push('edit');
-        }
-            /*this.temprows.push({
-              'Lesson': value.lessonName,
-              'One': 'INCOMPLETE',
-              'Two': 'INCOMPLETE',
-              'Three': 'INCOMPLETE',
-              'Five': 'INCOMPLETE'
-            });*/
-
         });
-      } else {
-        data.forEach((value) => {
+      /*} else {*/
+        /*data.forEach((value) => {
             this.studentCompletedSyllabus.forEach((val) => {
               if (value.lessonName === val.lessonName) {
                 let syllabusTemp:any = {};
@@ -152,43 +156,82 @@ export class StudentsyllabusComponent implements OnInit {
                     }
                 });
                 this.temprows.push(syllabusTemp);
+               /!* this.datarows = this.temprows;*!/
+                this.loading= true;
               }
             })
-        });
-        this.datarows = this.temprows;
-        console.log(' this.datarows completed', this.datarows);
-        if ( this.role === 'admin' ) {
+        });*/
+       /* this.datarows = this.temprows;*/
+
+        /*if ( this.role === 'admin' ) {
           this.marksdemo.push('edit');
-        }
-      }
+        }*/
+      //}
       },
       err => {
         console.log(err);
       },
       () => {
+      this.loading = true;
         this.datarows = this.temprows;
-        console.log(' this.datarows completed', this.datarows);
         if ( this.role === 'admin' ) {
-          this.marksdemo.push('edit');
+          let hasEdit = this.marksdemo.filter((f) => {
+            return f=== 'edit'
+          });
+          console.log('hasEdit',hasEdit);
+          if(hasEdit.length < 1) {
+            this.marksdemo.push('edit');
+          }
+
         }
       });
   }
   updateValue(event, cell, rowIndex) {
-    console.log('inline editing rowIndex', rowIndex, cell)
+
     this.editing[rowIndex + '-' + cell] = false;
-    console.log(' event.target.value',  event.target.textContent);
     this.datarows[rowIndex][cell] = event.target.textContent;
     this.datarows = [...this.datarows];
-    console.log('this.datarows',this.datarows);
-    console.log('UPDATED!', this.datarows[rowIndex][cell]);
+
   }
 
   toggleSyllabusTable = () => {
+    this.loading= false;
     const lessonParams = {
       standard: this.standard,
       subject: this.subjectForm.value.subject
     };
     this.getMarks(lessonParams);
     this.showSyllabusTable = true;
+  }
+
+  updateSyllabus = (event, cell, rowIndex) => {
+
+    let keys = Object.keys(this.datarows[rowIndex]);
+    let syllabusPayload:any = {};
+    let syllabusMarksUpdate = [];
+    keys.forEach((value) => {
+      if (value === 'Lesson') {
+        syllabusPayload.lessonName = this.datarows[rowIndex][value];
+      } else {
+        syllabusMarksUpdate.push({
+          'mark':value,
+          'status': this.datarows[rowIndex][value]
+        })
+      }
+    });
+    syllabusPayload.marks = syllabusMarksUpdate;
+    this.formGroup.reset();
+    this.syllabusService.updateStudentSyllabus(this.standard,this.subjectForm.value.subject,this.rollNumber,syllabusPayload).subscribe(
+      (res:any) => {
+        this.studentCompletedSyllabus = res.lessonName;
+      },
+      (err) => {
+        this.studentCompletedSyllabus = [];
+        this.getLessonAndUpdate();
+      },
+      () => {
+        this.getStudentSyllabusCompletion();
+      }
+    );
   }
 }
