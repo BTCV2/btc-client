@@ -29,7 +29,6 @@ import {ImageUploadModule} from 'angular2-image-upload';
 import { HomeComponent } from './home/home.component';
 import { LoadingBarHttpClientModule } from '@ngx-loading-bar/http-client';
 //import {ImageCropperComponent} from 'ng2-img-cropper';
-import {NgxChartsModule} from '@swimlane/ngx-charts';
 import { ScrollToModule } from '@nicky-lenaers/ngx-scroll-to';
 import { NgxImgModule } from 'ngx-img';
 import {NgxCarouselModule} from 'ngx-carousel';
@@ -60,6 +59,9 @@ import * as Charts from 'fusioncharts/fusioncharts.charts';
 import * as FintTheme from 'fusioncharts/themes/fusioncharts.theme.fint';
 import { FusionChartsModule } from 'angular4-fusioncharts';
 import { StudentAttendanceChartComponent } from './student/student-attendance-chart/student-attendance-chart.component';
+import {ROUTER_PROVIDERS} from "@angular/router/src/router_module";
+import {HashLocationStrategy, LocationStrategy} from "@angular/common";
+import { DataTableCellComponent } from './student/studentsyllabus/data-table-cell/data-table-cell.component';
 FusionChartsModule.fcRoot(FusionCharts, Charts, FintTheme);
 @NgModule({
   declarations: [
@@ -86,7 +88,8 @@ FusionChartsModule.fcRoot(FusionCharts, Charts, FintTheme);
     ChatDialogComponent,
     SetUpAccountComponent,
     StudentChartsComponent,
-    StudentAttendanceChartComponent
+    StudentAttendanceChartComponent,
+    DataTableCellComponent
   ],
   imports: [
     BtcRouterModule,
@@ -107,7 +110,6 @@ FusionChartsModule.fcRoot(FusionCharts, Charts, FintTheme);
     FormsModule,
     ChatModule,
     LoadingBarHttpClientModule,
-    NgxChartsModule,
     FusionChartsModule,
     NgHttpLoaderModule// RoutesModule
   ],

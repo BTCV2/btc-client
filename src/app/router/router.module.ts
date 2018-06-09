@@ -47,7 +47,7 @@ const router: Routes = [
 @NgModule({
   imports: [
     RouterModule.forRoot(
-      router, {useHash: true}
+      router, { enableTracing: false, useHash: true }
     )
   ],
   declarations: [],

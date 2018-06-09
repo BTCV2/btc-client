@@ -1,0 +1,15 @@
+<div [ngSwitch]="datarows[rowIndex][mark]">
+  <div *ngSwitchCase ="'INCOMPLETE'" >
+    <i class="material-icons" style="color:coral; font-size:40px"  matTooltip="In progress">
+      assignment_late
+    </i>
+  </div>
+  <div *ngSwitchCase ="'COMPLETE'">
+    <i class="material-icons" style="color:green; font-size:40px" matTooltip="Completed">
+      assignment_turned_in
+    </i>
+  </div>
+  <div *ngSwitchDefault>
+    {{datarows[rowIndex][mark]}}
+  </div>
+</div>
