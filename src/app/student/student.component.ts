@@ -8,17 +8,22 @@ import { Component, OnInit } from '@angular/core';
 export class StudentComponent implements OnInit {
   testChartData = [];
   attendanceChartData= [];
+  studentname:any;
   constructor() { }
 
   ngOnInit() {
   }
   getTestChartData = (event) => {
     this.testChartData = event;
-    console.log('testChartData',this.testChartData)
   }
 
   getAttendanceChartData = (event) => {
     this.attendanceChartData = event;
+  }
+
+  getNameData = (event) => {
+    this.studentname = event;
+    console.log('CAUGHT NAME ',this.studentname);
   }
 
 }
