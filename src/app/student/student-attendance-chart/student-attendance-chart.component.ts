@@ -16,17 +16,17 @@ export class StudentAttendanceChartComponent implements OnInit {
   attendance:any
   attendanceDataSource:any = {
     "chart": {
-      "caption": "Distribution of traffic from Social Media",
+      "caption": "Attendance Chart",
       "showvalues": "1",
       "showpercentvalues": "1",
-      "showpercentintooltip": "0",
+      "showpercentintooltip": "1",
       "width": '450',
       "height": '300',
       "bgcolor": "#FFFFFF",
       "basefontcolor": "#400D1B",
       "showshadow": "0",
       "animation": "1",
-      "showborder": "0",
+      "showborder": "1",
       "palettecolors": "#BE3243,#986667,#BE6F71,#CB999A,#DFC0B1,#E0D0D0"
     }
   }
@@ -40,26 +40,42 @@ export class StudentAttendanceChartComponent implements OnInit {
   ngOnChanges(changes: SimpleChanges) {
     const chart: SimpleChange = changes.chartData;
     this.tempAttendaceChartData =  chart.currentValue;
-    console.log('this.tempAttendaceChartData onchanges' ,this.tempAttendaceChartData)
+
     this.formulateChartData(this.tempAttendaceChartData);
   }
   formulateChartData = (tempAttendaceChartData) => {
+
     this.attendance.overall = tempAttendaceChartData.length;
-    tempAttendaceChartData.forEach((val) => {
+
+    for(let i=0;i < tempAttendaceChartData.length;i++){
+      if(tempAttendaceChartData[i].type.trim() ==='absent'){
+
+        this.attendance.absent =  this.attendance.absent +1;
+      }
+      else if (tempAttendaceChartData[i].remarks.includes('late') || tempAttendaceChartData[i].remarks.includes('Late')) {
+
+        this.attendance.late =  this.attendance.late +1;
+      }else if(tempAttendaceChartData[i].type.trim() ==='present'){
+
+        this.attendance.present =  this.attendance.present +1;
+      }
+    }
+    /*tempAttendaceChartData.forEach((val) => {
+      console.log('val',val);
       console.log('tempAttendaceChartData val TYPE',val.type);
-      if(val.type ==='absent'){
+      if(val.type.trim() ==='absent'){
         console.log('ENTERING ABSENT')
         this.attendance.absent =  this.attendance.absent +1;
       }
       else if (val.remaks.constains('late') || val.remaks.constains('Late')) {
         console.log('ENTERING LATE')
         this.attendance.late =  this.attendance.late +1;
-      }else if(val.type ==='present'){
+      }else if(val.type.trim() ==='present'){
         console.log('ENTERING PRESENT')
         this.attendance.present =  this.attendance.present +1;
       }
-    });
-    console.log('this.attendance',this.attendance);
+    });*/
+
     this.attendanceDataSource.data = [
       {
         "label":"Present",

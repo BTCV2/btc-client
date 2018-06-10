@@ -17,7 +17,7 @@ class='material '
 [limit]="controls.pageSize"
 (page)="onPage($event)"
 >
-<ngx-datatable-row-detail [rowHeight]="100" #myDetailRow (toggle)="onDetailToggle($event)">
+<!--<ngx-datatable-row-detail [rowHeight]="100" #myDetailRow (toggle)="onDetailToggle($event)">
         <ng-template let-row="row" ngx-datatable-row-detail-template>
           <div>
             <div><strong>Details</strong></div>
@@ -26,10 +26,10 @@ class='material '
             <div><span class="label">Remarks :</span> {{row.remarks}}</div>
           </div>
         </ng-template>
-    </ngx-datatable-row-detail>
+    </ngx-datatable-row-detail>-->
     <!-- Column Templates -->
 
-    <ngx-datatable-column
+    <!--<ngx-datatable-column
             [width]="40"
             [maxWidth]="40"
             [sortable]="false"
@@ -39,8 +39,8 @@ class='material '
             [headerCheckboxable]="true"
             [checkboxable]="true"
             [cellClass]="getCellClass">
-    </ngx-datatable-column>
-<ngx-datatable-column [width]="30" [maxWidth]="30" [cellClass]="getCellClass">
+    </ngx-datatable-column>-->
+<!--<ngx-datatable-column [width]="30" [maxWidth]="30" [cellClass]="getCellClass">
     <ng-template let-row="row" let-expanded="expanded" ngx-datatable-cell-template>
         <a class="desktop-hidden fa"
            [class.fa-plus]="!expanded"
@@ -49,8 +49,8 @@ class='material '
            (click)="toggleExpandRow(row)">
         </a>
     </ng-template>
-</ngx-datatable-column>
-<ngx-datatable-column  name="date" [minWidth]="150" [width]="200" [canAutoResize]="true"
+</ngx-datatable-column>-->
+<ngx-datatable-column  name="date" [minWidth]="30" [width]="70" [canAutoResize]="true"
                               [cellClass]="getCellClass">
 
              <ng-template let-column="column" let-sort="sortFn" ngx-datatable-header-template>
@@ -58,47 +58,54 @@ class='material '
              </ng-template>
 
             <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
-                {{row.date | date}}
+              <span style="font-size:10px;" class="desktop-hidden"> {{row.date | date}}</span>
+              <span class="mobile-hidden"> {{row.date | date}}</span>
+
             </ng-template>
         </ngx-datatable-column>
         <ngx-datatable-column  name="type" [minWidth]="30" [width]="70" [canAutoResize]="true" [cellClass]="getCellClass">
 
             <ng-template let-column="column"  let-sort="sortFn" ngx-datatable-header-template>
-                <span class="mobile-hidden">{{'Type'}}</span>
+                <span >{{'Type'}}</span>
             </ng-template>
 
             <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
-                <span class="mobile-hidden ">{{row.type}}</span>
+              <span style="font-size:10px;" class="desktop-hidden"> {{row.type}}</span>
+              <span class="mobile-hidden"> {{row.type}}</span>
             </ng-template>
         </ngx-datatable-column>
         <ngx-datatable-column  name="checkin" [minWidth]="30" [width]="70" [canAutoResize]="true" [cellClass]="getCellClass">
 
             <ng-template let-column="column"  let-sort="sortFn" ngx-datatable-header-template>
-                <span class="mobile-hidden">{{'Check In Time'}}</span>
+                <span >{{'Check In'}}</span>
             </ng-template>
 
             <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
-                <span class="mobile-hidden ">{{row.checkin}}</span>
+
+              <span style="font-size:10px;" class="desktop-hidden">{{row.checkin}}</span>
+              <span class="mobile-hidden"> {{row.checkin}}</span>
             </ng-template>
         </ngx-datatable-column>
         <ngx-datatable-column  name="checkout" [minWidth]="30" [width]="70" [canAutoResize]="true" [cellClass]="getCellClass">
 
             <ng-template let-column="column"  let-sort="sortFn" ngx-datatable-header-template>
-                <span class="mobile-hidden">{{'Check Out Time'}}</span>
+                <span >{{'Check Out'}}</span>
             </ng-template>
 
             <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
-                <span class="mobile-hidden ">{{row.checkout}}</span>
+              <span style="font-size:10px;" class="desktop-hidden">{{row.checkout}}</span>
+              <span class="mobile-hidden"> {{row.checkout}}</span>
             </ng-template>
         </ngx-datatable-column>
         <ngx-datatable-column  name="remarks" [minWidth]="30" [width]="70" [canAutoResize]="true" [cellClass]="getCellClass">
 
             <ng-template let-column="column"  let-sort="sortFn" ngx-datatable-header-template>
-                <span class="mobile-hidden">{{'Remarks'}}</span>
+                <span>{{'Remarks'}}</span>
             </ng-template>
 
             <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
-                <span class="mobile-hidden ">{{row.remarks}}</span>
+              <span style="font-size:10px;" class="desktop-hidden">{{row.remarks}}</span>
+              <span class="mobile-hidden"> {{row.remarks}}}</span>
             </ng-template>
         </ngx-datatable-column>
         <div style="padding-left: 5px;">

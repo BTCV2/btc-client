@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import{StudentService} from '../../service/student.service';
 import{TestService}  from '../../service/test.service';
 import{AttendanceService} from '../../service/attendance.service';
@@ -13,6 +13,7 @@ export class StudentprofileComponent implements OnInit {
   numberOfTest: any;
   numberOfTestPassed: any;
   numberOfAbsent:any;
+  @Output() sendName = new EventEmitter<any>()
   constructor(private router: ActivatedRoute, private studentService: StudentService, private testService:TestService, private attendanceService : AttendanceService) { }
 
   ngOnInit() {
@@ -21,6 +22,7 @@ export class StudentprofileComponent implements OnInit {
         this.studentService.getSutdent( params['rollNumber']).subscribe(
           (res) => {
             this.profile = res;
+            this.sendName.emit(this.profile.firstName + ' ' + this.profile.lastName);
             this.testService.NumberOfTest.subscribe(
               res => {
                 this.numberOfTest = res;
