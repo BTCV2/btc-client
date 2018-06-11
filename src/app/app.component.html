@@ -2,7 +2,7 @@
 <div class="btc-header-container">
   <div class="container">
     <div class="btc-header">
-      <a class="btc-title" href="#!">Balaji Tuition Center</a>
+      <a class="btc-title" href="#!" (click) = "homeNavigator()">Balaji Tuition Center</a>
       <span class="right">
             <span class="icon-space">
               <i class="small-icon material-icons">exit_to_app</i>
@@ -13,6 +13,10 @@
               <i class="small-icon material-icons">phone</i>
               <a class="contact-us" [ngx-scroll-to]="'#contactus'">Contact us</a>
             </span>
+        <!--<span *ngIf="showLogin">
+              <i class="small-icon material-icons">user</i>
+              <a class="contact-us" (click) = "navigateToMyAccount()" >My Account</a>
+            </span>-->
           </span>
     </div>
   </div>
@@ -30,6 +34,7 @@
         <span class="log-in icon-space" [ngx-scroll-to]="'#whybtc'">Why BTC?</span>
         <span class="contact-us icon-space" [ngx-scroll-to]="'#ächivements'">Achievements</span>
         <span class="contact-us icon-space" [ngx-scroll-to]="'#contactus'">Contact us</span>
+        <span *ngIf="showLogin" class="contact-us icon-space" (click) = "navigateToMyAccount()">MyAccount</span>
         <span class="waves-effect join-now btn" (click)="openJoinNow()">JOIN NOW</span>
       </span>
       <mdb-sidenav #sidenav class="fixed" [fixed]="true" hide-on-large-only>
@@ -38,7 +43,8 @@
         <div class="contact-us side-nav-space" [ngx-scroll-to]="'#courses'">Courses offered</div>
         <div class="log-in side-nav-space" [ngx-scroll-to]="'#whybtc'">Why BTC?</div>
         <div class="contact-us side-nav-space" [ngx-scroll-to]="'#ächivements'">Achievements</div>
-        <span class="contact-us icon-space" [ngx-scroll-to]="'#contactus'">Contact us</span>
+        <div class="contact-us icon-space" [ngx-scroll-to]="'#contactus'">Contact us</div>
+        <div *ngIf="showLogin" class="contact-us side-nav-space" (click) = "navigateToMyAccount()">My Account</div>
         <div class="waves-effect btn btn-cyan" (click)="openJoinNow()">JOIN NOW</div>
       </span>
       </mdb-sidenav>
