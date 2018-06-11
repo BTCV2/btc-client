@@ -6,6 +6,6 @@
 export const environment = {
   production: false,
   dialogflow: {
-    'btc-bot': '193609a325cc4394830234552aafdd26'
+    'btc-bot': '6ab50ff18f5b466281c1b0de9eb688da'
   }
 };

@@ -23,6 +23,7 @@ export class StudentprofileComponent implements OnInit {
           (res) => {
             this.profile = res;
             this.sendName.emit(this.profile.firstName + ' ' + this.profile.lastName);
+
             this.testService.NumberOfTest.subscribe(
               res => {
                 this.numberOfTest = res;
