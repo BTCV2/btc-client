@@ -25,6 +25,7 @@ export class HomeComponent implements OnInit {
   constructor(public dialog: MatDialog) { }
 
   ngOnInit() {
+    /*this.carouselTileItems = [{'mark':'99',}]*/
     AppComponent.showMenu = true;
     this.imgags = [
       'assets/bg.jpg',

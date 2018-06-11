@@ -84,4 +84,19 @@ export class AppComponent {
       this.fixedNavbar = false;
     }
   }
+
+  navigateToMyAccount = () => {
+    console.log('TRYING TO NAVIGATE')
+   const role =  localStorage.getItem('role');
+   if (role === 'admin') {
+     this.router.navigate(['/admin']);
+   }else {
+    const userName = localStorage.getItem('userName');
+     const standard = userName.slice(4, 6);
+     this.router.navigate(['/student', standard , userName]);
+   }
+  }
+  homeNavigator = () => {
+    this.router.navigate(['/home']);
+  }
 }
