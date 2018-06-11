@@ -26,7 +26,7 @@ export class StudentAttendanceChartComponent implements OnInit {
       "basefontcolor": "#400D1B",
       "showshadow": "0",
       "animation": "1",
-      "showborder": "1",
+      "showborder": "0",
       "palettecolors": "#BE3243,#986667,#BE6F71,#CB999A,#DFC0B1,#E0D0D0"
     }
   }
