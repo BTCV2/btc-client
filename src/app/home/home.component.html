@@ -147,13 +147,13 @@
       Achivements
     </div>
     <ngx-carousel [inputs]="carouselTile" (carouselLoad)="carouselTileLoad()" class="carousel-demo">
-      <ngx-tile NgxCarouselItem *ngFor="let tiles of carouselTileItems; let i = index;">
+      <ngx-tile NgxCarouselItem *ngFor="let tiles of carouselTileItems">
         <div class="trophy">
           <img src="./assets/icons/trophy.png" width="100px" height="100px">
-          <div class="marks">100/100</div>
-          <div class="subject-scored">In HSC Mathematics</div>
-          <div class="achieverName">Madhan</div>
-          <div class="year">2010</div>
+          <div class="marks">{{tiles.marks}}/100</div>
+          <div class="subject-scored">{{tiles.subject}}</div>
+          <div class="achieverName">{{tiles.name}}</div>
+          <div class="year">{{tiles.year}}</div>
         </div>
       </ngx-tile>
       <button NgxCarouselPrev class="btn leftRs"><i class="fa fa-angle-left angle"></i></button>

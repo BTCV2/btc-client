@@ -21,6 +21,7 @@ export class StudentprofileComponent implements OnInit {
         this.studentService.getSutdent( params['rollNumber']).subscribe(
           (res) => {
             this.profile = res;
+            console.log("response",this.profile);
             this.testService.NumberOfTest.subscribe(
               res => {
                 this.numberOfTest = res;

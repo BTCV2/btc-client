@@ -32,6 +32,53 @@ export class HomeComponent implements OnInit {
       'assets/canberra.jpg',
       'assets/holi.jpg'
     ];
+    this.carouselTileItems =[{
+      "name": "Sri Vignesh",
+      "marks": "99",
+      "subject": "In SSLC Mathematics",
+      "year": "2013"
+    }, {
+      "name": "Madhan",
+      "marks": "100",
+      "subject": "In SSLC Science",
+      "year": "2014"
+    }, {
+      "name": "Sriram",
+      "marks": "99",
+      "subject": "In SSLC Mathematics",
+      "year": "2015"
+    }, {
+      "name": "Sriram",
+      "marks": "99",
+      "subject": "In SSLC Science",
+      "year": "2015"
+    }, {
+      "name": "Bharadhi Kannan",
+      "marks": "198",
+      "subject": "In HSC Mathematics",
+      "year": "2016"
+    }, {
+      "name": "Keerthana",
+      "marks": "99",
+      "subject": "In SSLC SocialScience",
+      "year": "2015"
+    }, {
+      "name": "Keerthana",
+      "marks": "98",
+      "subject": "In SSLC Science",
+      "year": "2015"
+    }, {
+      "name": "Manoj",
+      "marks": "98",
+      "subject": "In SSLC SocialScience",
+      "year": "2015"
+    }, {
+      "name": "Manoj",
+      "marks": "99",
+      "subject": "In SSLC Science",
+      "year": "2015"
+    }];
+
     this.images = ['1','2','3'];
     this.carouselTile = {
       grid: { xs: 2, sm: 2, md: 3, lg: 3, all: 0 },
@@ -87,13 +134,13 @@ export class HomeComponent implements OnInit {
 
   public carouselTileLoad() {
     const len = this.carouselTileItems.length;
-    if (len <= 30) {
+    /*if (len <= 30) {
       for (let i = len; i < len + 15; i++) {
         this.carouselTileItems.push(
           this.imgags[Math.floor(Math.random() * this.imgags.length)]
         );
       }
-    }
+    }*/
   }
 
   public carouselTileOneLoad() {
