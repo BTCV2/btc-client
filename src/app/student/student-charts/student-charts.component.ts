@@ -7,6 +7,7 @@ import {Component, Input, OnInit, SimpleChange, SimpleChanges} from '@angular/co
 })
 export class StudentChartsComponent implements OnInit {
   @Input() chartData:any;
+  @Input() StudentName: any;
   tempTestChartData; any;
   /*view: any[] = [350, 320];
   colorScheme = {
@@ -38,30 +39,37 @@ export class StudentChartsComponent implements OnInit {
     //Object.assign({this.single, this.multi})
   }
   ngOnInit() {
-    this.physicsTestData = {'pass':0, 'written':0, 'percentage':0, 'cumulative':0};
-    this.chemistryTestData = {'pass':0, 'written':0, 'percentage':0, 'cumulative':0};
-    this.mathsTestData = {'pass':0, 'written':0, 'percentage':0, 'cumulative':0};
-    this.overAllTest =[];
     this.testDataSource = {
       "chart": {
-        "caption": "Goutham Performance",
+        "caption": " Performance Chart ",
         "subCaption": "Over All Percentage in Major Subjects",
         "numbersuffix": "%",
         "theme": "fint"
       },
     }
+    this.physicsTestData = {'pass':0, 'written':0, 'percentage':0, 'cumulative':0};
+    this.chemistryTestData = {'pass':0, 'written':0, 'percentage':0, 'cumulative':0};
+    this.mathsTestData = {'pass':0, 'written':0, 'percentage':0, 'cumulative':0};
+    this.overAllTest =[];
     this.tempTestChartData = this.chartData;
     this.formulateChartData(this.tempTestChartData);
   }
   ngOnChanges(changes: SimpleChanges) {
     const chart: SimpleChange = changes.chartData;
-    this.tempTestChartData =  chart.currentValue;
-    this.formulateChartData(this.tempTestChartData);
-  }
+    //const name : SimpleChange = changes.StudentName;
+      this.tempTestChartData =  chart.currentValue;
+      this.formulateChartData(this.tempTestChartData);
+      this.constructHeader();
+      //console.log('nameCHANGES',name.currentValue);
 
+
+  }
+  constructHeader = () => {
+
+  }
   formulateChartData = (tempTestChartData) => {
     tempTestChartData.forEach((val, key) => {
-      console.log('val', val.subject);
+
       if (val.subject === 'Maths' || val.subject === 'maths') {
         this.mathsTestData.written = this.mathsTestData.written + 1;
         this.mathsTestData.cumulative = this.mathsTestData.cumulative + val.percentage;

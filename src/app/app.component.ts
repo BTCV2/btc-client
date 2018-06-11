@@ -64,7 +64,8 @@ export class AppComponent {
     });
   /*  dialogRef.componentInstance.loginStatus = false;*/
     dialogRef.afterClosed().subscribe(result => {
-      AppComponent.login = false;
+      /*AppComponent.login = false;*/
+      AppComponent.login = (localStorage.getItem('loggedIn')==='true'? true : false);
      /* this.login = dialogRef.componentInstance.loginStatus;*/
     });
   }
@@ -83,5 +84,20 @@ export class AppComponent {
     else{
       this.fixedNavbar = false;
     }
+  }
+
+  navigateToMyAccount = () => {
+    console.log('TRYING TO NAVIGATE')
+   const role =  localStorage.getItem('role');
+   if (role === 'admin') {
+     this.router.navigate(['/admin']);
+   }else {
+    const userName = localStorage.getItem('userName');
+     const standard = userName.slice(4, 6);
+     this.router.navigate(['/student', standard , userName]);
+   }
+  }
+  homeNavigator = () => {
+    this.router.navigate(['/home']);
   }
 }

@@ -2,12 +2,12 @@
 <div class="row">
   <div class="col s12 m12 l6">
     <div class="card student-profile">
-      <app-studentprofile></app-studentprofile>
+      <app-studentprofile (sendName) = 'getNameData($event)'></app-studentprofile>
     </div>
   </div>
   <div class="col s12 m6 l3">
     <div class="card student-profile">
-     <app-student-charts [chartData] = 'testChartData'></app-student-charts>
+     <app-student-charts [chartData] = 'testChartData' [StudentName] = 'studentname'></app-student-charts>
     </div>
   </div>
   <div class="col s12 m6 l3">
