@@ -64,7 +64,8 @@ export class AppComponent {
     });
   /*  dialogRef.componentInstance.loginStatus = false;*/
     dialogRef.afterClosed().subscribe(result => {
-      AppComponent.login = false;
+      /*AppComponent.login = false;*/
+      AppComponent.login = (localStorage.getItem('loggedIn')==='true'? true : false);
      /* this.login = dialogRef.componentInstance.loginStatus;*/
     });
   }

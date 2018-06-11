@@ -1,15 +1,28 @@
 <div [ngSwitch]="datarows[rowIndex][mark]">
   <div *ngSwitchCase ="'INCOMPLETE'" >
-    <i class="material-icons" style="color:coral; font-size:40px"  matTooltip="In progress">
+    <span style="font-size:10px;" class="desktop-hidden"><!-- <i class="material-icons" style="color:coral;"  matTooltip="In progress">
       assignment_late
-    </i>
+    </i>-->{{'IN PROGRESS'}}</span>
+    <span class="mobile-hidden"> <!--<i class="material-icons" style="color:coral;"  matTooltip="In progress">
+      assignment_late
+    </i>-->{{'IN PROGRESS'}}</span>
+
   </div>
   <div *ngSwitchCase ="'COMPLETE'">
-    <i class="material-icons" style="color:green; font-size:40px" matTooltip="Completed">
+    <span style="font-size:10px;" class="desktop-hidden"> <!--<i class="material-icons" style="color:green; "  matTooltip="In progress">
+       assignment_turned_in
+    </i>-->{{datarows[rowIndex][mark]}}</span>
+    <span class="mobile-hidden"><!-- <i class="material-icons" style="color:green;"  matTooltip="In progress">
       assignment_turned_in
-    </i>
+    </i>-->{{datarows[rowIndex][mark]}}</span>
   </div>
   <div *ngSwitchDefault>
-    {{datarows[rowIndex][mark]}}
+     <span style="font-size:10px;" class="desktop-hidden"> <!--<i class="material-icons" style="color:green; "  matTooltip="In progress">
+       assignment_turned_in
+    </i>--><b>{{datarows[rowIndex][mark]}}</b></span>
+    <span class="mobile-hidden"><!-- <i class="material-icons" style="color:green;"  matTooltip="In progress">
+      assignment_turned_in
+    </i>--><b>{{datarows[rowIndex][mark]}}</b></span>
+    <!--{{datarows[rowIndex][mark]}}-->
   </div>
 </div>

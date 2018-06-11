@@ -29,7 +29,7 @@
       <a href="#" class="btc-logo">BTC</a>
       <a  data-activates="mobile-demo" (click)="sidenav.toggle()" class="button-collapse hide-on-large-only"><i class="material-icons fa-3x">menu</i></a>
       <span class="right hide-on-med-and-down">
-        <span class="log-in icon-space" href="'#about-us'">About us</span>
+        <span class="log-in icon-space" [ngx-scroll-to]="'#about-us'">About us</span>
         <span class="contact-us icon-space" [ngx-scroll-to]="'#courses'">Courses offered</span>
         <span class="log-in icon-space" [ngx-scroll-to]="'#whybtc'">Why BTC?</span>
         <span class="contact-us icon-space" [ngx-scroll-to]="'#ächivements'">Achievements</span>

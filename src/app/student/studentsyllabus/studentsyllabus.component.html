@@ -43,12 +43,15 @@
               *ngIf="!editing[rowIndex + 'Lesson'] && mark !=='Lesson'"
               title="Double click to edit"
               (dblclick)="editing[rowIndex + 'Lesson'] = true">
-              {{datarows[rowIndex][mark]}}
+              <span style="font-size:10px;" class="desktop-hidden">{{datarows[rowIndex][mark]}}</span>
+              <span class="mobile-hidden">{{datarows[rowIndex][mark]}}</span>
+
             </span>
         <form [formGroup]="formGroup">
 
           <span *ngIf=" mark ==='Lesson'">
-           {{datarows[rowIndex][mark]}}
+           <span style="font-size:10px;" class="desktop-hidden">{{datarows[rowIndex][mark]}}</span>
+              <span class="mobile-hidden">{{datarows[rowIndex][mark]}}</span>
           </span>
           <mat-form-field *ngIf="editing[rowIndex+ 'Lesson'] && mark !=='Lesson' && mark !== 'edit' ">
             <mat-select
