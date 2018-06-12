@@ -57,4 +57,8 @@ export class AuthService {
     this.userName = '';
 
   }
+
+  sendQuery = (payload) => {
+      return this.http.post(`${this.constants.base_server_url}/query`, payload, this.httpOptions);
+  }
 }
