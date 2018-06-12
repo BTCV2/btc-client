@@ -4,28 +4,29 @@
     <i class="material-icons modal-icon">close</i>
   </a>
   <!--[formGroup]="loginForm" (submit) = "login()"-->
-  <form  class="row">
+  <form [formGroup]="joinNowFrom"  class="row">
     <div class="row modal-box">
       <div class="col s10 m6 l6 offset-s1 offset-m3 offset-l3">
         <br><br>
         <mat-form-field class="col s12 l12">
           <mat-placeholder><mat-icon>account_circle</mat-icon> &nbsp; Contact Name</mat-placeholder>
-          <input matInput id="icon_account_circle" type="text" class="validate">
+          <input matInput id="icon_account_circle" type="text" class="validate" formControlName = "userName">
         </mat-form-field>
         <mat-form-field  class="col s12 l12">
           <mat-placeholder><mat-icon>card_travel</mat-icon> &nbsp; Course preffered</mat-placeholder>
-          <input matInput id="icon_card_travel" type="text" class="validate">
+          <input matInput id="icon_card_travel" type="text" class="validate"  formControlName = "class">
         </mat-form-field>
         <mat-form-field  class="col s12 l12">
           <mat-placeholder><mat-icon>email</mat-icon> &nbsp; Email ID</mat-placeholder>
-          <input matInput id="icon_email" type="text" class="validate">
+          <input matInput id="icon_email" type="text" class="validate" formControlName = "email">
         </mat-form-field>
         <mat-form-field  class="col s12 l12">
           <mat-placeholder><mat-icon>phone_iphone</mat-icon>&nbsp; Mobile number</mat-placeholder>
-          <input matInput id="icon_phone_iphone" type="text" class="validate">
+          <input matInput id="icon_phone_iphone" type="text" class="validate" formControlName = "phone">
         </mat-form-field>
         <div class="sign-in">
-            <button type="button" class="btn btn-default btn-rounded z-depth-1" data-target="modal1">Join Now</button>
+            <button type="button" class="btn btn-default btn-rounded z-depth-1" data-target="modal1" (click)="sendQuery()"
+            >Join Now</button>
           <!-- <a class="btn-sign btn" data-target="modal1">JOIN NOW</a> -->
         </div>
       </div>
