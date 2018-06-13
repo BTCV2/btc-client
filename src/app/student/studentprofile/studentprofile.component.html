@@ -1,5 +1,5 @@
-
-<div class="profile-page">
+<div class="row">
+<div class="col s12 m6 l5 profile-page">
   <div class="frame">
     <div class="center">
 
@@ -31,13 +31,55 @@
       </div>
     </div>
   </div>
-  <!--<div class="student-details">
-    {{profile.email}}<br/>
-    {{profile.feesMode}}<br/>
-    {{profile.lastFeesPaid}}<br/>
-    {{profile.parentName}}<br/>
-    {{profile.phoneNumber}}<br/>
-    {{profile.school}}<br/>
-  </div>-->
 </div>
-
+<div class="col s12 m6 l7 stud-details">
+  <div class="row">
+    <div class="col s12 m4 l4">
+    <div class="stud-info">Parent name</div>
+    </div>
+    <div class="col s12 m8 l8">
+    <div>{{profile.parentName}}</div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col s12 m4 l4">
+    <div class="stud-info">Phone number</div>
+    </div>
+    <div class="col s12 m8 l8">
+    <div>{{profile.phoneNumber}}</div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col s12 m4 l4">
+    <div class="stud-info">Email ID</div>
+    </div>
+    <div class="col s12 m8 l8">
+    <div>{{profile.email}}</div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col s12 m4 l4">
+    <div class="stud-info">Fees mode</div>
+    </div>
+    <div class="col s12 m8 l8">
+    <div>{{profile.feesMode}}</div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col s12 m4 l4">
+    <div class="stud-info">Last fees paid on</div>
+    </div>
+    <div class="col s12 m8 l8">
+    <div>{{profile.lastFeesPaid}}</div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col s12 m4 l4">
+    <div class="stud-info">School</div>
+    </div>
+    <div class="col s12 m8 l8">
+    <div>{{profile.school}}</div>
+    </div>
+  </div>
+</div>
+</div>

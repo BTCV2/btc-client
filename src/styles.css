@@ -18,6 +18,9 @@
   }
 
 }
+.row {
+  margin-bottom: 10px !important;
+}
 
 .Lcontainer {
   height: 100vh;
@@ -156,3 +159,4 @@
   font-weight: 400;
   color: #555555;
 }
+

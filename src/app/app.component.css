@@ -75,11 +75,18 @@
 }
 
 .custom-fixed-nav-bar{
-  background-color: white;
+  background-color: #1C2331 !important;
   position: fixed;
   width: 100%;
   top: -20px;
   z-index: 1 !important;
+  color: white !important;
 }
-
-
+.btc-logo-small{
+  font-family: "cursive";
+  font-size: 9px;
+  font-weight: bold;
+  text-align: left;
+  color: #ec407a;
+  margin-top: -8px;
+}
