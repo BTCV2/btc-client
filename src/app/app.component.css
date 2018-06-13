@@ -78,9 +78,12 @@
   background-color: #1C2331 !important;
   position: fixed;
   width: 100%;
-  top: -20px;
+  top: 0px;
   z-index: 1 !important;
   color: white !important;
+}
+.custom-fixed-nav-bar>.container>.btc-menu{
+  padding: 10px 0px !important;
 }
 .btc-logo-small{
   font-family: "cursive";
