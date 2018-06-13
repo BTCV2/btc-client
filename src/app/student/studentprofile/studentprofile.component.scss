@@ -31,8 +31,8 @@ $brown: #786450;
 
 .center {
   position: absolute;
-  top: 15px;
-  left: 34px;
+  top: 35px;
+  left: 45px;
   height: 220px;
   width: 220px;
   background: #fff;
@@ -169,4 +169,15 @@ $brown: #786450;
     font-size: 11px;
   }
 
+}
+.stud-details{
+  font-family: sans-serif;
+  align-self: center;
+  width: 100%;
+  word-break: break-word;
+  margin-top: 40px;
+}
+.stud-info{
+  color: gray;
+  font-weight: bold;
 }
