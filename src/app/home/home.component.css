@@ -436,3 +436,28 @@ footer div.social-media-links a:hover svg circle {
   justify-content: center;
   align-self: center;
 }
+
+.course-title {
+  font-weight: bolder;
+  font-size: 50px;
+  top: 15%;
+  left: 26.5%;
+  text-shadow: 4px 1px 8px rgba(121, 150, 150, 0.91);
+  position: relative;
+}
+.course-title-X {
+  font-weight: bolder;
+  font-size: 50px;
+  top: 15%;
+  left: 34.5%;
+  text-shadow: 4px 1px 8px rgba(121, 150, 150, 0.91);
+  position: relative;
+}
+.course-title-XII {
+  font-weight: bolder;
+  font-size: 50px;
+  top: 15%;
+  left: 24.5%;
+  text-shadow: 4px 1px 8px rgba(121, 150, 150, 0.91);
+  position: relative;
+}
