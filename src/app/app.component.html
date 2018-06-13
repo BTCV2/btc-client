@@ -44,7 +44,7 @@
         <div class="log-in side-nav-space" [ngx-scroll-to]="'#whybtc'">Why BTC?</div>
         <div class="contact-us side-nav-space" [ngx-scroll-to]="'#ächivements'">Achievements</div>
         <div class="contact-us icon-space" [ngx-scroll-to]="'#contactus'">Contact us</div>
-        <div *ngIf="showLogin" class="contact-us side-nav-space" (click) = "navigateToMyAccount()">My Account</div>
+        <div *ngIf="showLogin" class="contact-us side-nav-space" (click) = "navigateToMyAccount()" style="margin-top:25px">My Account</div>
         <div class="waves-effect btn btn-cyan" (click)="openJoinNow()">JOIN NOW</div>
       </span>
       </mdb-sidenav>

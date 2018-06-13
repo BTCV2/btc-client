@@ -461,3 +461,11 @@ footer div.social-media-links a:hover svg circle {
   text-shadow: 4px 1px 8px rgba(121, 150, 150, 0.91);
   position: relative;
 }
+.course-title-BE {
+  font-weight: bolder;
+  font-size: 50px;
+  top: 15%;
+  left: 15.5%;
+  text-shadow: 4px 1px 8px rgba(121, 150, 150, 0.91);
+  position: relative;
+}
