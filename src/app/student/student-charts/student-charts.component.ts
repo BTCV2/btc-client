@@ -9,6 +9,7 @@ export class StudentChartsComponent implements OnInit {
   @Input() chartData:any;
   @Input() StudentName: any;
   tempTestChartData; any;
+  standard:any
   /*view: any[] = [350, 320];
   colorScheme = {
     domain: ['#5AA454', '#A10A28', '#C7B42C', '#AAAAAA']
@@ -26,6 +27,8 @@ export class StudentChartsComponent implements OnInit {
   private physicsTestData:any;
   private chemistryTestData:any;
   private mathsTestData:any;
+  private scienceTestData:any;
+  private socialTestData: any
   autoScale = true;
 
   id = 'testChart';
@@ -39,6 +42,8 @@ export class StudentChartsComponent implements OnInit {
     //Object.assign({this.single, this.multi})
   }
   ngOnInit() {
+     this.standard = (localStorage.getItem('userName')).slice(4, 6);
+     console.log('this.standard',this.standard);
     this.testDataSource = {
       "chart": {
         "caption": " Performance Chart ",
@@ -50,6 +55,8 @@ export class StudentChartsComponent implements OnInit {
     this.physicsTestData = {'pass':0, 'written':0, 'percentage':0, 'cumulative':0};
     this.chemistryTestData = {'pass':0, 'written':0, 'percentage':0, 'cumulative':0};
     this.mathsTestData = {'pass':0, 'written':0, 'percentage':0, 'cumulative':0};
+    this.scienceTestData = {'pass':0, 'written':0, 'percentage':0, 'cumulative':0};
+    this.socialTestData  = {'pass':0, 'written':0, 'percentage':0, 'cumulative':0};
     this.overAllTest =[];
     this.tempTestChartData = this.chartData;
     this.formulateChartData(this.tempTestChartData);
@@ -68,99 +75,197 @@ export class StudentChartsComponent implements OnInit {
 
   }
   formulateChartData = (tempTestChartData) => {
-    tempTestChartData.forEach((val, key) => {
+    console.log('this.standard',this.standard);
+    if (parseInt(this.standard) > 10){
+      tempTestChartData.forEach((val, key) => {
 
-      if (val.subject === 'Maths' || val.subject === 'maths') {
-        this.mathsTestData.written = this.mathsTestData.written + 1;
-        this.mathsTestData.cumulative = this.mathsTestData.cumulative + val.percentage;
-        if (val.percentage > 40) {
-          this.mathsTestData.pass = this.mathsTestData.pass + 1;
+        if (val.subject === 'Maths' || val.subject === 'maths') {
+          this.mathsTestData.written = this.mathsTestData.written + 1;
+          this.mathsTestData.cumulative = this.mathsTestData.cumulative + val.percentage;
+          if (val.percentage > 40) {
+            this.mathsTestData.pass = this.mathsTestData.pass + 1;
+          }
         }
-      }
-      else if (val.subject === 'Physics' || val.subject === 'physics') {
-        this.physicsTestData.written = this.physicsTestData.written + 1;
-        this.physicsTestData.cumulative = this.physicsTestData.cumulative + val.percentage;
-        if (val.percentage > 40) {
-          this.physicsTestData.pass = this.physicsTestData.pass + 1;
+        else if (val.subject === 'Physics' || val.subject === 'physics') {
+          this.physicsTestData.written = this.physicsTestData.written + 1;
+          this.physicsTestData.cumulative = this.physicsTestData.cumulative + val.percentage;
+          if (val.percentage > 40) {
+            this.physicsTestData.pass = this.physicsTestData.pass + 1;
+          }
         }
-      }
-      else if (val.subject === 'Chemistry' || val.subject === 'chemistry') {
-        this.chemistryTestData.written = this.mathsTestData.written + 1;
-        this.chemistryTestData.cumulative = this.chemistryTestData.cumulative + val.percentage;
-        if (val.percentage > 40) {
-          this.chemistryTestData.pass = +this.mathsTestData.pass + 1;
+        else if (val.subject === 'Chemistry' || val.subject === 'chemistry') {
+          this.chemistryTestData.written = this.chemistryTestData.written + 1;
+          this.chemistryTestData.cumulative = this.chemistryTestData.cumulative + val.percentage;
+          if (val.percentage > 40) {
+            this.chemistryTestData.pass = +this.chemistryTestData.pass + 1;
+          }
         }
-      }
-    });
-    this.mathsTestData.percentage = Math.ceil((this.mathsTestData.pass / this.mathsTestData.written) * 100);
-    this.chemistryTestData.percentage = Math.ceil((this.chemistryTestData.pass / this.chemistryTestData.written) * 100);
-    this.physicsTestData.percentage = Math.ceil((this.physicsTestData.pass / this.physicsTestData.written) * 100);
-    this.overAllTest = [
-      {
-        "name": "Pass %",
-        "series": [{
-          "name": "Maths",
-          "value": this.mathsTestData.percentage
+      });
+      this.mathsTestData.percentage = Math.ceil((this.mathsTestData.pass / this.mathsTestData.written) * 100);
+      this.chemistryTestData.percentage = Math.ceil((this.chemistryTestData.pass / this.chemistryTestData.written) * 100);
+      this.physicsTestData.percentage = Math.ceil((this.physicsTestData.pass / this.physicsTestData.written) * 100);
+      this.overAllTest = [
+        {
+          "name": "Pass %",
+          "series": [{
+            "name": "Maths",
+            "value": this.mathsTestData.percentage
+          },
+            {
+              "name": "Physics",
+              "value": this.physicsTestData.percentage
+            },
+            {
+              "name": "Chemistry",
+              "value": this.chemistryTestData.percentage
+            }]
+
         },
+        {
+          "name": "overAll %",
+          "series": [{
+            "name": "Maths",
+            "value": Math.ceil(this.mathsTestData.cumulative / this.mathsTestData.written)
+          },
+            {
+              "name": "Physics",
+              "value": Math.ceil(this.physicsTestData.cumulative / this.physicsTestData.written)
+            },
+            {
+              "name": "Chemistry",
+              "value": Math.ceil(this.chemistryTestData.cumulative / this.chemistryTestData.written)
+            }]
+
+        }];
+      this.testDataSource.categories = {
+        "category": [
           {
-            "name": "Physics",
-            "value": this.physicsTestData.percentage
+            "label": "Pass %"
           },
           {
-            "name": "Chemistry",
-            "value": this.chemistryTestData.percentage
-          }]
+            "label": "OverAll %"
+          }
+        ]
+      }
+      this.overAllTest1 = [
 
-      },
-      {
-        "name": "overAll %",
-        "series": [{
-          "name": "Maths",
+        {
+          "label": "Maths",
           "value": Math.ceil(this.mathsTestData.cumulative / this.mathsTestData.written)
         },
-          {
-            "name": "Physics",
-            "value": Math.ceil(this.physicsTestData.cumulative / this.physicsTestData.written)
-          },
-          {
-            "name": "Chemistry",
-            "value": Math.ceil(this.chemistryTestData.cumulative / this.chemistryTestData.written)
-          }]
-
-      }];
-    this.testDataSource.categories = {
-      "category": [
         {
-          "label": "Pass %"
+          "label": "Physics",
+          "value": Math.ceil(this.physicsTestData.cumulative / this.physicsTestData.written)
         },
         {
-          "label": "OverAll %"
+          "label": "Chemistry",
+          "value": Math.ceil(this.chemistryTestData.cumulative / this.chemistryTestData.written)
         }
-      ]
+      ];
+
+      this.testDataSource.dataset = [
+        {
+          "seriesname": "Pass %",
+          "color": "005476",
+          "data": this.overAllTest1
+        }
+      ];
+    } else{
+      tempTestChartData.forEach((val, key) => {
+
+        if (val.subject === 'Maths' || val.subject === 'maths') {
+          this.mathsTestData.written = this.mathsTestData.written + 1;
+          this.mathsTestData.cumulative = this.mathsTestData.cumulative + val.percentage;
+          if (val.percentage > 40) {
+            this.mathsTestData.pass = this.mathsTestData.pass + 1;
+          }
+        }
+        else if (val.subject === 'Science' || val.subject === 'science') {
+          this.scienceTestData.written = this.scienceTestData.written + 1;
+          this.scienceTestData.cumulative = this.scienceTestData.cumulative + val.percentage;
+          if (val.percentage > 40) {
+            this.scienceTestData.pass = this.scienceTestData.pass + 1;
+          }
+        }
+        else if (val.subject === 'Social' || val.subject === 'social') {
+          this.socialTestData.written = this.socialTestData.written + 1;
+          this.socialTestData.cumulative = this.socialTestData.cumulative + val.percentage;
+          if (val.percentage > 40) {
+            this.socialTestData.pass = +this.socialTestData.pass + 1;
+          }
+        }
+      });
+      this.mathsTestData.percentage = Math.ceil((this.mathsTestData.pass / this.mathsTestData.written) * 100);
+      this.scienceTestData.percentage = Math.ceil((this.scienceTestData.pass / this.scienceTestData.written) * 100);
+      this.socialTestData.percentage = Math.ceil((this.socialTestData.pass / this.socialTestData.written) * 100);
+      this.overAllTest = [
+        {
+          "name": "Pass %",
+          "series": [{
+            "name": "Maths",
+            "value": this.mathsTestData.percentage
+          },
+            {
+              "name": "Science",
+              "value": this.scienceTestData.percentage
+            },
+            {
+              "name": "Social",
+              "value": this.socialTestData.percentage
+            }]
+
+        },
+        {
+          "name": "overAll %",
+          "series": [{
+            "name": "Maths",
+            "value": Math.ceil(this.mathsTestData.cumulative / this.mathsTestData.written)
+          },
+            {
+              "name": "Science",
+              "value": Math.ceil(this.scienceTestData.cumulative / this.scienceTestData.written)
+            },
+            {
+              "name": "Social",
+              "value": Math.ceil(this.socialTestData.cumulative / this.socialTestData.written)
+            }]
+
+        }];
+      this.testDataSource.categories = {
+        "category": [
+          {
+            "label": "Pass %"
+          },
+          {
+            "label": "OverAll %"
+          }
+        ]
+      }
+      this.overAllTest1 = [
+
+        {
+          "label": "Maths",
+          "value": Math.ceil(this.mathsTestData.cumulative / this.mathsTestData.written)
+        },
+        {
+          "label": "Science",
+          "value": Math.ceil(this.scienceTestData.cumulative / this.scienceTestData.written)
+        },
+        {
+          "label": "Chemistry",
+          "value": Math.ceil(this.socialTestData.cumulative / this.socialTestData.written)
+        }
+      ];
+
+      this.testDataSource.dataset = [
+        {
+          "seriesname": "Pass %",
+          "color": "005476",
+          "data": this.overAllTest1
+        }
+      ];
     }
-    this.overAllTest1 = [
 
-      {
-        "label": "Maths",
-        "value": Math.ceil(this.mathsTestData.cumulative / this.mathsTestData.written)
-      },
-      {
-        "label": "Physics",
-        "value": Math.ceil(this.physicsTestData.cumulative / this.physicsTestData.written)
-      },
-      {
-        "label": "Chemistry",
-        "value": Math.ceil(this.chemistryTestData.cumulative / this.chemistryTestData.written)
-      }
-    ];
-
-    this.testDataSource.dataset = [
-      {
-        "seriesname": "Pass %",
-        "color": "005476",
-        "data": this.overAllTest1
-      }
-    ];
   }
 
 }
