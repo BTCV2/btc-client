@@ -1,11 +1,11 @@
 <form [formGroup] = "subjectForm" class="row">
   <mat-form-field class="col s6 m4">
     <mat-select  formControlName="subject" placeholder="Select Subject" (change)="toggleSyllabusTable()">
-      <mat-option value="physics">physics</mat-option>
+      <mat-option value="physics" *ngIf="standard === '12' || standard ==='11'">physics</mat-option>
       <mat-option value="maths">maths</mat-option>
-      <mat-option value="chemistry">chemistry</mat-option>
-      <mat-option value="science">science</mat-option>
-      <mat-option value="social">social</mat-option>
+      <mat-option value="chemistry" *ngIf="standard === '12' || standard ==='11'">chemistry</mat-option>
+      <mat-option value="science" *ngIf="standard !== '11' && standard !=='12'">science</mat-option>
+      <mat-option value="social" *ngIf="standard !== '11' && standard !=='12'">social</mat-option>
     </mat-select>
     <mat-error>This Field is required.</mat-error>
   </mat-form-field>

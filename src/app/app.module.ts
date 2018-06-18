@@ -62,6 +62,7 @@ import { StudentAttendanceChartComponent } from './student/student-attendance-ch
 import {ROUTER_PROVIDERS} from "@angular/router/src/router_module";
 import {HashLocationStrategy, LocationStrategy} from "@angular/common";
 import { DataTableCellComponent } from './student/studentsyllabus/data-table-cell/data-table-cell.component';
+import { SessionExpiredComponent } from './session-expired/session-expired.component';
 FusionChartsModule.fcRoot(FusionCharts, Charts, FintTheme);
 @NgModule({
   declarations: [
@@ -89,7 +90,8 @@ FusionChartsModule.fcRoot(FusionCharts, Charts, FintTheme);
     SetUpAccountComponent,
     StudentChartsComponent,
     StudentAttendanceChartComponent,
-    DataTableCellComponent
+    DataTableCellComponent,
+    SessionExpiredComponent
   ],
   imports: [
     BtcRouterModule,
@@ -122,7 +124,8 @@ FusionChartsModule.fcRoot(FusionCharts, Charts, FintTheme);
     LoaderComponent,
     LoginComponent,
     JoinnowComponent,
-    LogoutComponent
+    LogoutComponent,
+    SessionExpiredComponent
   ]
 })
 export class AppModule { }

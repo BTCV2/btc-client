@@ -3,6 +3,7 @@ import{StudentService} from '../../service/student.service';
 import{TestService}  from '../../service/test.service';
 import{AttendanceService} from '../../service/attendance.service';
 import {ActivatedRoute, Router} from "@angular/router";
+import {AppComponent} from "../../app.component";
 @Component({
   selector: 'app-studentprofile',
   templateUrl: './studentprofile.component.html',
@@ -14,7 +15,7 @@ export class StudentprofileComponent implements OnInit {
   numberOfTestPassed: any;
   numberOfAbsent:any;
   @Output() sendName = new EventEmitter<any>()
-  constructor(private router: ActivatedRoute, private studentService: StudentService, private testService:TestService, private attendanceService : AttendanceService) { }
+  constructor(private route: Router,private router: ActivatedRoute, private studentService: StudentService, private testService:TestService, private attendanceService : AttendanceService) { }
 
   ngOnInit() {
     this.router.params.subscribe(
@@ -47,6 +48,10 @@ export class StudentprofileComponent implements OnInit {
             )
           },
           (err) => {
+            /*if(err.status === 401 && err.error.message.includes('Expired token')){
+              AppComponent.login = (localStorage.getItem('loggedIn')==='true'? true : false);
+              this.route.navigate(['/']);
+            }*/
           },
           () =>{
           }

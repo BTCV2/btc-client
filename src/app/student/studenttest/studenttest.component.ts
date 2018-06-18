@@ -1,7 +1,12 @@
 import {Component, OnInit, ViewChild, Input, EventEmitter, Output} from '@angular/core';
 import {TestService} from '../../service/test.service';
-import{ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import { DatePipe } from '@angular/common';
+import {JoinnowComponent} from "../../joinnow/joinnow.component";
+import {MatDialog} from "@angular/material";
+import {SessionExpiredComponent} from "../../session-expired/session-expired.component";
+import {AppComponent} from "../../app.component";
+import {LogoutComponent} from "../../logout/logout.component";
 @Component({
   selector: 'app-studenttest',
   templateUrl: './studenttest.component.html',
@@ -9,7 +14,7 @@ import { DatePipe } from '@angular/common';
 })
 export class StudenttestComponent implements OnInit {
 
-  constructor(private testService:TestService, private route: ActivatedRoute) { }
+  constructor(private testService:TestService, private route: ActivatedRoute, public dialog: MatDialog,private router: Router) { }
   test: any;
   @Input() percentage: any;
   @ViewChild('myTable') table: any;
@@ -44,7 +49,7 @@ onDetailToggle(event) {
             this.testChartData.emit(res);
           },
           (err) => {
-            console.log('TEST ERROR',err);
+
           },
           () => {
             console.log('COMPLETED')
@@ -72,5 +77,16 @@ updatePageSize(value) {
   this.table.limit = this.controls.pageSize;
   window.dispatchEvent(new Event('resize'));
 }
+  openLogout(): void {
+    let dialogRef = this.dialog.open(LogoutComponent, {
+      width: '500px'
+    });
+    /*  dialogRef.componentInstance.loginStatus = false;*/
+    dialogRef.afterClosed().subscribe(result => {
+      /*AppComponent.login = false;*/
+      AppComponent.login = (localStorage.getItem('loggedIn')==='true'? true : false);
+      /* this.login = dialogRef.componentInstance.loginStatus;*/
+    });
+  }
 
 }

@@ -10,7 +10,7 @@ $brown: #786450;
   left: 50%;
   width: 250px;
   height: 250px;
-  margin-left: 20px;
+  margin-left: 8px;
   margin-top: 20px;
   margin-bottom: 20px;
   padding-top: 20px;
@@ -32,7 +32,7 @@ $brown: #786450;
 .center {
   position: absolute;
   top: 35px;
-  left: 45px;
+  left: 33px;
   height: 220px;
   width: 220px;
   background: #fff;
@@ -173,7 +173,8 @@ $brown: #786450;
 .stud-details{
   font-family: sans-serif;
   align-self: center;
-  width: 100%;
+  width: 70%;
+  font-size: 10px;
   word-break: break-word;
   margin-top: 40px;
 }
