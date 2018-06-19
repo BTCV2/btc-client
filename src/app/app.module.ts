@@ -63,6 +63,8 @@ import {ROUTER_PROVIDERS} from "@angular/router/src/router_module";
 import {HashLocationStrategy, LocationStrategy} from "@angular/common";
 import { DataTableCellComponent } from './student/studentsyllabus/data-table-cell/data-table-cell.component';
 import { SessionExpiredComponent } from './session-expired/session-expired.component';
+import {DeleteStudentComponent} from "./admin/student-admin/delete-student/delete-student.component";
+import {ShowStudentComponent} from "./admin/student-admin/show-student/show-student.component";
 FusionChartsModule.fcRoot(FusionCharts, Charts, FintTheme);
 @NgModule({
   declarations: [
@@ -91,6 +93,8 @@ FusionChartsModule.fcRoot(FusionCharts, Charts, FintTheme);
     StudentChartsComponent,
     StudentAttendanceChartComponent,
     DataTableCellComponent,
+    ShowStudentComponent,
+    DeleteStudentComponent,
     SessionExpiredComponent
   ],
   imports: [
