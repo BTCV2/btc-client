@@ -1,0 +1,21 @@
+<h1>Navigate to Student Details</h1>
+
+<form [formGroup]="showStudentForm" class="row">
+  <mat-form-field class="col s12 m6">
+    <input matInput placeholder="Roll Number" formControlName="rollNumber" required>
+    <mat-error>This field is required</mat-error>
+  </mat-form-field>
+  <mat-form-field class="col s12 m6">
+    <mat-select placeholder="standard" formControlName ="standard">
+      <mat-option value="9">9</mat-option>
+      <mat-option value="10">10</mat-option>
+      <mat-option value="11">11</mat-option>
+      <mat-option value="12">12</mat-option>
+
+    </mat-select>
+    <mat-error>This field is required</mat-error>
+  </mat-form-field>
+  <div class="col s6 m2">
+    <button class="btn btn-cyan waves-light" mdbRippleRadius (click)="navigateToStudentProfile()">Get</button>
+  </div>
+</form>

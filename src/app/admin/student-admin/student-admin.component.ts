@@ -21,6 +21,6 @@ export class StudentAdminComponent implements OnInit {
     this.studentOperations = 'delete';
   }
   viewStudent = () => {
-    this.studentOperations = 'view';
+    this.studentOperations = 'show';
   }
 }

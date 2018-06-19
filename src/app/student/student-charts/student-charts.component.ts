@@ -1,4 +1,5 @@
 import {Component, Input, OnInit, SimpleChange, SimpleChanges} from '@angular/core';
+import {ActivatedRoute} from "@angular/router";
 
 @Component({
   selector: 'app-student-charts',
@@ -38,11 +39,14 @@ export class StudentChartsComponent implements OnInit {
   dataFormat = 'json';
   testDataSource;
   overAllTest1 = [];
-  constructor() {
+  constructor(private route: ActivatedRoute) {
     //Object.assign({this.single, this.multi})
   }
   ngOnInit() {
-     this.standard = (localStorage.getItem('userName')).slice(4, 6);
+    // this.standard = (localStorage.getItem('userName')).slice(4, 6);
+    this.route.params.subscribe(params => {
+      this.standard = params['standard']
+    });
      console.log('this.standard',this.standard);
     this.testDataSource = {
       "chart": {
@@ -76,7 +80,7 @@ export class StudentChartsComponent implements OnInit {
   }
   formulateChartData = (tempTestChartData) => {
     console.log('this.standard',this.standard);
-    if (parseInt(this.standard) > 10){
+    if (parseInt(this.standard) > 10) {
       tempTestChartData.forEach((val, key) => {
 
         if (val.subject === 'Maths' || val.subject === 'maths') {
